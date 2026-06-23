@@ -583,7 +583,7 @@
 
 
 <!-- ALL-ON-4 FEATURE -->
-<style>#allon4 .a4h-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}#allon4 .a4h-img{position:relative;min-height:380px;border-radius:22px;background:linear-gradient(180deg,rgba(10,10,11,.05),rgba(10,10,11,.34)),url('patient.jpg') center/cover;box-shadow:0 30px 60px -30px rgba(10,10,11,.5)}#allon4 .a4h-badge{position:absolute;right:-12px;bottom:-16px;background:var(--ink);color:#fff;border-radius:16px;padding:16px 20px}#allon4 .a4h-badge b{font-family:'Fraunces',serif;font-style:italic;font-size:26px;display:block;line-height:1}#allon4 .a4h-badge span{font-size:12px;color:rgba(255,255,255,.7)}#allon4 ul{list-style:none;margin:0 0 28px;display:grid;gap:10px}#allon4 li{font-size:16px}#allon4 li b{color:var(--gold);margin-right:8px}@media(max-width:760px){#allon4 .a4h-grid{grid-template-columns:1fr}#allon4 .a4h-img{min-height:300px;order:-1}}</style>
+<style>#allon4 .a4h-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}#allon4 .a4h-card{min-height:380px;border-radius:22px;background:linear-gradient(150deg,#1b1b1b,#0A0A0B);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 30px 60px -30px rgba(10,10,11,.5)}#allon4 .a4h-card .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d8b27a;font-weight:700}#allon4 .a4h-card .big{font-family:'Fraunces',serif;font-style:italic;font-size:56px;line-height:1;margin:10px 0 4px}#allon4 .a4h-card .fin{color:rgba(255,255,255,.7);font-size:14px;margin-bottom:24px}#allon4 .a4h-card .rows{display:grid;gap:11px;margin-bottom:26px}#allon4 .a4h-card .rows div{display:flex;gap:10px;font-size:14.5px;color:rgba(255,255,255,.92)}#allon4 .a4h-card .rows b{color:#d8b27a}#allon4 .a4h-card .btn{align-self:flex-start}#allon4 ul{list-style:none;margin:0 0 28px;display:grid;gap:10px}#allon4 li{font-size:16px}#allon4 li b{color:var(--gold);margin-right:8px}@media(max-width:760px){#allon4 .a4h-grid{grid-template-columns:1fr}#allon4 .a4h-card{padding:30px}}</style>
 <section id="allon4" style="padding:72px 0;border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="a4h-grid">
@@ -602,7 +602,18 @@
           <a class="btn btn-ghost" href="all-on-4.html">Am I a candidate?</a>
         </div>
       </div>
-      <div class="a4h-img"><div class="a4h-badge"><b>$9,999</b><span>per arch &middot; new teeth in a day</span></div></div>
+      <div class="a4h-card">
+        <div class="lbl">All-on-4 · Full Arch</div>
+        <div class="big">$9,999<span style="font-family:'Archivo';font-style:normal;font-size:15px;color:rgba(255,255,255,.6)"> / arch</span></div>
+        <div class="fin">≈ $167/mo · 0% financing (OAC)</div>
+        <div class="rows">
+          <div><b>✓</b> New teeth in a single day</div>
+          <div><b>✓</b> In-house lab — designed &amp; built on-site</div>
+          <div><b>✓</b> Dr. Rana places every case</div>
+          <div><b>✓</b> 5-year workmanship guarantee</div>
+        </div>
+        <a class="btn btn-primary" href="all-on-4.html">Explore All-on-4</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1017,6 +1028,4 @@
   document.addEventListener('click',function(e){if(e.target.classList&&e.target.classList.contains('pd-modal')){e.target.classList.remove('pd-open');document.body.style.overflow='';}});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.pd-modal.pd-open').forEach(function(m){m.classList.remove('pd-open');});document.body.style.overflow='';}});
   (function(){var h=(location.hash||'').toLowerCase();if(h==='#privacy'){pdOpen('pd-privacy');}if(h==='#terms'){pdOpen('pd-terms');}})();
-</script><script>document.addEventListener('click',function(e){var b=e.target.closest('#nav-burger');var nav=document.getElementById('nav');if(b&&nav){nav.classList.toggle('open');}else if(nav&&nav.classList.contains('open')&&!e.target.closest('#nav')){nav.classList.remove('open');}});</script>
-<script data-cardwire>(function(){var m={"Veneers & Smile Design":"veneers.html","Dental Implants":"implants.html","All-on-4 Full Arch":"all-on-4.html","Emergency Dental":"emergency.html","General Dentistry":"#contact","Orthodontics":"#contact"};document.querySelectorAll("#treatments .card").forEach(function(c){var h=c.querySelector("h3");if(!h)return;var u=m[h.textContent.trim()];if(!u)return;if(c.tagName==="A"){c.setAttribute("href",u);return;}c.style.cursor="pointer";c.setAttribute("role","link");c.setAttribute("tabindex","0");c.addEventListener("click",function(e){if(e.target.closest("a"))return;location.href=u;});c.addEventListener("keydown",function(e){if(e.key==="Enter")location.href=u;});});})();</script>
-</body></html>
+</script><script>document.addEventListener('click',function(e){var b=e.target.closest('#nav-burger');var nav=document.getElementById('nav');if(b&&nav){nav.classList.toggle('open');}else if(nav&&nav.classList.contains('open')&&!e.target.closest('#nav')){nav.classList.remove('open');}});</script></body></html>

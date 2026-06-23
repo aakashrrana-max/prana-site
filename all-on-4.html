@@ -13,9 +13,10 @@
 <link rel="stylesheet" href="pages.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MedicalProcedure","name":"All-on-4 Full-Arch Dental Implants","provider":{"@type":"Dentist","name":"Prana Dental Miami","telephone":"+1-786-579-0521","url":"https://pranadentalmiami.com/"},"areaServed":"Miami, FL"}</script>
 <style>
-/* ===== All-on-4 conversion page — extends pages.css (palette: --ink,--paper,--gold,--muted,--line) ===== */
+:root{--gold:#0A0A0B}
+/* ===== All-on-4 conversion page — NO GOLD; --gold remapped to ink. Palette: --ink,--paper,--muted,--line ===== */
 .a4-ribbon{background:var(--ink);color:#fff;text-align:center;font-size:13.5px;font-weight:500;padding:10px 20px;letter-spacing:.01em}
-.a4-ribbon b{color:#d8b27a}
+.a4-ribbon b{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .a4-hero-stats{display:flex;flex-wrap:wrap;gap:30px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
 .a4-hero-stats div{min-width:96px}
 .a4-hero-stats b{display:block;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:30px;line-height:1;color:var(--ink)}
@@ -43,7 +44,7 @@
 .a4-baimg{display:grid;grid-template-columns:1fr 1fr;height:190px}
 .a4-baimg .half{position:relative;display:grid;place-items:center;color:rgba(255,255,255,.85);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em}
 .a4-baimg .before{background:linear-gradient(135deg,#8b8b86,#6c6c66)}
-.a4-baimg .after{background:linear-gradient(135deg,#b08856,#8a6a40)}
+.a4-baimg .after{background:linear-gradient(135deg,#3a3a3a,#1b1b1b)}
 .a4-bacard .cap{padding:16px 18px}
 .a4-bacard .cap .q{font-family:'Fraunces',serif;font-style:italic;font-size:14.5px;color:var(--ink)}
 .a4-bacard .cap .who{font-size:12.5px;color:var(--muted);margin-top:6px}
@@ -55,7 +56,7 @@
 .a4-row.head>div{background:var(--ink);color:#fff;font-weight:700}
 .a4-row.head .you{background:#2a2a2b}
 .a4-feat{font-weight:600;background:var(--paper2,#ECEAE3)}
-.a4-you-col{background:rgba(176,136,86,.08)}
+.a4-you-col{background:rgba(10,10,11,.05)}
 .a4-yes{color:#6a7d3f;font-weight:700}
 .a4-yes::before{content:"✓ "}
 .a4-no{color:#9b5b4d}
@@ -88,7 +89,7 @@
 .a4-drquote .who span{display:block;color:var(--muted);font-weight:400;font-size:14px}
 .a4-tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .a4-tcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
-.a4-tcard .st{color:#d8a64a;letter-spacing:2px;margin-bottom:10px}
+.a4-tcard .st{color:var(--ink);letter-spacing:2px;margin-bottom:10px}
 .a4-tcard .q{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:17px;line-height:1.45;flex:1}
 .a4-tcard .who{margin-top:16px;display:flex;align-items:center;gap:11px}
 .a4-tcard .av{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}

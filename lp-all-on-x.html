@@ -139,6 +139,18 @@ footer a{color:rgba(255,255,255,.8)}
   .note-help{display:none}
 }
 </style>
+<!-- ===== Meta Pixel — REPLACE 000000000000000 WITH YOUR REAL PIXEL ID ===== -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','000000000000000');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=000000000000000&ev=PageView&noscript=1"/></noscript>
+<!-- ===== End Meta Pixel ===== -->
 </head>
 <body>
 <div class="ribbon">Summer Smile Event — <b>$750 off a full set</b> when you start by Aug 31. Free consult + 3D scan ($700 value).</div>
@@ -167,32 +179,11 @@ footer a{color:rgba(255,255,255,.8)}
     </div>
   </div>
 
-  <!-- LEAD FORM (GoHighLevel-ready) -->
+  <!-- LEAD FORM — live GoHighLevel (LeadConnector) form, same one as the home page -->
   <div class="formcard" id="book">
-    <!-- GHL: replace this form with your LeadConnector embed, OR set action to your GHL inbound webhook and keep these field names. -->
-    <form id="leadForm" novalidate>
-      <h3>Book your free consult + 3D scan</h3>
-      <p class="fnote">No cost, no obligation. We'll text to confirm your time.</p>
-      <div class="field"><label for="lf-name">Full name</label><input id="lf-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="lf-phone">Mobile phone</label><input id="lf-phone" name="phone" type="tel" autocomplete="tel" required></div>
-      <div class="field"><label for="lf-email">Email</label><input id="lf-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="lf-sit">Your situation</label>
-        <select id="lf-sit" name="situation">
-          <option>Missing most or all of my teeth</option>
-          <option>I currently wear dentures</option>
-          <option>Several failing / loose teeth</option>
-          <option>Just researching my options</option>
-        </select></div>
-      <div class="field"><label for="lf-lang">Preferred language</label>
-        <select id="lf-lang" name="language"><option>English</option><option>Español</option></select></div>
-      <button class="btn btn-primary" type="submit">Reserve my free consult →</button>
-      <p class="legal">🔒 Private &amp; never shared. By submitting you agree to be contacted by Prana Dental.</p>
-    </form>
-    <div class="form-success" id="leadSuccess">
-      <div class="ck">✓</div>
-      <h3>You're all set!</h3>
-      <p style="color:var(--muted);margin-top:8px">We'll text you shortly to confirm your free consult. Prefer to talk now? Call or WhatsApp <b>(786) 579-0521</b>.</p>
-    </div>
+    <h3>Book your free consult + 3D scan</h3>
+    <p class="fnote">No cost, no obligation. We'll text to confirm your time.</p>
+    <iframe src="https://api.leadconnectorhq.com/widget/form/mDpUSOrNwxC8qu8w8aRH" id="inline-mDpUSOrNwxC8qu8w8aRH" style="width:100%;min-height:560px;border:none;border-radius:12px;background:#fff" data-layout="{&quot;id&quot;:&quot;INLINE&quot;}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Prana Website Booking" data-height="560" data-layout-iframe-id="inline-mDpUSOrNwxC8qu8w8aRH" data-form-id="mDpUSOrNwxC8qu8w8aRH" title="Prana Website Booking" onload="if(typeof fbq==='function'){fbq('track','ViewContent',{content_name:'All-on-X LP form'})}"></iframe>
   </div>
 </div></section>
 
@@ -260,20 +251,11 @@ footer a{color:rgba(255,255,255,.8)}
         <button class="qopt" onclick="qNext()">Español</button>
       </div></div>
       <div class="qstep" data-q="5">
+        <div style="width:60px;height:60px;border-radius:50%;background:var(--ok);display:grid;place-items:center;font-size:30px;margin:0 auto 14px">✓</div>
         <div class="qq">Good news — you're likely a candidate.</div>
-        <p style="color:rgba(255,255,255,.75);margin-bottom:20px">Where should we send your results and reserve your free consult + 3D scan?</p>
-        <form class="qfields" id="quizForm" novalidate>
-          <div class="field"><label for="q-name">Full name</label><input id="q-name" name="name" required></div>
-          <div class="field"><label for="q-phone">Mobile phone</label><input id="q-phone" name="phone" type="tel" required></div>
-          <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" required></div>
-          <button class="btn btn-light" type="submit" style="width:100%;margin-top:6px">Get my results + reserve my consult →</button>
-        </form>
+        <p style="color:rgba(255,255,255,.8);max-width:460px;margin:0 auto 22px">Reserve your free consult + 3D scan below — it only takes a minute, and we'll confirm your time by text.</p>
+        <a class="btn btn-light" href="#book" onclick="pranaSchedule()">Reserve my free consult →</a>
       </div>
-    </div>
-    <div class="qresult" id="quizResult">
-      <div style="width:60px;height:60px;border-radius:50%;background:var(--ok);display:grid;place-items:center;font-size:30px;margin:0 auto 14px">✓</div>
-      <h2>You're likely a candidate.</h2>
-      <p style="color:rgba(255,255,255,.78);max-width:460px;margin:10px auto 0">We'll text you shortly to confirm your free 3D scan — no cost, no pressure. Prefer to talk now? Call or WhatsApp <b>(786) 579-0521</b>.</p>
     </div>
   </div>
 </div></section>
@@ -308,24 +290,10 @@ footer a{color:rgba(255,255,255,.8)}
   <a class="btn btn-primary" href="#book">Free consult</a>
 </div>
 
+<!-- GoHighLevel form embed engine (renders the iframe form above) -->
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script>
-/* Lead form (front-end only). Wire to GoHighLevel: replace with LC embed or POST to your GHL inbound webhook. */
-function handle(formId, successId, hideId){
-  var f=document.getElementById(formId);
-  if(!f) return;
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    var d=Object.fromEntries(new FormData(f));
-    if(!d.name||!d.phone||!d.email) return alert('Please add your name, phone and email.');
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)) return alert('Please enter a valid email.');
-    /* TODO: send `d` to GoHighLevel (webhook/API) + fire Meta Pixel 'Lead' / 'Schedule'. */
-    if(hideId) document.getElementById(hideId).style.display='none';
-    document.getElementById(successId).style.display='block';
-  });
-}
-handle('leadForm','leadSuccess','leadForm');
-
-/* Quiz */
+/* Quiz navigation + Meta Pixel events */
 var qi=1, qTotal=5;
 function qNext(){
   var cur=document.querySelector('.qstep[data-q="'+qi+'"]');
@@ -333,18 +301,11 @@ function qNext(){
   qi++;
   var nx=document.querySelector('.qstep[data-q="'+qi+'"]');
   if(nx) nx.classList.add('active');
-  document.getElementById('qbar').style.width=Math.round((qi/qTotal)*100)+'%';
+  var bar=document.getElementById('qbar'); if(bar) bar.style.width=Math.round((qi/qTotal)*100)+'%';
+  if(qi>=qTotal && typeof fbq==='function'){ fbq('track','Lead',{content_name:'All-on-X quiz complete'}); }
 }
-(function(){
-  var qf=document.getElementById('quizForm');
-  if(qf) qf.addEventListener('submit',function(e){
-    e.preventDefault();
-    var d=Object.fromEntries(new FormData(qf));
-    if(!d.name||!d.phone||!d.email) return alert('Please add your name, phone and email.');
-    /* TODO: send `d` + quiz answers to GoHighLevel + fire Meta 'Lead'. */
-    document.getElementById('quizMain').style.display='none';
-    document.getElementById('quizResult').style.display='block';
-  });
-})();
+function pranaSchedule(){ if(typeof fbq==='function'){ fbq('track','Schedule',{content_name:'All-on-X reserve click'}); } }
 </script>
+<!-- GoHighLevel chat widget (same one as the main Prana site) -->
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a383220d896e3ca467651a9"></script>
 </body></html>

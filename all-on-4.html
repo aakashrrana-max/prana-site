@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>All-on-4 Full-Arch Implants in Miami | New Teeth in a Day · Prana Dental, Edgewater</title>
-<meta name="description" content="All-on-4 full-arch dental implants in Edgewater, Miami. A full set of fixed teeth in a single day, same-day provisional, from $9,999/arch (~$167/mo). One surgeon, in-house lab, free consult + 3D scan.">
+<meta name="description" content="All-on-4 full-arch dental implants in Edgewater, Miami. A full set of fixed teeth in a single day, same-day provisional, from $9,999/arch (~$167/mo). One surgeon, in-house lab, 5-year guarantee, free consult + 3D scan.">
 <link rel="canonical" href="https://pranadentalmiami.com/all-on-4.html">
 <meta property="og:title" content="All-on-4 Full-Arch Implants | New Teeth in a Day · Prana Dental Miami">
 <meta property="og:description" content="A full set of permanent teeth in a single day, same-day provisional, from $9,999/arch, crafted in our in-house lab. Thousands less than the national chains.">
@@ -27,11 +27,27 @@
 .a4-mtile h4{font-size:17px;margin-bottom:2px}
 .a4-mtile p{font-size:13.5px;color:var(--muted)}
 .a4-mtile .go{margin-left:auto;color:var(--gold);font-weight:700;font-size:22px}
+/* credibility band */
+.a4-cred{background:var(--ink);color:#fff;border-radius:22px;padding:36px 28px}
+.a4-cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.a4-cred-grid b{display:block;font-family:'Fraunces',serif;font-style:italic;font-size:30px;line-height:1.05}
+.a4-cred-grid span{font-size:13.5px;color:rgba(255,255,255,.7);margin-top:6px;display:block}
 .a4-parts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .a4-part{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;text-align:center}
 .a4-part .n{width:42px;height:42px;margin:0 auto 14px;border-radius:50%;background:var(--ink);color:#fff;font-family:'Fraunces',serif;font-style:italic;font-size:20px;display:grid;place-items:center}
 .a4-part h3{font-size:18px;margin-bottom:6px}
 .a4-part p{color:var(--muted);font-size:14.5px}
+/* before/after gallery */
+.a4-ba{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.a4-bacard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.a4-baimg{display:grid;grid-template-columns:1fr 1fr;height:190px}
+.a4-baimg .half{position:relative;display:grid;place-items:center;color:rgba(255,255,255,.85);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em}
+.a4-baimg .before{background:linear-gradient(135deg,#8b8b86,#6c6c66)}
+.a4-baimg .after{background:linear-gradient(135deg,#b08856,#8a6a40)}
+.a4-bacard .cap{padding:16px 18px}
+.a4-bacard .cap .q{font-family:'Fraunces',serif;font-style:italic;font-size:14.5px;color:var(--ink)}
+.a4-bacard .cap .who{font-size:12.5px;color:var(--muted);margin-top:6px}
+.a4-note{font-size:12px;color:var(--muted);margin-top:14px;font-style:italic}
 .a4-table{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .a4-row{display:grid;grid-template-columns:1.25fr 1fr 1fr;border-bottom:1px solid var(--line)}
 .a4-row:last-child{border-bottom:none}
@@ -62,6 +78,14 @@
 .a4-optcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
 .a4-optcard h4{font-size:15.5px;margin-bottom:4px}
 .a4-optcard p{font-size:13px;color:var(--muted)}
+/* guarantee */
+.a4-guar{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.a4-guar-badge{width:120px;height:120px;border-radius:50%;border:3px solid var(--gold);color:var(--gold);display:grid;place-items:center;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:15px;line-height:1.2;margin-bottom:18px}
+/* doctor quote */
+.a4-drquote{background:var(--paper2,#ECEAE3);border-left:3px solid var(--gold);border-radius:0 16px 16px 0;padding:34px 36px}
+.a4-drquote .q{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(20px,2.6vw,28px);line-height:1.35;color:var(--ink)}
+.a4-drquote .who{margin-top:18px;font-weight:600}
+.a4-drquote .who span{display:block;color:var(--muted);font-weight:400;font-size:14px}
 .a4-tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .a4-tcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
 .a4-tcard .st{color:#d8a64a;letter-spacing:2px;margin-bottom:10px}
@@ -70,10 +94,13 @@
 .a4-tcard .av{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700}
 .a4-tcard .who b{display:block}
 .a4-tcard .who span{font-size:12.5px;color:var(--muted)}
+.a4-firstlook{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px}
+.a4-firstlook .ph{min-height:180px;border-radius:14px;background:linear-gradient(135deg,#ECEAE3,#dcd8cd);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)}
 .a4-bigstat{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(34px,6vw,58px);line-height:1.05;color:#fff}
 .a4-sticky{display:none}
 @media(max-width:760px){
-  .a4-micro,.a4-parts,.a4-tgrid,.a4-steps,.a4-price-wrap,.a4-opt{grid-template-columns:1fr}
+  .a4-micro,.a4-parts,.a4-tgrid,.a4-steps,.a4-price-wrap,.a4-opt,.a4-ba,.a4-guar,.a4-firstlook{grid-template-columns:1fr}
+  .a4-cred-grid{grid-template-columns:1fr 1fr;gap:20px}
   .a4-row{grid-template-columns:1.1fr 1fr 1fr}
   .a4-row>div{padding:12px 10px;font-size:12.5px}
   .a4-sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:80;gap:10px;padding:10px;background:rgba(244,243,239,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
@@ -105,18 +132,28 @@
 <!-- MICRO-YES -->
 <section style="padding-top:0"><div class="wrap">
 <div class="a4-micro">
-  <a class="a4-mtile" href="/prana-site/#contact"><span class="mi">✓</span><div><h4>Am I a candidate?</h4><p>Most people are — even complex cases. Find out in a free 3D scan.</p></div><span class="go">→</span></a>
-  <a class="a4-mtile" href="/prana-site/#contact"><span class="mi">☺</span><div><h4>See your new smile</h4><p>Preview your result before you commit — at your free consult.</p></div><span class="go">→</span></a>
+  <a class="a4-mtile" href="/prana-site/#contact"><span class="mi">✓</span><div><h4>Am I a candidate?</h4><p>Most people are — even complex cases. Find out in a free 30-second check + 3D scan.</p></div><span class="go">→</span></a>
+  <a class="a4-mtile" href="/prana-site/#contact"><span class="mi">☺</span><div><h4>See your new smile first</h4><p>Preview your result before you commit — at your free consult.</p></div><span class="go">→</span></a>
 </div>
+</div></section>
+
+<!-- CREDIBILITY BAND -->
+<section style="padding-top:8px"><div class="wrap">
+<div class="a4-cred"><div class="a4-cred-grid">
+  <div><b>Same day</b><span>New teeth in one visit</span></div>
+  <div><b>In-house lab</b><span>Designed &amp; built on-site</span></div>
+  <div><b>One surgeon</b><span>NYU-trained Dr. Rana, every case</span></div>
+  <div><b>5-year</b><span>Workmanship guarantee*</span></div>
+</div></div>
 </div></section>
 
 <!-- PILLARS -->
 <section><div class="wrap">
 <h2>Why patients trust Prana with full-arch</h2>
 <div class="grid">
-  <div class="card"><h3>One surgeon, start to finish</h3><p>Dr. Rana — NYU-trained — plans and places every case himself. You see the same dentist at every visit, not a rotating corporate roster.</p></div>
-  <div class="card"><h3>Built to last, made here</h3><p>Choose durable acrylic or premium zirconia, designed and crafted in our own on-site lab for a precise, natural-looking fit.</p></div>
-  <div class="card"><h3>New teeth in a day</h3><p>Leave with a fixed provisional set the same day, then we refine the look and feel as you heal — until it's perfectly yours.</p></div>
+  <div class="card"><h3>Built around you</h3><p>Dr. Rana — NYU-trained — plans and places every case himself. You see the same dentist at every visit, not a rotating corporate roster.</p></div>
+  <div class="card"><h3>Built to last</h3><p>Choose durable acrylic or premium zirconia, designed and crafted in our own on-site lab for a precise, natural-looking fit — backed by our guarantee.</p></div>
+  <div class="card"><h3>Built for one day</h3><p>Leave with a fixed provisional set the same day, then we refine the look and feel as you heal — until it's perfectly yours.</p></div>
 </div>
 </div></section>
 
@@ -131,8 +168,21 @@
 </div>
 </div></section>
 
-<!-- DENTURES VS IMPLANTS -->
+<!-- BEFORE / AFTER GALLERY -->
 <section><div class="wrap">
+<h2>Real smiles, real transformations</h2>
+<p class="lead">See the difference a single day can make. <span class="serif">Smile proud. Eat bold. Live big.</span></p>
+<!-- Replace the placeholder frames below with real, consented patient before/after photos (e.g. ba1.jpg…). -->
+<div class="a4-ba">
+  <div class="a4-bacard"><div class="a4-baimg"><div class="half before">BEFORE</div><div class="half after">AFTER</div></div><div class="cap"><div class="q">"I hid my smile for years. Now I can't stop showing it off."</div><div class="who">Full upper &amp; lower arch · Edgewater</div></div></div>
+  <div class="a4-bacard"><div class="a4-baimg"><div class="half before">BEFORE</div><div class="half after">AFTER</div></div><div class="cap"><div class="q">"From failing teeth to a full smile — in one day."</div><div class="who">Upper arch · Brickell</div></div></div>
+  <div class="a4-bacard"><div class="a4-baimg"><div class="half before">BEFORE</div><div class="half after">AFTER</div></div><div class="cap"><div class="q">"I can finally eat anything I want again."</div><div class="who">Full arch · Coral Gables</div></div></div>
+</div>
+<p class="a4-note">Photos shown are placeholders — your real before/after gallery drops in here.</p>
+</div></section>
+
+<!-- DENTURES VS IMPLANTS -->
+<section style="background:var(--paper2,#ECEAE3)"><div class="wrap">
 <h2>All-on-4 vs. traditional dentures</h2>
 <div class="a4-table">
   <div class="a4-row head"><div>&nbsp;</div><div class="you">All-on-4 implants</div><div>Traditional dentures</div></div>
@@ -146,7 +196,7 @@
 </div></section>
 
 <!-- US VS CHAINS -->
-<section style="background:var(--paper2,#ECEAE3)"><div class="wrap">
+<section><div class="wrap">
 <h2>Premium full-arch — without the corporate markup</h2>
 <p class="lead">You shouldn't have to pay a national brand's overhead to get a world-class smile. Here's an honest comparison.</p>
 <div class="a4-table">
@@ -157,6 +207,24 @@
   <div class="a4-row"><div class="a4-feat">Same-day teeth</div><div class="a4-you-col a4-yes">Yes — provisional same day</div><div class="a4-no">Yes</div></div>
   <div class="a4-row"><div class="a4-feat">Pricing</div><div class="a4-you-col a4-yes">Clear &amp; upfront</div><div class="a4-no">Quoted only after you visit</div></div>
   <div class="a4-row"><div class="a4-feat">The feel</div><div class="a4-you-col a4-yes">Boutique, calm, unhurried</div><div class="a4-no">High-volume center</div></div>
+</div>
+</div></section>
+
+<!-- GUARANTEE -->
+<section style="background:var(--paper2,#ECEAE3)"><div class="wrap">
+<div class="a4-guar">
+  <div>
+    <div class="a4-guar-badge">Backed<br>by our<br>guarantee</div>
+    <h2 style="margin-bottom:14px">We don't rush your smile. We build it to last.</h2>
+    <p class="lead" style="margin-bottom:0">Some providers promise speed but sacrifice quality. We deliver teeth in a day the smarter way — expertly placed, crafted in our own lab, and backed by a written 5-year workmanship guarantee.* And we stay with you long after surgery to make sure you love your smile.</p>
+  </div>
+  <div class="a4-table">
+    <div class="a4-row head"><div>&nbsp;</div><div class="you">Prana</div><div>Typical providers</div></div>
+    <div class="a4-row"><div class="a4-feat">Guarantee</div><div class="a4-you-col a4-yes">5-yr workmanship*</div><div class="a4-no">Often none / 1 yr</div></div>
+    <div class="a4-row"><div class="a4-feat">Hidden fees</div><div class="a4-you-col a4-yes">None — written plan</div><div class="a4-no">Lab &amp; remake fees</div></div>
+    <div class="a4-row"><div class="a4-feat">Follow-up care</div><div class="a4-you-col a4-yes">Ongoing with Dr. Rana</div><div class="a4-no">Limited</div></div>
+    <div class="a4-row"><div class="a4-feat">Where it's made</div><div class="a4-you-col a4-yes">In-house lab</div><div class="a4-no">Outsourced</div></div>
+  </div>
 </div>
 </div></section>
 
@@ -200,6 +268,14 @@
 </div>
 </div></section>
 
+<!-- DOCTOR QUOTE -->
+<section><div class="wrap">
+<div class="a4-drquote">
+  <div class="q">"Once a patient sits in my chair, they're family. I plan and place every full-arch case myself — I never cut corners on something this important."</div>
+  <div class="who">Dr. Rana<span>Founder &amp; lead dentist, Prana Dental Miami · NYU-trained</span></div>
+</div>
+</div></section>
+
 <!-- REASSURANCE -->
 <section class="band" style="border-radius:0;margin:0"><div class="wrap" style="text-align:center">
 <div class="a4-bigstat">Most patients are candidates.</div>
@@ -214,6 +290,20 @@
   <div class="a4-tcard"><div class="st">★★★★★</div><p class="q">"They never once made me feel ashamed of my teeth. I finally feel like myself again — I can't stop smiling."</p><div class="who"><div class="av">M</div><div><b>Maria R.</b><span>Edgewater, Miami</span></div></div></div>
   <div class="a4-tcard"><div class="st">★★★★★</div><p class="q">"No more adhesive, no more slipping. I ate corn on the cob for the first time in a decade — and it cost less than I feared."</p><div class="who"><div class="av">J</div><div><b>James T.</b><span>Brickell, Miami</span></div></div></div>
   <div class="a4-tcard"><div class="st">★★★★★</div><p class="q">"I priced the big chains first — almost double. Same premium teeth, same one-day procedure, and Dr. Rana did it all himself."</p><div class="who"><div class="av">D</div><div><b>Denise L.</b><span>Coral Gables, Miami</span></div></div></div>
+</div>
+<p class="a4-note">Add your real Google reviews and patient stories here as they come in.</p>
+</div></section>
+
+<!-- FIRST LOOK SMILE PREVIEW -->
+<section style="background:var(--paper2,#ECEAE3)"><div class="wrap">
+<div class="a4-firstlook">
+  <div>
+    <div class="eyebrow">First Look · Smile Preview</div>
+    <h2 style="margin-bottom:12px">See your new smile before you decide</h2>
+    <p class="lead" style="margin-bottom:20px">Transformation is in your hands. Send us a photo on WhatsApp, or bring one to your free consult, and we'll show you a preview of your potential new smile — before you commit to anything.</p>
+    <div class="hero-cta"><a class="btn" href="/prana-site/#contact">Get my First Look</a><a class="btn btn-ghost" href="tel:+17865790521">Send a photo on WhatsApp</a></div>
+  </div>
+  <div class="ph">YOUR SMILE PREVIEW</div>
 </div>
 </div></section>
 
@@ -233,13 +323,14 @@
 <details><summary>Acrylic or zirconia?</summary><p>Acrylic is lighter on cost and a great-value fixed arch; zirconia is the most durable and natural-looking. We'll help you choose at your consult.</p></details>
 <details><summary>Am I a candidate if I've been told no before?</summary><p>Often, yes. Most people who come in for a consult are candidates — simple and complex cases alike. Even with significant bone loss, a quick 3D scan is the only way to know for sure.</p></details>
 <details><summary>Does it hurt?</summary><p>Most patients are surprised how comfortable it is. Sedation is available and we go entirely at your pace, with a clear recovery plan afterward.</p></details>
+<details><summary>What's covered by the guarantee?</summary><p>We back our full-arch workmanship with a written 5-year guarantee.* Your treatment plan spells out exactly what's covered, with no hidden fees or remake charges.</p></details>
 <details><summary>How is Prana different from the big implant centers?</summary><p>You see Dr. Rana at every visit, in a calm boutique setting — not a rotating roster at a high-volume corporate center. Same premium materials and same-day teeth, with an in-house lab, transparent pricing, and a price thousands less.</p></details>
 </div></section>
 
 <footer><div class="wrap">
 <div class="brand" style="color:#fff">PRANA·DENTAL MIAMI</div>
 <div class="foot-links"><a href="/prana-site/">Home</a><a href="/prana-site/veneers.html">Veneers</a><a href="/prana-site/implants.html">Implants</a><a href="/prana-site/all-on-4.html">All-on-4</a><a href="/prana-site/emergency.html">Emergency</a><a href="tel:+17865790521">(786) 579-0521</a></div>
-<p style="font-size:12px;margin-top:14px;color:rgba(255,255,255,.45)">Pricing shown is a starting "from" price; your final cost depends on your individual clinical needs and is confirmed in writing at your free consult. Same-day refers to a fixed provisional prosthesis placed after your workup; the final prosthesis is fitted later. Financing on approved credit. Results may vary in individual cases.</p>
+<p style="font-size:12px;margin-top:14px;color:rgba(255,255,255,.45)">*5-year guarantee covers workmanship on full-arch treatment performed at Prana Dental, per the terms in your treatment plan. Pricing shown is a starting "from" price; your final cost depends on your individual clinical needs and is confirmed in writing at your free consult. Same-day refers to a fixed provisional prosthesis placed after your workup; the final prosthesis is fitted later. Financing on approved credit. Results may vary in individual cases.</p>
 </div></footer>
 
 <div class="a4-sticky">

@@ -3,7 +3,7 @@
    Brand kit extracted from the live sub-page template.
    Fonts: Archivo + JetBrains Mono. Do not change tokens.
    ============================================================ */
-:root{--ink:#0A0A0B;--ink-2:#161616;--paper:#F4F3EF;--paper-2:#ECEAE3;--line:rgba(10,10,11,.12);--line-d:rgba(255,255,255,.16);--muted:#6c6c72;--muted-d:#a7a7a3;--accent:#8a8a86;--radius:18px;--max:1180px;--ease:cubic-bezier(.16,.84,.44,1)}
+:root{--ink:#0A0A0B;--ink-2:#1A1611;--paper:#F4F1EA;--paper-2:#ECE7DE;--line:rgba(10,10,11,.12);--line-d:rgba(255,255,255,.16);--muted:#6c6760;--muted-d:#a8a299;--accent:#9a9082;--radius:18px;--max:1180px;--ease:cubic-bezier(.16,.84,.44,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -33,13 +33,13 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 
 /* ---- Buttons ---- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:980px;font-weight:600;font-size:15px;background:var(--ink);color:#fff;border:none;cursor:pointer;transition:transform .2s var(--ease),background .2s}
-.btn:hover{transform:translateY(-1px);background:#2a2a2b}
+.btn:hover{transform:translateY(-1px);background:#2a2723}
 .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .btn-ghost:hover{background:#fff}
 .btn-lg{padding:17px 34px;font-size:16px}
 
 /* ---- Hero ---- */
-.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#F6F5F1,#ECEAE3);padding:54px 0 64px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#F6F3EC,#ECE7DE);padding:54px 0 64px}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
 .crumb{font-size:13px;color:var(--muted);margin-bottom:14px}.crumb a{color:var(--ink)}
 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
@@ -100,7 +100,7 @@ h2 em{font-family:'Archivo',sans-serif;font-style:normal;font-weight:300}
 @media(max-width:860px){.steps,.steps.s3{grid-template-columns:1fr 1fr}}@media(max-width:480px){.steps,.steps.s3{grid-template-columns:1fr}}
 
 /* ---- Doctor (dark) ---- */
-.doc{background:linear-gradient(180deg,#0A0A0B,#161616);color:#fff}
+.doc{background:linear-gradient(180deg,#0A0A0B,#1A1611);color:#fff}
 .doc-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:center}
 .doc-grid img{width:100%;border-radius:24px;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border:1px solid var(--line-d)}
 .doc h2{color:#fff}.doc .sub{color:var(--muted-d)}
@@ -152,7 +152,7 @@ details[open] summary::after{content:"\2013"}
 details p{color:var(--muted);margin-top:12px;font-size:15.5px}
 
 /* ---- Final CTA ---- */
-.final{background:linear-gradient(180deg,#0A0A0B,#161616);color:#fff;border-radius:30px;padding:70px 40px;text-align:center}
+.final{background:linear-gradient(180deg,#0A0A0B,#1A1611);color:#fff;border-radius:30px;padding:70px 40px;text-align:center}
 .final h2{color:#fff;font-size:clamp(30px,5vw,52px)}
 .final p{color:var(--muted-d);font-size:18px;margin:16px auto 30px;max-width:520px}
 .final .cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}

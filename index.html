@@ -12,17 +12,17 @@
 <style>
   :root{
     --ink:#0A0A0B;
-    --ink-2:#161616;
-    --paper:#F4F3EF;
-    --paper-2:#ECEAE3;
+    --ink-2:#1A1611;
+    --paper:#F4F1EA;
+    --paper-2:#ECE7DE;
     --line:rgba(10,10,11,.12);
     --line-d:rgba(255,255,255,.16);
-    --muted:#7A7A78;
-    --muted-d:#a7a7a3;
+    --muted:#797469;
+    --muted-d:#a8a299;
     --accent:#0A0A0B;
-    --accent-2:#2a2a2b;
-    --gold:#b9b7b0;
-    --sage:#7A7A78;
+    --accent-2:#2a2723;
+    --gold:#bcb4a6;
+    --sage:#797469;
     --radius:18px;
     --max:1180px;
     --ease:cubic-bezier(.16,.84,.44,1);
@@ -92,7 +92,7 @@
   /* ---------- HERO ---------- */
   header.hero{
     position:relative;min-height:100vh;display:flex;align-items:center;
-    background:linear-gradient(180deg,#F4F3EF 0%, #F1EFE9 55%, #ECEAE3 100%);
+    background:linear-gradient(180deg,#F4F1EA 0%, #F1EFE9 55%, #ECE7DE 100%);
     color:var(--ink);overflow:hidden;padding:130px 0 90px
   }
   .hero-anim{position:absolute;inset:0;overflow:hidden;pointer-events:none}
@@ -166,13 +166,13 @@
   @media(max-width:600px){.treat-grid{grid-template-columns:1fr}}
 
   /* ---------- DARK FEATURE (free visit) ---------- */
-  .dark{background:linear-gradient(180deg,#0A0A0B,#161616);color:#fff}
+  .dark{background:linear-gradient(180deg,#0A0A0B,#1A1611);color:#fff}
   .dark .lead{color:var(--muted-d)}
   .free-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
   .free-list{display:flex;flex-direction:column;gap:2px}
   .free-item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line-d)}
   .free-item:last-child{border-bottom:none}
-  .free-item .chk{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:rgba(236,234,227,.16);color:#ECEAE3;display:grid;place-items:center;margin-top:2px}
+  .free-item .chk{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:rgba(236,234,227,.16);color:#ECE7DE;display:grid;place-items:center;margin-top:2px}
   .free-item h4{font-size:17px;font-weight:600;letter-spacing:-.01em}
   .free-item p{color:var(--muted-d);font-size:14.5px;margin-top:3px}
   .value-card{
@@ -220,7 +220,7 @@
     border-radius:28px;aspect-ratio:4/5;
     background:
       radial-gradient(120% 120% at 30% 20%, rgba(236,234,227,.25), transparent 50%),
-      linear-gradient(160deg,#161616,#0A0A0B);
+      linear-gradient(160deg,#1A1611,#0A0A0B);
     border:1px solid var(--line-d);display:grid;place-items:center;text-align:center;color:var(--muted-d);position:relative;overflow:hidden
   }
   .doc-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
@@ -252,7 +252,7 @@
   .plan-card .pl-row:last-child{border-bottom:none}
   .plan-card .pl-row span{color:var(--muted-d);font-size:14px}
   .plan-card .pl-row b{font-size:17px;font-weight:700}
-  .plan-card .pl-row b.big{color:#ECEAE3}
+  .plan-card .pl-row b.big{color:#ECE7DE}
   @media(max-width:860px){.fin-grid{grid-template-columns:1fr;gap:36px}}
 
   /* ---------- LOCATION ---------- */
@@ -287,7 +287,7 @@
   .cta-final{
     background:
       radial-gradient(900px 500px at 80% 0%, rgba(10,10,11,.25), transparent 60%),
-      linear-gradient(180deg,#0A0A0B,#161616);
+      linear-gradient(180deg,#0A0A0B,#1A1611);
     color:#fff;border-radius:34px;padding:80px 50px;text-align:center;position:relative;overflow:hidden
   }
   .cta-final h2{font-size:clamp(34px,5.5vw,60px);font-weight:800;letter-spacing:-.03em;line-height:1.02}
@@ -303,7 +303,7 @@
     background:rgba(255,255,255,.06);color:#fff;font-size:15px;font-family:inherit;transition:border-color .2s,background .2s
   }
   .field input::placeholder{color:rgba(255,255,255,.4)}
-  .field input:focus,.field select:focus{outline:none;border-color:#ECEAE3;background:rgba(255,255,255,.1)}
+  .field input:focus,.field select:focus{outline:none;border-color:#ECE7DE;background:rgba(255,255,255,.1)}
   .field select option{color:#111}
   .ghl-embed{max-width:560px;margin:46px auto 0;background:#fff;border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:12px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.5)}
   .form-note{font-size:12.5px;color:var(--muted-d);text-align:center;margin-top:14px}
@@ -341,7 +341,7 @@
   .es-note{font-size:13.5px;color:var(--muted);text-align:center;margin-top:14px}
 </style>
 <style id="prana-custom">
-#top.hero{position:relative;overflow:hidden;background:radial-gradient(115% 85% at 82% 12%,rgba(185,183,176,.30),transparent 55%),radial-gradient(85% 75% at 8% 95%,rgba(10,10,11,.10),transparent 60%),linear-gradient(180deg,#F6F5F1 0%,#F1EFE9 60%,#ECEAE3 100%)}#top .hero-video-panel:after{content:"";position:absolute;inset:-22px;z-index:-1;border-radius:34px;background:radial-gradient(60% 60% at 50% 38%,rgba(10,10,11,.16),transparent 70%);filter:blur(8px)}
+#top.hero{position:relative;overflow:hidden;background:radial-gradient(115% 85% at 82% 12%,rgba(185,183,176,.30),transparent 55%),radial-gradient(85% 75% at 8% 95%,rgba(10,10,11,.10),transparent 60%),linear-gradient(180deg,#F6F3EC 0%,#F1EFE9 60%,#ECE7DE 100%)}#top .hero-video-panel:after{content:"";position:absolute;inset:-22px;z-index:-1;border-radius:34px;background:radial-gradient(60% 60% at 50% 38%,rgba(10,10,11,.16),transparent 70%);filter:blur(8px)}
 #top .hero-anim{display:none!important}
 #top .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .hero-copy{min-width:0}
@@ -375,7 +375,7 @@
   #nav .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(244,243,239,.98);flex-direction:column;padding:14px 24px;gap:14px;border-bottom:1px solid rgba(10,10,11,.1)}
   #nav.open .navlinks{display:flex}
 }
-</style><style>#affil{padding:54px 0;border-top:1px solid rgba(10,10,11,.08)}#affil .affil-label{text-align:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#7A7A78);margin-bottom:22px}#affil .affil-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px}#affil .affil-row span{font-family:'Archivo',sans-serif;font-size:20px;color:var(--ink,#0a0a0b);opacity:.78}@media(max-width:620px){#affil .affil-row span{font-size:16px}}</style><style>#stories .grating{display:inline-flex;align-items:center;gap:10px;margin:20px auto 0;padding:10px 20px;border:1px solid rgba(10,10,11,.14);border-radius:999px;background:#fff;font-weight:600;font-size:15px;color:var(--ink,#0a0a0b)}#stories .grating .stars{color:#0a0a0b;letter-spacing:2px}</style></head>
+</style><style>#affil{padding:54px 0;border-top:1px solid rgba(10,10,11,.08)}#affil .affil-label{text-align:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted,#797469);margin-bottom:22px}#affil .affil-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px}#affil .affil-row span{font-family:'Archivo',sans-serif;font-size:20px;color:var(--ink,#0a0a0b);opacity:.78}@media(max-width:620px){#affil .affil-row span{font-size:16px}}</style><style>#stories .grating{display:inline-flex;align-items:center;gap:10px;margin:20px auto 0;padding:10px 20px;border:1px solid rgba(10,10,11,.14);border-radius:999px;background:#fff;font-weight:600;font-size:15px;color:var(--ink,#0a0a0b)}#stories .grating .stars{color:#0a0a0b;letter-spacing:2px}</style></head>
 <body>
 
 <!-- NAV -->
@@ -462,13 +462,14 @@
     </div>
     <div class="gal-grid">
       <div class="gal-item reveal" style="grid-column:1/-1;aspect-ratio:16/7"><img src="office-reception.jpg" alt="Prana Dental Miami reception with hand-laid marble desk and backlit logo" loading="lazy"><div class="cap"><small>Reception</small>Hand-laid Calacatta marble</div></div>
-      <div class="gal-item reveal d1"><img src="office-hallway.jpg" alt="Backlit gallery corridor at Prana Dental Miami" loading="lazy"><div class="cap"><small>The arrival</small>A corridor that glows</div></div>
-      <div class="gal-item reveal d1"><img src="office-spa.jpg" alt="Spa-style vanity with backlit mirror and marble" loading="lazy"><div class="cap"><small>The details</small>Spa-grade, down to the sink</div></div>
-      <div class="gal-item reveal d2"><img src="office-finance.jpg" alt="Private consultation lounge at Prana Dental Miami" loading="lazy"><div class="cap"><small>Private consults</small>Where your plan takes shape</div></div>
-      <div class="gal-item reveal"><img src="office-treatment.jpg" alt="Modern private treatment suite" loading="lazy"><div class="cap"><small>Treatment suites</small>Private, calm, designed around you</div></div>
-      <div class="gal-item reveal d1"><img src="office-surgery.jpg" alt="Surgical operatory suite with designer finishes" loading="lazy"><div class="cap"><small>Surgical suites</small>Precision, beautifully housed</div></div>
-      <div class="gal-item reveal d1"><img src="office-lab.jpg" alt="In-house dental laboratory at Prana Dental Miami" loading="lazy"><div class="cap"><small>In-house lab</small>Crafted on-site, faster</div></div>
-      <div class="gal-item reveal d2"><img src="office-xray.jpg" alt="3D CBCT imaging suite with Prana wall logo" loading="lazy"><div class="cap"><small>3D imaging</small>Advanced technology, built in</div></div>
+      <div class="gal-item reveal d1" style="grid-column:1/-1;aspect-ratio:16/8"><img src="office-lobby.jpg" alt="Prana Dental Miami lobby corner — marble desk, gallery wall and lounge seating" loading="lazy"><div class="cap"><small>The lobby</small>A welcome, not a waiting room</div></div>
+      <div class="gal-item reveal d1"><img src="office-lounge.jpg" alt="Curved lounge seating in the Prana Dental Miami lobby" loading="lazy"><div class="cap"><small>Lounge</small>Room to relax, not a waiting room</div></div>
+      <div class="gal-item reveal d2"><img src="office-hallway.jpg" alt="Backlit gallery corridor at Prana Dental Miami" loading="lazy"><div class="cap"><small>The arrival</small>A corridor that glows</div></div>
+      <div class="gal-item reveal"><img src="office-spa.jpg" alt="Spa-style vanity with backlit mirror and marble" loading="lazy"><div class="cap"><small>The details</small>Spa-grade, down to the sink</div></div>
+      <div class="gal-item reveal d1"><img src="office-finance.jpg" alt="Private consultation lounge at Prana Dental Miami" loading="lazy"><div class="cap"><small>Private consults</small>Where your plan takes shape</div></div>
+      <div class="gal-item reveal d1"><img src="office-treatment.jpg" alt="Modern private treatment suite" loading="lazy"><div class="cap"><small>Treatment suites</small>Private, calm, designed around you</div></div>
+      <div class="gal-item reveal d2"><img src="office-surgery.jpg" alt="Surgical operatory suite with designer finishes" loading="lazy"><div class="cap"><small>Surgical suites</small>Precision, beautifully housed</div></div>
+      <div class="gal-item reveal"><img src="office-lab.jpg" alt="In-house dental laboratory at Prana Dental Miami" loading="lazy"><div class="cap"><small>In-house lab</small>Crafted on-site, faster</div></div>
     </div>
   </div>
 </section><section id="stories"><div class="wrap"><div class="sec-head reveal"><div class="eyebrow gold">Patient stories</div><h2 class="h2">Real patients. Real smiles.</h2><p class="lead">We could tell you we do good work. It’s better to let our patients say it.</p><div style="text-align: center;"><span class="grating"><span class="stars">★★★★★</span> 4.9 · 200+ Google reviews</span></div></div><div class="stories-grid"><div class="story"><video class="story-vid" playsinline="" preload="none" controls="" poster="t0-poster.jpg"><source src="t0.mp4" type="video/mp4"></video></div><div class="story"><video class="story-vid" playsinline="" preload="none" controls="" poster="t1-poster.jpg"><source src="t1.mp4" type="video/mp4"></video></div><div class="story"><video class="story-vid" playsinline="" preload="none" controls="" poster="t2-poster.jpg"><source src="t2.mp4" type="video/mp4"></video></div><div class="story"><video class="story-vid" playsinline="" preload="none" controls="" poster="t3-poster.jpg"><source src="t3.mp4" type="video/mp4"></video></div><div class="story"><video class="story-vid" playsinline="" preload="none" controls="" poster="t4-poster.jpg"><source src="t4.mp4" type="video/mp4"></video></div></div></div></section><section class="dark" id="free">

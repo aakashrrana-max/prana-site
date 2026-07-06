@@ -35,7 +35,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .btn-ghost:hover{background:#fff}
 .btn-lg{padding:17px 34px;font-size:16px}
 .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#F6F3EC,#ECE7DE);padding:54px 0 64px}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:34px;align-items:center;max-width:860px}
 .crumb{font-size:13px;color:var(--muted);margin-bottom:14px}.crumb a{color:var(--ink)}
 .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
 h1{font-size:clamp(38px,6vw,64px);line-height:1.0;letter-spacing:-.03em;font-weight:800;margin-bottom:20px}
@@ -43,12 +43,17 @@ h1{font-size:clamp(38px,6vw,64px);line-height:1.0;letter-spacing:-.03em;font-wei
 .hero-cta{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:26px}
 .hero-trust{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13.5px;color:var(--muted)}
 .hero-trust b{color:var(--ink)}.hero-trust .it{display:flex;align-items:center;gap:7px}.hero-trust .st{color:var(--ink);letter-spacing:1px}
-.hero-visual{position:relative}
-.hero-visual img{width:100%;border-radius:24px;aspect-ratio:4/5;object-fit:cover;box-shadow:0 40px 90px -40px rgba(10,10,11,.45)}
-.offer-tag{position:absolute;left:-14px;bottom:22px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:0 22px 50px -24px rgba(10,10,11,.4);max-width:250px}
-.offer-tag .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.offer-tag .v{font-family:'Archivo',sans-serif;font-style:normal;font-size:18px;margin-top:3px;line-height:1.2}
-@media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:34px}.hero-visual{max-width:430px}.offer-tag{left:auto;right:14px}}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:34px}}
+.ao4{position:relative;height:340vh;background:#000}
+.ao4-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ao4-sticky canvas{width:100%;height:100%;display:block}
+.ao4-cap{position:absolute;left:50%;transform:translateX(-50%);bottom:8vh;text-align:center;opacity:0;transition:opacity .55s var(--ease);pointer-events:none;padding:0 24px;width:100%;max-width:760px}
+.ao4-cap.on{opacity:1}
+.ao4-cap .ey{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+.ao4-cap .tl{font-size:clamp(22px,3.4vw,34px);font-weight:300;color:#fff;letter-spacing:-.01em;line-height:1.25}
+.ao4-cap .btn{pointer-events:auto;margin-top:20px;background:var(--paper);color:var(--ink)}
+.ao4-cap .btn:hover{background:#fff}
+.ao4-hint{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 .strip{background:var(--ink);color:#fff;padding:16px 0}
 .strip .wrap{display:flex;flex-wrap:wrap;gap:12px 34px;align-items:center;justify-content:center;font-size:14px;color:var(--muted-d)}
 .strip b{color:#fff}.strip .st{color:#fff;letter-spacing:1px}.strip .sep{opacity:.3}
@@ -149,18 +154,36 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
         <span class="it"><b class="st">★★★★★</b> <b>4.9</b> · 200+ Google reviews</span>
         <span class="it"><b>Teeth the same day</b></span>
         <span class="it"><b>In-house</b> lab</span>
+        <span class="it"><b>From $9,999</b> / arch · ~$167/mo</span>
         <span class="it"><b>Bilingual</b> · EN &amp; ES</span>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <img src="t1-poster.jpg" alt="Real Prana smile-makeover patient, before and after" loading="eager">
-      <div class="offer-tag">
-        <div class="k">From $9,999 / arch · ~$167/mo</div>
-        <div class="v">Free consult + 3D scan, $700 value</div>
       </div>
     </div>
   </div>
 </header>
+
+<section class="ao4" id="ao4" aria-label="How All-on-4 comes together">
+  <div class="ao4-sticky">
+    <canvas id="ao4c" aria-hidden="true"></canvas>
+    <div class="ao4-cap" data-a="0" data-b="0.2">
+      <div class="ey">The All-on-4 System</div>
+      <div class="tl">Four implants. A full arch. <span class="serif">One day.</span></div>
+      <div class="ao4-hint">Scroll</div>
+    </div>
+    <div class="ao4-cap" data-a="0.28" data-b="0.5">
+      <div class="ey">Engineered Precision</div>
+      <div class="tl">Every implant, abutment, and screw — placed with surgical accuracy.</div>
+    </div>
+    <div class="ao4-cap" data-a="0.58" data-b="0.78">
+      <div class="ey">It All Locks Together</div>
+      <div class="tl">A fixed, permanent-feeling smile, <span class="serif">built to last.</span></div>
+    </div>
+    <div class="ao4-cap" data-a="0.9" data-b="1.01">
+      <div class="ey">Prana Dental Miami</div>
+      <div class="tl">Infinite reasons <span class="serif">to smile.</span></div>
+      <a class="btn" href="#book">Book my free consult</a>
+    </div>
+  </div>
+</section>
 
 <div class="strip"><div class="wrap">
   <span><b class="st">★★★★★</b> <b>4.9</b> on Google</span><span class="sep">·</span>
@@ -313,5 +336,37 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
 
 <div class="mbar"><a class="c" href="tel:+17865790521">Call</a><a class="b" href="#book">Book Free Consult</a></div>
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script>
+(function(){
+  var N=100, DIR='allon4-frames/';
+  var sec=document.getElementById('ao4'), cv=document.getElementById('ao4c');
+  if(!sec||!cv)return;
+  var cx=cv.getContext('2d');
+  var imgs=new Array(N), loaded={}, started=false, cur=0, target=0;
+  var DPR=Math.min(window.devicePixelRatio||1,2);
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function src(i){var s=''+(i+1);while(s.length<4)s='0'+s;return DIR+'frame-'+s+'.webp';}
+  function load(i,cb){if(imgs[i])return;var im=new Image();im.onload=function(){loaded[i]=1;if(cb)cb();};im.src=src(i);imgs[i]=im;}
+  function nearest(i){if(loaded[i])return i;for(var d=1;d<N;d++){if(i-d>=0&&loaded[i-d])return i-d;if(i+d<N&&loaded[i+d])return i+d;}return -1;}
+  function size(){cv.width=cv.clientWidth*DPR;cv.height=cv.clientHeight*DPR;draw(Math.round(cur));}
+  function draw(i){var j=nearest(i);if(j<0)return;var im=imgs[j];var cw=cv.width,ch=cv.height;var s=Math.min(cw/im.naturalWidth,ch/im.naturalHeight);var w=im.naturalWidth*s,h=im.naturalHeight*s;cx.fillStyle='#000';cx.fillRect(0,0,cw,ch);cx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h);}
+  function start(){if(started)return;started=true;load(0,function(){size();});load(N-1);for(var i=0;i<N;i+=10)load(i);var k=0;(function batch(){var c=0;while(k<N&&c<8){load(k);k++;c++;}if(k<N)setTimeout(batch,110);})();}
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e){if(e[0].isIntersecting)start();},{rootMargin:'150%'}).observe(sec);}else{start();}
+  var caps=[].slice.call(document.querySelectorAll('.ao4-cap'));
+  function loop(){
+    var r=sec.getBoundingClientRect();
+    var p=Math.max(0,Math.min(1,-r.top/(r.height-window.innerHeight)));
+    target=p*(N-1);
+    cur+=(target-cur)*(reduce?1:0.12);
+    if(Math.abs(target-cur)<0.01)cur=target;
+    draw(Math.round(cur));
+    for(var i=0;i<caps.length;i++){var a=parseFloat(caps[i].getAttribute('data-a')),b=parseFloat(caps[i].getAttribute('data-b'));caps[i].classList.toggle('on',p>=a&&p<=b);}
+    requestAnimationFrame(loop);
+  }
+  window.addEventListener('resize',size);
+  size();
+  requestAnimationFrame(loop);
+})();
+</script>
 </body>
 </html>

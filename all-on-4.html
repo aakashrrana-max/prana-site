@@ -349,7 +349,7 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
   function load(i,cb){if(imgs[i])return;var im=new Image();im.onload=function(){loaded[i]=1;if(cb)cb();};im.src=src(i);imgs[i]=im;}
   function nearest(i){if(loaded[i])return i;for(var d=1;d<N;d++){if(i-d>=0&&loaded[i-d])return i-d;if(i+d<N&&loaded[i+d])return i+d;}return -1;}
   function size(){cv.width=cv.clientWidth*DPR;cv.height=cv.clientHeight*DPR;draw(Math.round(cur));}
-  function draw(i){var j=nearest(i);if(j<0)return;var im=imgs[j];var cw=cv.width,ch=cv.height;var s=Math.min(cw/im.naturalWidth,ch/im.naturalHeight);var w=im.naturalWidth*s,h=im.naturalHeight*s;cx.fillStyle='#000';cx.fillRect(0,0,cw,ch);cx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h);}
+  function draw(i){var j=nearest(i);if(j<0)return;var im=imgs[j];var cw=cv.width,ch=cv.height;var zoom=(ch>cw)?1.9:1;var s=Math.min(cw/im.naturalWidth*zoom,ch/im.naturalHeight);var w=im.naturalWidth*s,h=im.naturalHeight*s;cx.fillStyle='#000';cx.fillRect(0,0,cw,ch);cx.drawImage(im,(cw-w)/2,(ch-h)/2,w,h);}
   function start(){if(started)return;started=true;load(0,function(){size();});load(N-1);for(var i=0;i<N;i+=10)load(i);var k=0;(function batch(){var c=0;while(k<N&&c<8){load(k);k++;c++;}if(k<N)setTimeout(batch,110);})();}
   if('IntersectionObserver' in window){new IntersectionObserver(function(e){if(e[0].isIntersecting)start();},{rootMargin:'150%'}).observe(sec);}else{start();}
   var caps=[].slice.call(document.querySelectorAll('.ao4-cap'));

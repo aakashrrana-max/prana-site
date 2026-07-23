@@ -128,6 +128,21 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
 .mbar a{flex:1;text-align:center;padding:14px;border-radius:13px;font-weight:600;font-size:15px}
 .mbar .c{background:#fff;border:1px solid var(--line);color:var(--ink)}.mbar .b{background:var(--ink);color:#fff}
 @media(max-width:760px){.mbar{display:flex}body{padding-bottom:74px}.nav-call{display:none}}
+
+/* Hero film -- smile transformation */
+.hero-film{padding:0 0 84px}
+.hero-film-head{max-width:640px;margin:0 auto 34px;text-align:center}
+.hero-film-head .sec-eyebrow{justify-content:center;display:flex}
+.hero-film-head h2{text-align:center}
+.hero-film-head .sub{margin:16px auto 0}
+.hero-film-inner{position:relative;border-radius:28px;overflow:hidden;background:#0A0A0B;box-shadow:0 50px 100px -40px rgba(10,10,11,.5)}
+.hero-film-inner video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.hero-film-sound{position:absolute;right:18px;bottom:18px;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:980px;background:rgba(10,10,11,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.22);cursor:pointer;transition:background .2s var(--ease),transform .2s var(--ease)}
+.hero-film-sound:hover{background:rgba(10,10,11,.78);transform:translateY(-1px)}
+.hero-film-sound svg{width:15px;height:15px}
+.hero-film-caption{text-align:center;margin-top:18px;font-size:13.5px;color:var(--muted)}
+.hero-film-caption em{font-style:normal;color:var(--ink);font-weight:600}
+@media(max-width:640px){.hero-film{padding-bottom:64px}.hero-film-inner{border-radius:18px}.hero-film-sound{right:12px;bottom:12px;padding:8px 13px;font-size:12px}}
 </style>
 </head>
 <body>
@@ -163,6 +178,42 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
     </div>
   </div>
 </header>
+
+<section class="s hero-film">
+  <div class="wrap">
+    <div class="hero-film-head">
+      <div class="sec-eyebrow">The Transformation</div>
+      <h2>Watch her confidence <em>unlock.</em></h2>
+      <p class="sub">Real porcelain veneers, real confidence -- the moment a smile finally matches how she's always felt inside.</p>
+    </div>
+    <div class="hero-film-inner">
+      <video id="pranaHeroFilm" autoplay muted loop playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3G719CL1k75cU7T3fHrTu8TNJzJ/hf_20260721_192359_b18ceacb-739e-4e5a-953a-ea82c253c585.png">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3G719CL1k75cU7T3fHrTu8TNJzJ/hf_20260721_195640_0f2ff8a0-cf36-44a2-8a18-b199857a343c.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="hero-film-sound" id="pranaHeroSoundBtn" aria-label="Toggle sound">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        <span>Sound on</span>
+      </button>
+    </div>
+    <p class="hero-film-caption">A visualization of the Prana experience -- <em>meet real patients below.</em></p>
+  </div>
+</section>
+<script>
+(function(){
+  var v=document.getElementById('pranaHeroFilm'),btn=document.getElementById('pranaHeroSoundBtn');
+  if(!v||!btn)return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}
+  var onIcon='<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+  var offIcon='<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+  btn.addEventListener('click',function(){
+    v.muted=!v.muted;
+    if(!v.muted){v.play().catch(function(){});}
+    btn.querySelector('span').textContent=v.muted?'Sound on':'Mute';
+    btn.querySelector('svg').innerHTML=v.muted?onIcon:offIcon;
+  });
+})();
+</script>
+
 
 <div class="strip"><div class="wrap">
   <span><b class="st">★★★★★</b> <b>4.9</b> on Google</span><span class="sep">·</span>

@@ -269,73 +269,71 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
 
 <div class="quiz-step on" data-step="1">
 <div class="quiz-count">Question 1 of 6</div>
-<div class="quiz-q">Which best describes your teeth right now?</div>
-<div class="quiz-sub">Pick the closest one — we'll confirm everything at your scan.</div>
+<div class="quiz-q">How many teeth are you missing?</div>
+<div class="quiz-sub">A close estimate is fine — we'll confirm it on your 3D scan.</div>
 <div class="opts">
-<button class="opt" data-q="situation" data-v="Several missing or broken teeth"><span class="k">A</span>Several missing or broken teeth</button>
-<button class="opt" data-q="situation" data-v="Most teeth failing, loose or infected"><span class="k">B</span>Most of my teeth are failing, loose, or infected</button>
-<button class="opt" data-q="situation" data-v="All teeth need to come out"><span class="k">C</span>I've been told they all need to come out</button>
-<button class="opt" data-q="situation" data-v="Already wearing full dentures"><span class="k">D</span>I already wear full dentures and I hate them</button>
+<button class="opt" data-q="missing" data-v="1-3" data-s="1"><span class="k">A</span>1–3</button>
+<button class="opt" data-q="missing" data-v="4-7" data-s="2"><span class="k">B</span>4–7</button>
+<button class="opt" data-q="missing" data-v="8+" data-s="3"><span class="k">C</span>8+</button>
+<button class="opt" data-q="missing" data-v="Almost all" data-s="5"><span class="k">D</span>Almost all</button>
+<button class="opt" data-q="missing" data-v="All of them" data-s="5"><span class="k">E</span>All of them</button>
 </div>
 </div>
 
 <div class="quiz-step" data-step="2">
 <div class="quiz-count">Question 2 of 6</div>
-<div class="quiz-q">Which arch are we replacing?</div>
-<div class="quiz-sub">This is what sets your price. Most patients start with one.</div>
+<div class="quiz-q">Do you currently wear dentures?</div>
+<div class="quiz-sub">Including partials, or a plate you only wear some of the time.</div>
 <div class="opts">
-<button class="opt" data-q="arches" data-v="Upper only"><span class="k">A</span>Upper only</button>
-<button class="opt" data-q="arches" data-v="Lower only"><span class="k">B</span>Lower only</button>
-<button class="opt" data-q="arches" data-v="Both arches"><span class="k">C</span>Both — full mouth</button>
-<button class="opt" data-q="arches" data-v="Not sure yet"><span class="k">D</span>I'm not sure — help me figure it out</button>
+<button class="opt" data-q="dentures" data-v="Upper" data-s="3"><span class="k">A</span>Upper</button>
+<button class="opt" data-q="dentures" data-v="Lower" data-s="3"><span class="k">B</span>Lower</button>
+<button class="opt" data-q="dentures" data-v="Both" data-s="4"><span class="k">C</span>Both</button>
+<button class="opt" data-q="dentures" data-v="No" data-s="0"><span class="k">D</span>No</button>
 </div>
 </div>
 
 <div class="quiz-step" data-step="3">
 <div class="quiz-count">Question 3 of 6</div>
-<div class="quiz-q">What's this costing you day to day?</div>
-<div class="quiz-sub">Choose the one that stings the most.</div>
+<div class="quiz-q">Are your remaining teeth loose?</div>
+<div class="quiz-sub">Loose teeth usually mean bone loss — it's one of the clearest signs full-arch is the right call.</div>
 <div class="opts">
-<button class="opt" data-q="pain" data-v="Can't eat foods I love"><span class="k">A</span>I can't eat the foods I love</button>
-<button class="opt" data-q="pain" data-v="Hiding my smile"><span class="k">B</span>I hide my smile in photos and at work</button>
-<button class="opt" data-q="pain" data-v="Pain or infection"><span class="k">C</span>I'm in pain or dealing with infection</button>
-<button class="opt" data-q="pain" data-v="Denture slips"><span class="k">D</span>My denture slips and I'm tired of adhesive</button>
+<button class="opt" data-q="loose" data-v="Yes" data-s="3"><span class="k">A</span>Yes</button>
+<button class="opt" data-q="loose" data-v="No" data-s="0"><span class="k">B</span>No</button>
 </div>
 </div>
 
 <div class="quiz-step" data-step="4">
 <div class="quiz-count">Question 4 of 6</div>
-<div class="quiz-q">How soon would you want to start?</div>
-<div class="quiz-sub">Honest answers get you a better plan — there's no wrong one.</div>
+<div class="quiz-q">How long have you been missing teeth?</div>
+<div class="quiz-sub">This helps us know what to expect from your jawbone.</div>
 <div class="opts">
-<button class="opt" data-q="timing" data-v="ASAP — within 30 days"><span class="k">A</span>As soon as possible — within 30 days</button>
-<button class="opt" data-q="timing" data-v="1-3 months"><span class="k">B</span>In the next one to three months</button>
-<button class="opt" data-q="timing" data-v="3-6 months"><span class="k">C</span>Three to six months out</button>
-<button class="opt" data-q="timing" data-v="Just researching"><span class="k">D</span>Still researching my options</button>
+<button class="opt" data-q="duration" data-v="Less than 1 year" data-s="1"><span class="k">A</span>Less than 1 year</button>
+<button class="opt" data-q="duration" data-v="1-5 years" data-s="2"><span class="k">B</span>1–5 years</button>
+<button class="opt" data-q="duration" data-v="5-10 years" data-s="3"><span class="k">C</span>5–10 years</button>
+<button class="opt" data-q="duration" data-v="10+ years" data-s="3"><span class="k">D</span>10+ years</button>
 </div>
 </div>
 
 <div class="quiz-step" data-step="5">
 <div class="quiz-count">Question 5 of 6</div>
-<div class="quiz-q">How would you handle the investment?</div>
-<div class="quiz-sub">All-on-4 starts at $9,999 per arch, or about $167/mo with approved financing.</div>
+<div class="quiz-q">How soon would you like treatment?</div>
+<div class="quiz-sub">Honest answers get you a better plan — there's no wrong one.</div>
 <div class="opts">
-<button class="opt" data-q="finance" data-v="Paying in full"><span class="k">A</span>I'd pay in full</button>
-<button class="opt" data-q="finance" data-v="Monthly financing"><span class="k">B</span>I'd like monthly payments</button>
-<button class="opt" data-q="finance" data-v="Combination"><span class="k">C</span>A bit of both — some down, rest financed</button>
-<button class="opt" data-q="finance" data-v="Need to explore options"><span class="k">D</span>I need to see what I'd qualify for</button>
+<button class="opt" data-q="timing" data-v="ASAP" data-s="5"><span class="k">A</span>ASAP</button>
+<button class="opt" data-q="timing" data-v="Within 3 months" data-s="3"><span class="k">B</span>Within 3 months</button>
+<button class="opt" data-q="timing" data-v="This year" data-s="1"><span class="k">C</span>This year</button>
+<button class="opt" data-q="timing" data-v="Just researching" data-s="0"><span class="k">D</span>Just researching</button>
 </div>
 </div>
 
 <div class="quiz-step" data-step="6">
 <div class="quiz-count">Question 6 of 6</div>
-<div class="quiz-q">Have you had a 3D CT scan of your jaw?</div>
-<div class="quiz-sub">If not, yours is included free — it's how we confirm you have the bone for same-day teeth.</div>
+<div class="quiz-q">Will you need financing?</div>
+<div class="quiz-sub">All-on-4 starts at $9,999 per arch, or about $167/mo on approved credit.</div>
 <div class="opts">
-<button class="opt" data-q="scan" data-v="No, never"><span class="k">A</span>No, never had one</button>
-<button class="opt" data-q="scan" data-v="Yes, elsewhere"><span class="k">B</span>Yes, at another office</button>
-<button class="opt" data-q="scan" data-v="Yes, and I have a quote"><span class="k">C</span>Yes — and I already have a treatment quote</button>
-<button class="opt" data-q="scan" data-v="Not sure"><span class="k">D</span>I'm not sure</button>
+<button class="opt" data-q="financing" data-v="Yes" data-s="3"><span class="k">A</span>Yes</button>
+<button class="opt" data-q="financing" data-v="Maybe" data-s="2"><span class="k">B</span>Maybe</button>
+<button class="opt" data-q="financing" data-v="No" data-s="2"><span class="k">C</span>No</button>
 </div>
 </div>
 
@@ -687,12 +685,38 @@ function show(n){
   if(n > 1) scrollToEl(document.querySelector('.quiz-card'), true);
 }
 
+/* ---------- LEAD SCORING ----------
+   Max 23. Weighted so the perfect candidate profile — missing most teeth,
+   already in dentures, loose remaining teeth, wants to start ASAP, and is
+   ready to talk financing — lands in Tier A.
+     missing   1-3:1  4-7:2  8+:3  Almost all:5  All of them:5
+     dentures  Upper:3  Lower:3  Both:4  No:0
+     loose     Yes:3  No:0
+     duration  <1yr:1  1-5:2  5-10:3  10+:3
+     timing    ASAP:5  3mo:3  This year:1  Researching:0
+     financing Yes:3  Maybe:2  No:2
+   Tiers: A 17+ · B 12-16 · C 7-11 · D 0-6
+   Nobody is disqualified — the tier changes the copy and the follow-up
+   priority, never whether the calendar appears.                          */
+const MAX_SCORE = 23;
+const scores = {};
+function leadScore(){
+  return Object.values(scores).reduce((a, b) => a + b, 0);
+}
+function leadTier(s){
+  if(s >= 17) return {tier:'A', label:'Hot — perfect candidate'};
+  if(s >= 12) return {tier:'B', label:'Strong candidate'};
+  if(s >= 7)  return {tier:'C', label:'Qualified — nurture'};
+  return {tier:'D', label:'Early research'};
+}
+
 document.querySelectorAll('.opt').forEach(btn => {
   btn.addEventListener('click', () => {
     const wrap = btn.closest('.opts');
     wrap.querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
     btn.classList.add('sel');
     answers[btn.dataset.q] = btn.dataset.v;
+    scores[btn.dataset.q] = parseInt(btn.dataset.s, 10) || 0;
     track('quiz_step', {step: step, question: btn.dataset.q, answer: btn.dataset.v});
     setTimeout(() => show(step + 1), 260);
   });
@@ -725,13 +749,21 @@ document.getElementById('qSubmit').addEventListener('click', async () => {
   });
   if(!ok) return;
 
+  const s = leadScore();
+  const t = leadTier(s);
+
   answers.name = name.value.trim();
   answers.phone = phone.value.trim();
   answers.email = email.value.trim();
+  answers.lead_score = s;
+  answers.lead_score_max = MAX_SCORE;
+  answers.lead_tier = t.tier;
+  answers.lead_tier_label = t.label;
   answers.source = 'all-on-4 landing quiz';
   answers.page = location.href;
 
-  track('Lead', {content_name:'All-on-4 Quiz', value:9999, currency:'USD'});
+  /* Value scales with tier so Meta optimises toward Tier A, not raw volume. */
+  track('Lead', {content_name:'All-on-4 Quiz', value: Math.round(9999 * (s / MAX_SCORE)), currency:'USD', lead_tier: t.tier, lead_score: s});
   track('quiz_complete', answers);
 
   if(CONFIG.webhookUrl){
@@ -748,14 +780,21 @@ function renderResult(){
   const t = document.getElementById('rTitle');
   const b = document.getElementById('rBody');
   const first = (answers.name || '').split(' ')[0];
-  const hi = ['ASAP — within 30 days','1-3 months'].includes(answers.timing);
+  const who = first ? first + ', you' : 'You';
+  const tier = answers.lead_tier;
 
-  if(hi){
-    t.textContent = (first ? first + ', you' : 'You') + ' look like a strong candidate.';
-    b.textContent = 'Based on your answers, All-on-4 is very likely an option for you — and your timeline works. Pick a consult time below and Dr. Rana will confirm it with your free 3D CT scan.';
+  if(tier === 'A'){
+    t.textContent = who + " look like an ideal candidate.";
+    b.textContent = 'Everything in your answers points to full-arch: the number of teeth involved, what your remaining teeth are doing, and a timeline we can actually work with. Pick a consult time below and Dr. Rana will confirm it with your free 3D CT scan.';
+  } else if(tier === 'B'){
+    t.textContent = who + ' look like a strong candidate.';
+    b.textContent = 'Based on your answers, All-on-4 is very likely an option for you. Pick a consult time below and Dr. Rana will confirm it with your free 3D CT scan.';
+  } else if(tier === 'C'){
+    t.textContent = who + ' look like a candidate.';
+    b.textContent = 'All-on-4 is likely an option for you, and the scan is what settles it. Booking now costs nothing and commits you to nothing — it just gives you real numbers to decide with.';
   } else {
-    t.textContent = (first ? first + ', you' : 'You') + ' look like a candidate.';
-    b.textContent = 'Based on your answers, All-on-4 is very likely an option for you. Booking the free scan now costs nothing and commits you to nothing — it just gives you real numbers to decide with, whenever you are ready.';
+    t.textContent = who + ' have options worth seeing.';
+    b.textContent = "You're early in this, which is a good place to be. The free scan and written plan give you the real numbers and timeline, with no pressure to do anything with them until you're ready.";
   }
 
   const wrap = document.getElementById('calWrap');

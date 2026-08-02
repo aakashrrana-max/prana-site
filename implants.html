@@ -504,7 +504,10 @@ document.querySelectorAll('.cap-opt').forEach(btn => {
     btn.closest('.cap-opts').querySelectorAll('.cap-opt').forEach(b => b.classList.remove('sel'));
     btn.classList.add('sel');
     capAnswers[btn.dataset.q] = btn.dataset.v;
-    track('capture_step', {step: capStep, question: btn.dataset.q, answer: btn.dataset.v, service: CONFIG.service});
+    /* Step number only. Clinical answers stay first-party (GHL webhook) —
+       Meta flags audiences and conversions whose metadata implies a health
+       condition, which kills delivery on the whole ad account. */
+    track('capture_step', {step: capStep});
     setTimeout(() => capShow(capStep + 1), 240);
   });
 });
@@ -550,8 +553,10 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
   capAnswers.source = 'implants page capture';
   capAnswers.page = location.href;
 
-  track('Lead', {content_name:'Single Implant Capture', value:1850, currency:'USD'});
-  track('capture_complete', capAnswers);
+  /* No clinical detail in the ad-platform payload — timing intent only.
+     The full answer set goes to GHL below. */
+  track('Lead', {content_name:'Single Tooth Consult', value:1850, currency:'USD', timing: capAnswers.timing});
+  track('capture_complete', {timing: capAnswers.timing});
 
   try{
     await fetch(CONFIG.webhookUrl, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(capAnswers)});
@@ -571,7 +576,7 @@ function capRenderForm(){
   wrap.dataset.done = '1';
   const q = new URLSearchParams(capAnswers).toString();
   wrap.innerHTML = '<iframe src="' + CONFIG.formUrl + '?' + q + '" title="Book your free implant consult"></iframe>';
-  track('capture_form_view', capAnswers);
+  track('capture_form_view', {timing: capAnswers.timing});
 }
 const capObs = new MutationObserver(() => {
   if(document.querySelector('.cap-step[data-cap="4"]').classList.contains('on')) capRenderForm();

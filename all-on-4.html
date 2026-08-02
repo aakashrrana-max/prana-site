@@ -717,7 +717,10 @@ document.querySelectorAll('.opt').forEach(btn => {
     btn.classList.add('sel');
     answers[btn.dataset.q] = btn.dataset.v;
     scores[btn.dataset.q] = parseInt(btn.dataset.s, 10) || 0;
-    track('quiz_step', {step: step, question: btn.dataset.q, answer: btn.dataset.v});
+    /* Only the step number goes to ad platforms. Clinical answers stay
+       first-party (GHL webhook) — Meta flags audiences and conversions whose
+       metadata implies a health condition, which kills delivery. */
+    track('quiz_step', {step: step});
     setTimeout(() => show(step + 1), 260);
   });
 });
@@ -762,9 +765,11 @@ document.getElementById('qSubmit').addEventListener('click', async () => {
   answers.source = 'all-on-4 landing quiz';
   answers.page = location.href;
 
-  /* Value scales with tier so Meta optimises toward Tier A, not raw volume. */
-  track('Lead', {content_name:'All-on-4 Quiz', value: Math.round(9999 * (s / MAX_SCORE)), currency:'USD', lead_tier: t.tier, lead_score: s});
-  track('quiz_complete', answers);
+  /* Value scales with tier so Meta optimises toward Tier A, not raw volume.
+     Deliberately NO clinical detail in the ad-platform payload — tier letter
+     and score only. The full answer set goes to GHL below. */
+  track('Lead', {content_name:'Full Arch Consult', value: Math.round(9999 * (s / MAX_SCORE)), currency:'USD', tier: t.tier, score: s});
+  track('quiz_complete', {tier: t.tier, score: s});
 
   if(CONFIG.webhookUrl){
     try{

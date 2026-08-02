@@ -19,8 +19,11 @@
 <style>
 :root{--ink:#0A0A0B;--ink-2:#1A1611;--paper:#F4F1EA;--paper-2:#ECE7DE;--line:rgba(10,10,11,.12);--line-d:rgba(255,255,255,.16);--muted:#6c6760;--muted-d:#a8a299;--accent:#9a9082;--radius:18px;--max:1180px;--ease:cubic-bezier(.16,.84,.44,1)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* overflow-x uses `clip`, not `hidden`: `hidden` on one axis forces the other to
+   compute to `auto`, which makes <body> a scroll container and silently breaks
+   every programmatic scroll (deep links, anchor CTAs, capture step advance). */
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-padding-top:80px}
+body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 .serif{font-family:'Archivo',sans-serif;font-style:normal;font-weight:300}
@@ -126,186 +129,477 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
 .mbar a{flex:1;text-align:center;padding:14px;border-radius:13px;font-weight:600;font-size:15px}
 .mbar .c{background:#fff;border:1px solid var(--line);color:var(--ink)}.mbar .b{background:var(--ink);color:#fff}
 @media(max-width:760px){.mbar{display:flex}body{padding-bottom:74px}.nav-call{display:none}}
+
+/* ═══ FAST CAPTURE MODULE ═══ */
+.cap-card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -44px rgba(10,10,11,.5)}
+.cap-bar{height:3px;background:var(--paper-2);position:relative}
+.cap-bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--ink);transition:width .4s var(--ease)}
+.cap-body{padding:30px}
+.cap-head{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px}
+.cap-step{display:none}
+.cap-step.on{display:block;animation:capf .34s var(--ease)}
+@keyframes capf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cap-q{font-size:23px;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px}
+.cap-opts{display:grid;gap:9px}
+.cap-opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:15px 17px;background:var(--paper);border:1px solid var(--line);border-radius:14px;font-family:inherit;font-size:15px;color:var(--ink);cursor:pointer;transition:transform .2s var(--ease),background .2s,border-color .2s}
+.cap-opt:hover{background:#fff;border-color:rgba(10,10,11,.32);transform:translateX(3px)}
+.cap-opt.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cap-opt .k{flex:0 0 25px;height:25px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--muted)}
+.cap-opt.sel .k{background:#fff;border-color:#fff;color:var(--ink)}
+.cap-fields{display:grid;gap:10px;margin-bottom:14px}
+.cap-fields input{width:100%;padding:15px 17px;background:var(--paper);border:1px solid var(--line);border-radius:14px;font-family:inherit;font-size:15px;color:var(--ink)}
+.cap-fields input:focus{outline:none;border-color:var(--ink);background:#fff}
+.cap-fields input.err{border-color:#B4443A;background:#FDF4F3}
+.cap-back{background:none;border:none;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:12px 0 0;font-weight:700}
+.cap-back:hover{color:var(--ink)}
+.cap-fine{font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:12px}
+.cap-fine a{text-decoration:underline}
+.cap-trust{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.cap-trust span{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.cap-done{text-align:center;padding:14px 0}
+.cap-seal{width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;margin:0 auto 18px;font-size:22px}
+.cap-done h3{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+.cap-done p{font-size:15.5px;color:var(--muted)}
+#capForm iframe{width:100%;min-height:560px;border:none}
+
+/* ═══ BEFORE / AFTER ═══ */
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ba{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+.ba-view{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:ew-resize;user-select:none;background:var(--paper-2)}
+.ba-view img,.ba-view .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba-after{clip-path:inset(0 0 0 50%)}
+.ph{display:grid;place-items:center;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding:18px;line-height:2}
+.ph-a{background:repeating-linear-gradient(45deg,#E6E0D5,#E6E0D5 11px,#DED7CA 11px,#DED7CA 22px)}
+.ph-b{background:repeating-linear-gradient(45deg,#DCD3C2,#DCD3C2 11px,#D2C8B4 11px,#D2C8B4 22px)}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:3;transform:translateX(-1px);pointer-events:none;box-shadow:0 0 12px rgba(0,0,0,.35)}
+.ba-handle::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:var(--ink);font-size:12px;font-weight:700;padding:7px 11px;border-radius:980px;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.ba-tag{position:absolute;bottom:11px;z-index:4;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;padding:5px 10px;border-radius:980px;font-weight:700}
+.ba-tag.l{left:11px;background:rgba(10,10,11,.78);color:#fff}
+.ba-tag.r{right:11px;background:#fff;color:var(--ink)}
+.ba .cap{padding:14px 16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.ba .cap b{display:block;color:var(--ink);font-size:15px}
+@media(max-width:820px){.ba-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <nav>
-  <a class="brand" href="/"><span class="dot"></span>PRANA·DENTAL</a>
-  <div class="nav-r"><a class="nav-call" href="tel:+17865790521">(786) 579-0521</a><a class="btn" href="/contact.html#book">Book Free Consult</a></div>
+<a class="brand" href="/"><span class="dot"></span>PRANA·DENTAL</a>
+<div class="nav-r"><a class="nav-call" href="tel:+17865790521">(786) 579-0521</a><a class="btn" href="#start">Book Free Consult</a></div>
 </nav>
 
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="crumb"><a href="/">Home</a> · Dental Implants</div>
-      <div class="eyebrow">Restorative Dentistry · Edgewater, Miami</div>
-      <h1>Replace a missing tooth, <span class="serif">like it was never gone.</span></h1>
-      <p class="lead">A titanium implant and a custom crown that looks, feels, and works like a natural tooth, often placed in a single visit. Dr. Aakash Rana plans and performs every case himself, and your crown is made in our own lab.</p>
-      <div class="hero-cta">
-        <a class="btn btn-lg" href="/contact.html#book">Book my free implant consult</a>
-        <a class="btn btn-ghost btn-lg" href="https://wa.me/17865790521?text=Hi%20Prana%20Dental%2C%20I%27d%20like%20to%20book%20a%20free%20consult">WhatsApp us</a>
-      </div>
-      <div class="hero-trust">
-        <span class="it"><b class="st">★★★★★</b> <b>4.9</b> · 200+ Google reviews</span>
-        <span class="it"><b>5-year</b> guarantee</span>
-        <span class="it"><b>In-house</b> lab</span>
-        <span class="it"><b>Bilingual</b> · EN &amp; ES</span>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <img src="t2-poster.jpg" alt="Real Prana patient with a fully restored smile" loading="eager">
-      <div class="offer-tag">
-        <div class="k">Free implant consult + 3D scan</div>
-        <div class="v">$700 value, no obligation</div>
-      </div>
-    </div>
-  </div>
+<header class="hero" id="start">
+<div class="wrap hero-grid">
+<div>
+<div class="crumb"><a href="/">Home</a> · Dental Implants</div>
+<div class="eyebrow">Restorative Dentistry · Edgewater, Miami</div>
+<h1>Replace a missing tooth, <span class="serif">like it was never gone.</span></h1>
+<p class="lead">A titanium implant and a custom crown that looks, feels, and works like a natural tooth, often placed in a single visit. Dr. Aakash Rana plans and performs every case himself, and your crown is made in our own lab.</p>
+<div class="hero-trust">
+<span class="it"><b class="st">★★★★★</b> <b>4.9</b> · 200+ Google reviews</span>
+<span class="it"><b>From $1,850</b> implant + crown</span>
+<span class="it"><b>5-year</b> guarantee</span>
+<span class="it"><b>In-house</b> lab</span>
+<span class="it"><b>Bilingual</b> · EN &amp; ES</span>
+</div>
+</div>
+
+<!-- FAST CAPTURE — 3 questions, then contact. Target: under 45 seconds. -->
+<div class="hero-visual">
+<div class="cap-card">
+<div class="cap-bar"><i id="capBar"></i></div>
+<div class="cap-body">
+
+<div class="cap-step on" data-cap="1">
+<div class="cap-head">Free consult · 3 quick questions</div>
+<div class="cap-q">Which best describes you?</div>
+<div class="cap-opts">
+<button class="cap-opt" data-q="situation" data-v="Already had the tooth removed"><span class="k">A</span>I already had the tooth removed</button>
+<button class="cap-opt" data-q="situation" data-v="Dentist says it needs to come out"><span class="k">B</span>My dentist says it needs to come out</button>
+<button class="cap-opt" data-q="situation" data-v="Missing a tooth"><span class="k">C</span>I'm missing a tooth</button>
+<button class="cap-opt" data-q="situation" data-v="Not sure"><span class="k">D</span>I'm not sure</button>
+</div>
+</div>
+
+<div class="cap-step" data-cap="2">
+<div class="cap-head">Question 2 of 3</div>
+<div class="cap-q">Which tooth is it?</div>
+<div class="cap-opts">
+<button class="cap-opt" data-q="tooth" data-v="Front"><span class="k">A</span>Front</button>
+<button class="cap-opt" data-q="tooth" data-v="Back"><span class="k">B</span>Back</button>
+<button class="cap-opt" data-q="tooth" data-v="Not sure"><span class="k">C</span>Not sure</button>
+</div>
+</div>
+
+<div class="cap-step" data-cap="3">
+<div class="cap-head">Question 3 of 3</div>
+<div class="cap-q">When would you like to come in?</div>
+<div class="cap-opts">
+<button class="cap-opt" data-q="timing" data-v="Today"><span class="k">A</span>Today</button>
+<button class="cap-opt" data-q="timing" data-v="This week"><span class="k">B</span>This week</button>
+<button class="cap-opt" data-q="timing" data-v="Next week"><span class="k">C</span>Next week</button>
+<button class="cap-opt" data-q="timing" data-v="Just researching"><span class="k">D</span>Just researching</button>
+</div>
+</div>
+
+<div class="cap-step" data-cap="4">
+<div class="cap-head">Last step</div>
+<div class="cap-q">Where should we reach you?</div>
+<div id="capNative">
+<div class="cap-fields">
+<input type="text" id="capName" placeholder="Name" autocomplete="name" required>
+<input type="tel" id="capPhone" placeholder="Phone" autocomplete="tel" required>
+<input type="email" id="capEmail" placeholder="Email" autocomplete="email" required>
+</div>
+<button class="btn btn-lg" id="capSubmit" style="width:100%">Book my free consult</button>
+<p class="cap-fine">By submitting you agree to be contacted by Prana Dental Miami by phone, text, and email about your consultation. See our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms</a>.</p>
+</div>
+<div id="capForm"></div>
+<div class="cap-trust"><span>$700 value</span><span>·</span><span>No obligation</span><span>·</span><span>3D scan included</span></div>
+</div>
+
+<div class="cap-step" data-cap="5">
+<div class="cap-done">
+<div class="cap-seal">✓</div>
+<h3>Thanks — you're on the list.</h3>
+<p id="capDoneMsg">One of our team will call you shortly to confirm your free consult and answer any questions.</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
 </header>
 
 <div class="strip"><div class="wrap">
-  <span><b class="st">★★★★★</b> <b>4.9</b> on Google</span><span class="sep">·</span>
-  <span><b>Often one visit</b></span><span class="sep">·</span>
-  <span><b>5-year guarantee</b> on workmanship</span><span class="sep">·</span>
-  <span><b>Todo en Español</b></span>
+<span><b class="st">★★★★★</b> <b>4.9</b> on Google</span><span class="sep">·</span>
+<span><b>Often one visit</b></span><span class="sep">·</span>
+<span><b>5-year guarantee</b> on workmanship</span><span class="sep">·</span>
+<span><b>Todo en Español</b></span>
 </div></div>
 
-<section class="s">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-eyebrow">Life with implants</div><h2>Eat, laugh, and live <em>like before.</em></h2><p class="sub">A missing tooth changes how you eat, speak, and smile. An implant gives you back a permanent tooth that feels completely your own.</p></div>
-    <div class="gal">
-      <div class="g"><img src="t4-poster.jpg" alt="Real patient smiling after her implant treatment" loading="lazy"><div class="cap">A single tooth, restored</div></div>
-      <div class="g"><img src="patient.jpg" alt="Dr. Rana with a smiling young patient" loading="lazy"><div class="cap">Care for the whole family</div></div>
-      <div class="g"><img src="t3-poster.jpg" alt="A patient hugging Dr. Rana after treatment" loading="lazy"><div class="cap">Care that feels like family</div></div>
-    </div>
-  </div>
+<!-- ═══ BEFORE & AFTER ═══ -->
+<section class="s" id="results">
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Before &amp; after</div><h2>One tooth changes <em>the whole smile.</em></h2><p class="sub">Drag the handle across each case. Real single-tooth implants placed and restored at Prana.</p></div>
+<div class="ba-grid">
+<!-- REPLACE the .ph divs with <img src="imp-1-before.jpg" alt=""> and <img class="ba-after" src="imp-1-after.jpg" alt=""> -->
+<figure class="ba">
+<div class="ba-view" data-ba>
+<div class="ph ph-a">Replace with<br>imp-1-before.jpg</div>
+<div class="ph ph-b ba-after">Replace with<br>imp-1-after.jpg</div>
+<div class="ba-handle"></div>
+<span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+</div>
+<figcaption class="cap"><b>Upper front tooth</b>Implant + porcelain crown</figcaption>
+</figure>
+<figure class="ba">
+<div class="ba-view" data-ba>
+<div class="ph ph-a">Replace with<br>imp-2-before.jpg</div>
+<div class="ph ph-b ba-after">Replace with<br>imp-2-after.jpg</div>
+<div class="ba-handle"></div>
+<span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+</div>
+<figcaption class="cap"><b>Back molar</b>Placed and restored in-house</figcaption>
+</figure>
+<figure class="ba">
+<div class="ba-view" data-ba>
+<div class="ph ph-a">Replace with<br>imp-3-before.jpg</div>
+<div class="ph ph-b ba-after">Replace with<br>imp-3-after.jpg</div>
+<div class="ba-handle"></div>
+<span class="ba-tag l">Before</span><span class="ba-tag r">After</span>
+</div>
+<figcaption class="cap"><b>Failing tooth replaced</b>Extraction + implant</figcaption>
+</figure>
+</div>
+<p class="sub" style="font-size:13px;margin-top:18px">Individual results vary. Photographs are of actual Prana patients, used with written permission.</p>
+<div style="margin-top:34px"><a class="btn btn-lg" href="#start">See if I'm a candidate</a></div>
+</div>
 </section>
 
 <section class="s bg-paper2">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-eyebrow">Why Prana</div><h2>Implants you can <em>trust.</em></h2><p class="sub">An implant is a long-term investment. Here's why patients choose Prana to do it right.</p></div>
-    <div class="cards">
-      <div class="card"><div class="ic">1</div><h3>One surgeon, start to finish</h3><p>Dr. Rana plans and places your implant personally, NYU-trained with thousands of cases of experience.</p></div>
-      <div class="card"><div class="ic">2</div><h3>Transparent pricing</h3><p>Clear, honest pricing with a written plan before anything begins.</p><div class="price">From $1,850</div></div>
-      <div class="card"><div class="ic">3</div><h3>Crown made in-house</h3><p>Your crown is designed and milled on-site for a better fit, faster turnaround, and a fairer price.</p></div>
-      <div class="card"><div class="ic">4</div><h3>5-year guarantee*</h3><p>We stand behind the workmanship on every implant we place.</p></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Life with implants</div><h2>Eat, laugh, and live <em>like before.</em></h2><p class="sub">A missing tooth changes how you eat, speak, and smile. An implant gives you back a permanent tooth that feels completely your own.</p></div>
+<div class="gal">
+<div class="g"><img src="t4-poster.jpg" alt="Real patient smiling after her implant treatment" loading="lazy"><div class="cap">A single tooth, restored</div></div>
+<div class="g"><img src="patient.jpg" alt="Dr. Rana with a smiling young patient" loading="lazy"><div class="cap">Care for the whole family</div></div>
+<div class="g"><img src="t3-poster.jpg" alt="A patient hugging Dr. Rana after treatment" loading="lazy"><div class="cap">Care that feels like family</div></div>
+</div>
+</div>
 </section>
 
 <section class="s">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-eyebrow">How it works</div><h2>From consult to <em>new tooth.</em></h2></div>
-    <div class="steps">
-      <div class="step"><div class="n">01</div><h3>Free consult + 3D scan</h3><p>We check your bone and gums and give you a clear, honest answer on whether an implant is right.</p></div>
-      <div class="step"><div class="n">02</div><h3>Implant placed</h3><p>Dr. Rana places the titanium implant gently, often in a single visit, with sedation available.</p></div>
-      <div class="step"><div class="n">03</div><h3>Heal</h3><p>The implant fuses with your bone over a few weeks while you go about life as normal.</p></div>
-      <div class="step"><div class="n">04</div><h3>Crown fitted</h3><p>Your custom crown is placed, looking and working just like a natural tooth.</p></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Why Prana</div><h2>Implants you can <em>trust.</em></h2><p class="sub">An implant is a long-term investment. Here's why patients choose Prana to do it right.</p></div>
+<div class="cards">
+<div class="card"><div class="ic">1</div><h3>One surgeon, start to finish</h3><p>Dr. Rana plans and places your implant personally, NYU-trained with thousands of cases of experience.</p></div>
+<div class="card"><div class="ic">2</div><h3>Transparent pricing</h3><p>Clear, honest pricing with a written plan before anything begins.</p><div class="price">From $1,850</div></div>
+<div class="card"><div class="ic">3</div><h3>Crown made in-house</h3><p>Your crown is designed and milled on-site for a better fit, faster turnaround, and a fairer price.</p></div>
+<div class="card"><div class="ic">4</div><h3>5-year guarantee*</h3><p>We stand behind the workmanship on every implant we place.</p></div>
+</div>
+</div>
+</section>
+
+<section class="s bg-paper2">
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">How it works</div><h2>From consult to <em>new tooth.</em></h2></div>
+<div class="steps">
+<div class="step"><div class="n">01</div><h3>Free consult + 3D scan</h3><p>We check your bone and gums and give you a clear, honest answer on whether an implant is right.</p></div>
+<div class="step"><div class="n">02</div><h3>Implant placed</h3><p>Dr. Rana places the titanium implant gently, often in a single visit, with sedation available.</p></div>
+<div class="step"><div class="n">03</div><h3>Heal</h3><p>The implant fuses with your bone over a few weeks while you go about life as normal.</p></div>
+<div class="step"><div class="n">04</div><h3>Crown fitted</h3><p>Your custom crown is placed, looking and working just like a natural tooth.</p></div>
+</div>
+</div>
 </section>
 
 <section class="s doc">
-  <div class="wrap doc-grid">
-    <div class="pic"><img src="docb.jpg" alt="Dr. Aakash Rana, Prana Dental Miami"></div>
-    <div>
-      <div class="sec-eyebrow">Meet your dentist</div>
-      <h2>Placed by <em>Dr. Aakash Rana.</em></h2>
-      <p class="sub">A tooth you'll live with for decades deserves a dentist who obsesses over millimeters. I trained at NYU, and most of my $100,000+ in continuing education went into surgical and implant work. I plan your case on a 3D scan, place the implant myself, and your crown is made a few steps away in our own lab — one doctor, start to finish.</p>
-      <div class="creds">
-        <span>NYU College of Dentistry</span><span>$100,000+ continuing education</span><span>Graduated with honors</span><span>In-house lab</span><span>Bilingual · EN &amp; ES</span>
-      </div>
-    </div>
-  </div>
+<div class="wrap doc-grid">
+<div class="pic"><img src="docb.jpg" alt="Dr. Aakash Rana, Prana Dental Miami"></div>
+<div>
+<div class="sec-eyebrow">Meet your dentist</div>
+<h2>Placed by <em>Dr. Aakash Rana.</em></h2>
+<p class="sub">A tooth you'll live with for decades deserves a dentist who obsesses over millimeters. I trained at NYU, and most of my $100,000+ in continuing education went into surgical and implant work. I plan your case on a 3D scan, place the implant myself, and your crown is made a few steps away in our own lab — one doctor, start to finish.</p>
+<div class="creds">
+<span>NYU College of Dentistry</span><span>$100,000+ continuing education</span><span>Graduated with honors</span><span>In-house lab</span><span>Bilingual · EN &amp; ES</span>
+</div>
+</div>
+</div>
 </section>
 
 <section class="s bg-paper2">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-eyebrow">Patient stories</div><h2>In their <em>own words.</em></h2><p class="sub">Real patients on what it's like to be cared for by Dr. Rana.</p></div>
-    <div class="vids">
-      <div class="vid"><video controls playsinline preload="none" poster="t0-poster.jpg"><source src="t0.mp4" type="video/mp4"></video></div>
-      <div class="vid"><video controls playsinline preload="none" poster="t3-poster.jpg"><source src="t3.mp4" type="video/mp4"></video></div>
-      <div class="vid"><video controls playsinline preload="none" poster="t4-poster.jpg"><source src="t4.mp4" type="video/mp4"></video></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Patient stories</div><h2>In their <em>own words.</em></h2><p class="sub">Real patients on what it's like to be cared for by Dr. Rana.</p></div>
+<div class="vids">
+<div class="vid"><video controls playsinline preload="none" poster="t0-poster.jpg"><source src="t0.mp4" type="video/mp4"></video></div>
+<div class="vid"><video controls playsinline preload="none" poster="t3-poster.jpg"><source src="t3.mp4" type="video/mp4"></video></div>
+<div class="vid"><video controls playsinline preload="none" poster="t4-poster.jpg"><source src="t4.mp4" type="video/mp4"></video></div>
+</div>
+</div>
 </section>
 
-<section class="s">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-eyebrow">Transparent pricing</div><h2>Clear pricing, <em>no surprises.</em></h2><p class="sub">You'll always know the cost up front, with a written plan before anything begins.</p></div>
-    <div class="price-wrap">
-      <div class="price-card">
-        <div class="tag">Dental implant + crown</div>
-        <div class="amt">$1,850<small> / implant</small></div>
-        <ul>
-          <li><span class="d">✓</span> Titanium implant + custom crown</li>
-          <li><span class="d">✓</span> Often completed in one visit</li>
-          <li><span class="d">✓</span> Crown crafted in our in-house lab</li>
-          <li><span class="d">✓</span> Backed by a 5-year workmanship guarantee*</li>
-        </ul>
-        <a class="btn btn-lg" href="/contact.html#book">Book my free consult</a>
-      </div>
-      <div class="fin">
-        <h3>Flexible financing</h3>
-        <p>Spread the cost across low monthly payments. We work with leading patient-financing partners, including 0% options on approved credit.</p>
-        <div class="logos"><span>CareCredit</span><span>Cherry</span><span>LendingClub</span></div>
-        <p style="margin-top:22px;color:var(--muted-d);font-size:14px">Your free consult ($700 value) includes a 3D scan, written quote, and your financing options, with zero obligation.</p>
-      </div>
-    </div>
-  </div>
+<section class="s" id="pricing">
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Transparent pricing</div><h2>Clear pricing, <em>no surprises.</em></h2><p class="sub">You'll always know the cost up front, with a written plan before anything begins.</p></div>
+<div class="price-wrap">
+<div class="price-card">
+<div class="tag">Dental implant + crown</div>
+<div class="amt">$1,850<small> / implant</small></div>
+<ul>
+<li><span class="d">✓</span> Titanium implant + custom crown</li>
+<li><span class="d">✓</span> Often completed in one visit</li>
+<li><span class="d">✓</span> Crown crafted in our in-house lab</li>
+<li><span class="d">✓</span> Backed by a 5-year workmanship guarantee*</li>
+</ul>
+<a class="btn btn-lg" href="#start">Book my free consult</a>
+</div>
+<div class="fin">
+<h3>Flexible financing</h3>
+<p>Spread the cost across low monthly payments. We work with leading patient-financing partners, including 0% options on approved credit.</p>
+<div class="logos"><span>CareCredit</span><span>Cherry</span><span>LendingClub</span></div>
+<p style="margin-top:22px;color:var(--muted-d);font-size:14px">Your free consult ($700 value) includes a 3D scan, written quote, and your financing options, with zero obligation.</p>
+</div>
+</div>
+</div>
 </section>
 
 <section class="s bg-paper2">
-  <div class="wrap">
-    <div class="sec-head"><div class="sec-eyebrow">Comfort &amp; care</div><h2>An experience built <em>around you.</em></h2></div>
-    <div class="reassure">
-      <div class="r"><h4>Gentle &amp; judgment-free</h4><p>We move at your pace, explain everything, and oral sedation is available if you'd like it.</p></div>
-      <div class="r"><h4>A calm, med-spa setting</h4><p>A modern Edgewater studio designed to feel nothing like the dentist you remember.</p></div>
-      <div class="r"><h4>Honest from day one</h4><p>Clear pricing, a written plan, and a dentist who tells you the truth about what you do and don't need.</p></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Comfort &amp; care</div><h2>An experience built <em>around you.</em></h2></div>
+<div class="reassure">
+<div class="r"><h4>Gentle &amp; judgment-free</h4><p>We move at your pace, explain everything, and oral sedation is available if you'd like it.</p></div>
+<div class="r"><h4>A calm, med-spa setting</h4><p>A modern Edgewater studio designed to feel nothing like the dentist you remember.</p></div>
+<div class="r"><h4>Honest from day one</h4><p>Clear pricing, a written plan, and a dentist who tells you the truth about what you do and don't need.</p></div>
+</div>
+</div>
 </section>
 
 <section class="s">
-  <div class="wrap">
-    <div class="sec-head" style="margin:0 auto 46px;text-align:center"><div class="sec-eyebrow">Questions</div><h2>Implants, <em>answered.</em></h2></div>
-    <div class="faq">
-      <details open><summary>How much is a dental implant in Miami?</summary><p>Implants start at $1,850 for the implant and custom crown. Final price depends on bone, gum health, and whether an extraction or sedation is needed, confirmed in writing at your free consult.</p></details>
-      <details><summary>Does it hurt?</summary><p>Most patients are surprised how comfortable it is. Oral sedation is available, and we go at your pace.</p></details>
-      <details><summary>Can it be done in one visit?</summary><p>Often, yes, depending on the site. We confirm at your free 3D scan.</p></details>
-      <details><summary>How long do implants last?</summary><p>With good care, implants can last decades. We back our workmanship with a 5-year guarantee.</p></details>
-      <details><summary>What if I'm missing several teeth?</summary><p>We may recommend an implant bridge or All-on-4 full-arch. We'll walk you through the best option at your consult.</p></details>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head" style="margin:0 auto 46px;text-align:center"><div class="sec-eyebrow">Questions</div><h2>Implants, <em>answered.</em></h2></div>
+<div class="faq">
+<details open><summary>How much is a dental implant in Miami?</summary><p>Implants start at $1,850 for the implant and custom crown. Final price depends on bone, gum health, and whether an extraction or sedation is needed, confirmed in writing at your free consult.</p></details>
+<details><summary>Does it hurt?</summary><p>Most patients are surprised how comfortable it is. Oral sedation is available, and we go at your pace.</p></details>
+<details><summary>Can it be done in one visit?</summary><p>Often, yes, depending on the site. We confirm at your free 3D scan.</p></details>
+<details><summary>How long do implants last?</summary><p>With good care, implants can last decades. We back our workmanship with a 5-year guarantee.</p></details>
+<details><summary>What if I'm missing several teeth?</summary><p>We may recommend an implant bridge or All-on-4 full-arch. We'll walk you through the best option at your consult.</p></details>
+</div>
+</div>
 </section>
 
 <section class="s">
-  <div class="wrap">
-    <div class="final">
-      <h2>Ready for a <span class="serif">permanent fix?</span></h2>
-      <p>Book your free implant consult, a $700 value, including a 3D scan and a clear, written plan. No pressure.</p>
-      <div class="cta">
-        <a class="btn btn-light btn-lg" href="/contact.html#book">Book my free consult</a>
-        <a class="btn btn-ghost btn-lg" style="color:#fff;border-color:var(--line-d)" href="tel:+17865790521">Call (786) 579-0521</a>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="final">
+<h2>Ready for a <span class="serif">permanent fix?</span></h2>
+<p>Book your free implant consult, a $700 value, including a 3D scan and a clear, written plan. No pressure.</p>
+<div class="cta">
+<a class="btn btn-light btn-lg" href="#start">Book my free consult</a>
+<a class="btn btn-ghost btn-lg" style="color:#fff;border-color:var(--line-d)" href="tel:+17865790521">Call (786) 579-0521</a>
+</div>
+</div>
+</div>
 </section>
-
-
-
 
 <footer>
-  <div class="wrap">
-    <div class="brand" style="letter-spacing:.18em">PRANA·DENTAL MIAMI</div>
-    <div class="foot-links"><a href="/edgewater.html">Edgewater</a><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a><a href="/guarantee.html">5-Year Guarantee</a>
-      <a href="/">Home</a><a href="/implants.html">Implants</a><a href="/all-on-4.html">All-on-4</a><a href="/veneers.html">Veneers</a><a href="/general-dentistry.html">General Dentistry</a><a href="/invisalign.html">Invisalign &amp; Braces</a><a href="/crowns.html">Crowns</a><a href="/whitening.html">Whitening</a><a href="/sedation.html">Sedation</a><a href="/emergency.html">Emergency</a><a href="/pricing.html">Pricing</a><a href="/financing.html">Financing</a><a href="/new-patient.html">New Patient</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/contact.html">Contact</a><a href="/es.html">Español</a><a href="tel:+17865790521">(786) 579-0521</a>
-    </div>
-    <p class="foot-fine">*5-year guarantee covers workmanship on implants placed at Prana Dental, per the terms in your treatment plan. 3050 Biscayne Blvd, Ste 703, Miami, FL 33137 · Mon–Sat 8AM–8PM · Pricing is a starting point; exact plan confirmed in writing. Financing on approved credit.</p>
-  </div>
+<div class="wrap">
+<div class="brand" style="letter-spacing:.18em">PRANA·DENTAL MIAMI</div>
+<div class="foot-links"><a href="/edgewater.html">Edgewater</a><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a><a href="/guarantee.html">5-Year Guarantee</a>
+<a href="/">Home</a><a href="/implants.html">Implants</a><a href="/all-on-4.html">All-on-4</a><a href="/veneers.html">Veneers</a><a href="/general-dentistry.html">General Dentistry</a><a href="/invisalign.html">Invisalign &amp; Braces</a><a href="/crowns.html">Crowns</a><a href="/whitening.html">Whitening</a><a href="/sedation.html">Sedation</a><a href="/emergency.html">Emergency</a><a href="/pricing.html">Pricing</a><a href="/financing.html">Financing</a><a href="/new-patient.html">New Patient</a><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/contact.html">Contact</a><a href="/es.html">Español</a><a href="tel:+17865790521">(786) 579-0521</a>
+</div>
+<p class="foot-fine">*5-year guarantee covers workmanship on implants placed at Prana Dental, per the terms in your treatment plan. 3050 Biscayne Blvd, Ste 703, Miami, FL 33137 · Mon–Sat 8AM–8PM · Pricing is a starting point; exact plan confirmed in writing. Financing on approved credit.</p>
+</div>
 </footer>
 
-<div class="mbar"><a class="c" href="tel:+17865790521">Call</a><a class="b" href="/contact.html#book">Book Free Consult</a></div>
+<div class="mbar"><a class="c" href="tel:+17865790521">Call</a><a class="b" href="#start">Book Free Consult</a></div>
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script>
+/* ═══════════ CONFIG ═══════════ */
+const CONFIG = {
+  // REPLACE: GoHighLevel inbound webhook URL.
+  // While this is empty the module falls back to the LeadConnector form below,
+  // so leads still reach the CRM — they just arrive without the quiz answers.
+  webhookUrl: "",
+  formUrl: "https://api.leadconnectorhq.com/widget/form/mDpUSOrNwxC8qu8w8aRH",
+  service: "Single implant"
+};
+
+function track(ev, p){
+  try{ if(window.fbq) fbq('trackCustom', ev, p||{}); }catch(e){}
+  try{ if(window.gtag) gtag('event', ev, p||{}); }catch(e){}
+  try{ if(window.dataLayer) dataLayer.push(Object.assign({event:ev}, p||{})); }catch(e){}
+}
+
+const HDR_OFFSET = 74;
+function scrollToEl(el, smooth){
+  if(!el) return;
+  window.scrollTo({top: el.getBoundingClientRect().top + window.pageYOffset - HDR_OFFSET, behavior: smooth ? 'smooth' : 'auto'});
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if(!a) return;
+  const id = a.getAttribute('href');
+  if(id.length < 2) return;
+  const el = document.querySelector(id);
+  if(!el) return;
+  e.preventDefault();
+  scrollToEl(el, true);
+});
+
+/* ═══════════ CAPTURE MODULE ═══════════ */
+const CAP_Q = 3;
+const capAnswers = {};
+let capStep = 1;
+const capBar = document.getElementById('capBar');
+const capSteps = document.querySelectorAll('.cap-step');
+
+function capShow(n){
+  capStep = n;
+  capSteps.forEach(s => s.classList.toggle('on', +s.dataset.cap === n));
+  capBar.style.width = Math.min(100, ((n - 1) / (CAP_Q + 1)) * 100) + '%';
+  if(n > 1 && window.innerWidth < 880) scrollToEl(document.querySelector('.cap-card'), true);
+}
+
+document.querySelectorAll('.cap-opt').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.cap-opts').querySelectorAll('.cap-opt').forEach(b => b.classList.remove('sel'));
+    btn.classList.add('sel');
+    capAnswers[btn.dataset.q] = btn.dataset.v;
+    track('capture_step', {step: capStep, question: btn.dataset.q, answer: btn.dataset.v, service: CONFIG.service});
+    setTimeout(() => capShow(capStep + 1), 240);
+  });
+});
+
+capSteps.forEach(s => {
+  const n = +s.dataset.cap;
+  if(n > 1 && n <= CAP_Q + 1){
+    const b = document.createElement('button');
+    b.className = 'cap-back'; b.textContent = '← Back'; b.dataset.capback = '1';
+    s.appendChild(b);
+  }
+});
+document.addEventListener('click', e => {
+  if(e.target.matches('[data-capback]')) capShow(Math.max(1, capStep - 1));
+});
+
+/* No webhook configured → hand off to the proven LeadConnector form so no lead
+   is ever lost. With a webhook set, the native fields + thank-you screen run. */
+function capUseFallback(){ return !CONFIG.webhookUrl; }
+
+if(capUseFallback()){
+  document.getElementById('capNative').style.display = 'none';
+}
+
+document.getElementById('capSubmit').addEventListener('click', async () => {
+  const n = document.getElementById('capName');
+  const p = document.getElementById('capPhone');
+  const e = document.getElementById('capEmail');
+  let ok = true;
+  [n, p, e].forEach(f => {
+    const bad = !f.value.trim()
+      || (f.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value))
+      || (f.type === 'tel' && f.value.replace(/\D/g,'').length < 10);
+    f.classList.toggle('err', bad);
+    if(bad) ok = false;
+  });
+  if(!ok) return;
+
+  capAnswers.name = n.value.trim();
+  capAnswers.phone = p.value.trim();
+  capAnswers.email = e.value.trim();
+  capAnswers.service = CONFIG.service;
+  capAnswers.source = 'implants page capture';
+  capAnswers.page = location.href;
+
+  track('Lead', {content_name:'Single Implant Capture', value:1850, currency:'USD'});
+  track('capture_complete', capAnswers);
+
+  try{
+    await fetch(CONFIG.webhookUrl, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(capAnswers)});
+  }catch(err){ /* never trap the patient on a network error */ }
+
+  const msg = document.getElementById('capDoneMsg');
+  msg.textContent = capAnswers.timing === 'Today' || capAnswers.timing === 'This week'
+    ? 'One of our team will call you within the next few minutes to get you booked in.'
+    : 'One of our team will call you shortly to confirm your free consult and answer any questions.';
+  capShow(CAP_Q + 2);
+});
+
+/* Fallback path: after question 3, render the LeadConnector form in place. */
+function capRenderForm(){
+  const wrap = document.getElementById('capForm');
+  if(!capUseFallback() || wrap.dataset.done) return;
+  wrap.dataset.done = '1';
+  const q = new URLSearchParams(capAnswers).toString();
+  wrap.innerHTML = '<iframe src="' + CONFIG.formUrl + '?' + q + '" title="Book your free implant consult"></iframe>';
+  track('capture_form_view', capAnswers);
+}
+const capObs = new MutationObserver(() => {
+  if(document.querySelector('.cap-step[data-cap="4"]').classList.contains('on')) capRenderForm();
+});
+capObs.observe(document.querySelector('.cap-card'), {attributes:true, subtree:true, attributeFilter:['class']});
+
+/* ═══════════ BEFORE / AFTER ═══════════ */
+document.querySelectorAll('[data-ba]').forEach(v => {
+  const after = v.querySelector('.ba-after');
+  const handle = v.querySelector('.ba-handle');
+  let dragging = false;
+  const set = x => {
+    const r = v.getBoundingClientRect();
+    let pc = Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100));
+    after.style.clipPath = 'inset(0 0 0 ' + pc + '%)';
+    handle.style.left = pc + '%';
+  };
+  const start = ev => { dragging = true; set((ev.touches ? ev.touches[0] : ev).clientX); };
+  const move = ev => { if(dragging) set((ev.touches ? ev.touches[0] : ev).clientX); };
+  v.addEventListener('mousedown', start);
+  v.addEventListener('touchstart', start, {passive:true});
+  addEventListener('mousemove', move);
+  addEventListener('touchmove', move, {passive:true});
+  addEventListener('mouseup', () => dragging = false);
+  addEventListener('touchend', () => dragging = false);
+  v.addEventListener('mousemove', ev => { if(!dragging) set(ev.clientX); });
+});
+</script>
 <style>#wa-fab{position:fixed;right:16px;bottom:16px;z-index:2147482000;display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);font:600 14px 'Archivo',-apple-system,BlinkMacSystemFont,sans-serif;text-decoration:none;transition:transform .2s}#wa-fab:hover{transform:translateY(-1px)}#wa-fab svg{width:20px;height:20px;display:block}@media(max-width:760px){#wa-fab{bottom:84px;padding:12px;gap:0}#wa-fab span{display:none}}</style><a id="wa-fab" href="https://wa.me/17865790521?text=Hi%20Prana%20Dental%2C%20I%27d%20like%20info%20on%20dental%20implants" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.004c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.02ZM12.04 20.15a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24a8.2 8.2 0 0 1 5.82 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg><span>WhatsApp</span></a>
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a3847a8acd135ae79970058" data-source="WEB_USER"></script></body>
 </html>

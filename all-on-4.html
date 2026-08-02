@@ -918,6 +918,20 @@ function track(event, params){
   try{ if(window.dataLayer) dataLayer.push(Object.assign({event:event}, params||{})); }catch(e){}
 }
 
+/* ---------- deep-link fix ----------
+   The hero is 100svh and media loads late, so the browser's initial jump to
+   a #hash lands before layout settles. Re-scroll once everything is sized. */
+if(location.hash && location.hash.length > 1){
+  const target = document.querySelector(location.hash);
+  if(target){
+    const land = () => {
+      const y = target.getBoundingClientRect().top + scrollY - 70;
+      scrollTo({top:y, behavior:'auto'});
+    };
+    addEventListener('load', () => { land(); setTimeout(land, 260); });
+  }
+}
+
 /* ---------- header ---------- */
 const hdr = document.getElementById('hdr');
 addEventListener('scroll', () => hdr.classList.toggle('stuck', scrollY > 60), {passive:true});

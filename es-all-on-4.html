@@ -182,7 +182,8 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
 .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .ba{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
 .ba-view{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:ew-resize;user-select:none;background:var(--paper-2)}
-.ba-view img,.ba-view .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba-view img,.ba-view .ph,.ba-view picture{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ba-view picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ba-after{clip-path:inset(0 0 0 50%)}
 .ph{display:grid;place-items:center;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:20px;line-height:2}
 .ph-a{background:repeating-linear-gradient(45deg,#E6E0D5,#E6E0D5 11px,#DED7CA 11px,#DED7CA 22px)}
@@ -459,38 +460,37 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <!-- ═══ BEFORE & AFTER ═══ -->
 <section class="s bg-paper2" id="results">
 <div class="wrap">
-<div class="sec-head"><div class="sec-eyebrow">Before &amp; after</div><h2>One day is the <em>whole difference.</em></h2><p class="sub">Drag the handle across each case. Real arches planned, placed, and finished at Prana.</p></div>
+<div class="sec-head"><div class="sec-eyebrow">Antes y después</div><h2>Un día marca <em>toda la diferencia.</em></h2><p class="sub">Desliza cada control. <b>Solo ilustraciones de ejemplo</b> (marcadores) hasta subir fotos clínicas de Prana.</p></div>
 <div class="ba-grid">
-<!-- REPLACE the .ph divs with <img src="ba-1-before.jpg" alt="" loading="lazy" decoding="async"> and <img class="ba-after" src="ba-1-after.jpg" alt="" loading="lazy" decoding="async"> -->
 <figure class="ba">
 <div class="ba-view" data-ba>
-<div class="ph ph-a">Replace with<br>ba-1-before.jpg</div>
-<div class="ph ph-b ba-after">Replace with<br>ba-1-after.jpg</div>
+<picture><source type="image/webp" srcset="ba-1-before.webp"><img src="ba-1-before.jpg" alt="Ilustración ejemplo antes" loading="lazy" decoding="async"></picture>
+<picture><source type="image/webp" srcset="ba-1-after.webp"><img class="ba-after" src="ba-1-after.jpg" alt="Ilustración ejemplo después" loading="lazy" decoding="async"></picture>
 <div class="ba-handle"></div>
-<span class="ba-tag l">Before</span><span class="ba-tag r">Day 1</span>
+<span class="ba-tag l">Antes</span><span class="ba-tag r">Después</span>
 </div>
-<figcaption class="cap"><b>Superior arch, failing teeth</b><span>All-on-4 zirconia · fixed same day</span></figcaption>
+<figcaption class="cap"><b>Ilustración de ejemplo</b><span>Marcador · no es paciente de Prana</span></figcaption>
 </figure>
 <figure class="ba">
 <div class="ba-view" data-ba>
-<div class="ph ph-a">Replace with<br>ba-2-before.jpg</div>
-<div class="ph ph-b ba-after">Replace with<br>ba-2-after.jpg</div>
+<picture><source type="image/webp" srcset="ba-2-before.webp"><img src="ba-2-before.jpg" alt="Ilustración ejemplo antes" loading="lazy" decoding="async"></picture>
+<picture><source type="image/webp" srcset="ba-2-after.webp"><img class="ba-after" src="ba-2-after.jpg" alt="Ilustración ejemplo después" loading="lazy" decoding="async"></picture>
 <div class="ba-handle"></div>
-<span class="ba-tag l">Before</span><span class="ba-tag r">Day 1</span>
+<span class="ba-tag l">Antes</span><span class="ba-tag r">Después</span>
 </div>
-<figcaption class="cap"><b>Full mouth, 20 years of dentures</b><span>Ambas arches · zirconia</span></figcaption>
+<figcaption class="cap"><b>Ilustración de ejemplo</b><span>Marcador · no es paciente de Prana</span></figcaption>
 </figure>
 <figure class="ba">
 <div class="ba-view" data-ba>
-<div class="ph ph-a">Replace with<br>ba-3-before.jpg</div>
-<div class="ph ph-b ba-after">Replace with<br>ba-3-after.jpg</div>
+<picture><source type="image/webp" srcset="ba-3-before.webp"><img src="ba-3-before.jpg" alt="Ilustración ejemplo antes" loading="lazy" decoding="async"></picture>
+<picture><source type="image/webp" srcset="ba-3-after.webp"><img class="ba-after" src="ba-3-after.jpg" alt="Ilustración ejemplo después" loading="lazy" decoding="async"></picture>
 <div class="ba-handle"></div>
-<span class="ba-tag l">Before</span><span class="ba-tag r">Day 1</span>
+<span class="ba-tag l">Antes</span><span class="ba-tag r">Después</span>
 </div>
-<figcaption class="cap"><b>Inferior arch, bone loss</b><span>All-on-4 · same-day provisional</span></figcaption>
+<figcaption class="cap"><b>Ilustración de ejemplo</b><span>Marcador · no es paciente de Prana</span></figcaption>
 </figure>
 </div>
-<p class="sub" style="font-size:13px;margin-top:20px">Individual results vary. Photographs are of actual Prana patients, used with written permission.</p>
+<p class="sub" style="font-size:13px;margin-top:20px">Los resultados varían. Estas son <b>solo ilustraciones de ejemplo</b>, no fotos de pacientes de Prana.</p>
 <div class="sec-cta"><a class="btn btn-lg" href="#quiz" data-cta="after-results">Could this be me? Take the quiz →</a></div>
 </div>
 </section>

@@ -830,6 +830,9 @@ document.getElementById('qSubmit').addEventListener('click', async () => {
   const t = leadTier(s);
 
   answers.name = name.value.trim();
+  const _parts = answers.name.split(/\s+/);
+  answers.first_name = _parts[0] || '';
+  answers.last_name = _parts.slice(1).join(' ') || '';
   answers.phone = phone.value.trim();
   answers.email = email.value.trim();
   answers.lead_score = s;

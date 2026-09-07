@@ -531,6 +531,9 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
   if(!ok) return;
 
   capAnswers.name = n.value.trim();
+  const _nparts = capAnswers.name.split(/\s+/);
+  capAnswers.first_name = _nparts[0] || '';
+  capAnswers.last_name = _nparts.slice(1).join(' ') || '';
   capAnswers.phone = p.value.trim();
   capAnswers.email = e.value.trim();
   capAnswers.service = CONFIG.service;

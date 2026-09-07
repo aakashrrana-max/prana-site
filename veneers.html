@@ -596,7 +596,7 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
   track('capture_complete', {service: CONFIG.service});
 
   try{
-    await fetch(CONFIG.webhookUrl, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+    await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(payload)});
   }catch(err){ /* never trap the patient on a network error */ }
 
   document.getElementById('capMain').style.display = 'none';

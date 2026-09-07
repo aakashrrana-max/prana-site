@@ -594,7 +594,7 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
   track('capture_complete', {timing: capAnswers.timing});
 
   try{
-    await fetch(CONFIG.webhookUrl, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(capAnswers)});
+    await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(capAnswers)});
   }catch(err){ /* never trap the patient on a network error */ }
 
   const msg = document.getElementById('capDoneMsg');

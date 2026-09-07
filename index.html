@@ -306,8 +306,17 @@
     background:
       radial-gradient(900px 500px at 80% 0%, rgba(10,10,11,.25), transparent 60%),
       linear-gradient(180deg,#0A0A0B,#1A1611);
-    color:#fff;border-radius:34px;padding:80px 50px;text-align:center;position:relative;overflow:hidden
+    color:#fff;border-radius:34px;padding:80px 50px 56px;text-align:center;position:relative;overflow:visible
   }
+  /* P0: Book form must stay visible/usable (sticky bar + reveal animations) */
+  #book{scroll-margin-top:96px;scroll-margin-bottom:120px;position:relative;z-index:2}
+  #book iframe{
+    display:block!important;width:100%!important;min-height:640px!important;height:640px;
+    border:none!important;border-radius:14px;background:#fff!important;
+    opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+    filter:none!important
+  }
+  .ghl-embed{overflow:visible}
   .cta-final h2{font-size:clamp(34px,5.5vw,60px);font-weight:800;letter-spacing:-.03em;line-height:1.02}
   .cta-final p{color:var(--muted-d);font-size:18px;margin:18px auto 36px;max-width:540px}
   .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -913,17 +922,25 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <!-- CONTACT / FINAL CTA -->
 <section id="contact">
   <div class="wrap">
-    <div class="cta-final reveal">
+    <div class="cta-final">
       <div class="eyebrow gold" style="display:inline-block">Your Next Step</div>
       <h2>Your best smile<br>starts today.</h2>
       <p>Free consultation. No commitment. No pressure. Just honest answers and a clear plan. We'll call you back within 15 minutes during business hours.</p>
-
 
       <div class="cta-actions" style="margin-top:30px">
         <a href="tel:+17865790521" class="btn btn-primary">Call (786) 579-0521</a>
         <a href="#book" class="btn btn-outline-d">Book online</a>
       </div>
       <p class="es-note" style="color:var(--muted-d)">Hablamos Español · WhatsApp disponible · Lun–Sáb 8AM–8PM</p>
+
+      <div class="ghl-embed" id="book">
+        <iframe
+          id="ghl-homepage-book"
+          src="https://api.leadconnectorhq.com/widget/form/mDpUSOrNwxC8qu8w8aRH?source=homepage"
+          style="width:100%;min-height:640px;height:640px;border:none;border-radius:14px;background:#fff;display:block"
+          loading="eager"
+          title="Book your free consult — Prana Dental Miami"></iframe>
+      </div>
     </div>
 
 

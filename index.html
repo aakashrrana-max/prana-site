@@ -480,7 +480,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
       <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"></path></svg> <b>Bilingual</b>&nbsp;EN &amp; ES</div>
       
     </div>
-  </div><div class="hero-video-panel"><div class="cs-head"><span class="cs-kicker">Now welcoming new patients</span><span class="cs-date">Edgewater · Mon–Sat 8AM–8PM</span></div><video class="hero-vid" autoplay="" muted="" loop="" playsinline="" preload="metadata" poster="hero-poster.jpg"><source src="hero.mp4" type="video/mp4"></video></div></div>
+  </div><div class="hero-video-panel"><div class="cs-head"><span class="cs-kicker">Now welcoming new patients</span><span class="cs-date">Edgewater · Mon–Sat 8AM–8PM</span></div><video class="hero-vid" muted loop playsinline preload="none" poster="hero-poster.jpg" data-src-ready="1"><source src="hero.mp4" type="video/mp4"></video></div></div>
 </header>
 
 
@@ -1221,4 +1221,5 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
   if(lift())return;
   var n=0,t=setInterval(function(){if(lift()||++n>120)clearInterval(t);},250);
 })();</script>
+<script>(function(){var v=document.querySelector('video.hero-vid');if(!v)return;var save=(navigator.connection&&navigator.connection.saveData)||matchMedia('(prefers-reduced-motion: reduce)').matches;if(save)return;function go(){v.play().catch(function(){})}if('IntersectionObserver' in window){new IntersectionObserver(function(e){if(e[0].isIntersecting){go();}},{threshold:.25}).observe(v);}else{go();}})();</script>
 </body></html>

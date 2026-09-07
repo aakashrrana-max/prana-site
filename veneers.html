@@ -181,7 +181,8 @@ footer a{color:var(--muted-d)}footer a:hover{color:#fff}
 .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .ba{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
 .ba-view{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:ew-resize;user-select:none;background:var(--paper-2)}
-.ba-view img,.ba-view .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba-view img,.ba-view .ph,.ba-view picture{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ba-view picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ba-after{clip-path:inset(0 0 0 50%)}
 .ph{display:grid;place-items:center;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding:18px;line-height:2}
 .ph-a{background:repeating-linear-gradient(45deg,#E6E0D5,#E6E0D5 11px,#DED7CA 11px,#DED7CA 22px)}
@@ -298,7 +299,33 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <div class="sec-head">
 <div class="sec-eyebrow">Proof first</div>
 <h2>See the smile <em>before you commit.</em></h2>
-<p class="sub">Porcelain veneers, designed to your face and previewed digitally. Watch a real transformation, then book a free smile plan.</p>
+<p class="sub">Drag each slider. <b>Example illustrations only</b> (placeholders), not Prana patient photos. Your real preview is designed at your free consult.</p>
+</div>
+<div class="ba-grid">
+<figure class="ba">
+<div class="ba-view" data-ba>
+<picture><source type="image/webp" srcset="ven-1-before.webp"><img src="ven-1-before.jpg" alt="Example smile before veneers illustration" loading="lazy" decoding="async" width="800" height="600"></picture>
+<picture><source type="image/webp" srcset="ven-1-after.webp"><img class="ba-after" src="ven-1-after.jpg" alt="Example smile after veneers illustration" loading="lazy" decoding="async" width="800" height="600"></picture>
+<div class="ba-handle"></div>
+</div>
+<p class="cap-fine" style="padding:12px 14px;margin:0;border-top:1px solid var(--line)">Illustration · not a Prana patient</p>
+</figure>
+<figure class="ba">
+<div class="ba-view" data-ba>
+<picture><source type="image/webp" srcset="ven-2-before.webp"><img src="ven-2-before.jpg" alt="Example smile before makeover illustration" loading="lazy" decoding="async" width="800" height="600"></picture>
+<picture><source type="image/webp" srcset="ven-2-after.webp"><img class="ba-after" src="ven-2-after.jpg" alt="Example smile after makeover illustration" loading="lazy" decoding="async" width="800" height="600"></picture>
+<div class="ba-handle"></div>
+</div>
+<p class="cap-fine" style="padding:12px 14px;margin:0;border-top:1px solid var(--line)">Illustration · not a Prana patient</p>
+</figure>
+<figure class="ba">
+<div class="ba-view" data-ba>
+<picture><source type="image/webp" srcset="ven-3-before.webp"><img src="ven-3-before.jpg" alt="Example chipped teeth before illustration" loading="lazy" decoding="async" width="800" height="600"></picture>
+<picture><source type="image/webp" srcset="ven-3-after.webp"><img class="ba-after" src="ven-3-after.jpg" alt="Example restored smile after illustration" loading="lazy" decoding="async" width="800" height="600"></picture>
+<div class="ba-handle"></div>
+</div>
+<p class="cap-fine" style="padding:12px 14px;margin:0;border-top:1px solid var(--line)">Illustration · not a Prana patient</p>
+</figure>
 </div>
 </div>
 </section>

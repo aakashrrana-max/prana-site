@@ -590,6 +590,8 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
   const _nparts = payload.name.split(/\s+/);
   payload.first_name = _nparts[0] || '';
   payload.last_name = _nparts.slice(1).join(' ') || '';
+  payload.firstName = payload.first_name;
+  payload.lastName = payload.last_name;
   payload.phone = p.value.trim();
   payload.email = e.value.trim();
 

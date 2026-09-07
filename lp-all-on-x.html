@@ -205,7 +205,8 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
   <div class="formcard" id="book">
     <h3>Book your free consult + 3D scan</h3>
     <p class="fnote">No cost, no obligation. We'll text to confirm your time.</p>
-    <iframe src="https://api.leadconnectorhq.com/widget/form/mDpUSOrNwxC8qu8w8aRH?source=lp-all-on-x" id="inline-mDpUSOrNwxC8qu8w8aRH" style="width:100%;min-height:560px;border:none;border-radius:12px;background:#fff" data-layout="{&quot;id&quot;:&quot;INLINE&quot;}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Prana Website Booking" data-height="560" data-layout-iframe-id="inline-mDpUSOrNwxC8qu8w8aRH" data-form-id="mDpUSOrNwxC8qu8w8aRH" title="Prana Website Booking" onload="if(typeof fbq==='function'){fbq('track','ViewContent',{content_name:'All-on-X LP form'})}"></iframe>
+    <iframe src="https://api.leadconnectorhq.com/widget/booking/2e4a4Kot0lEnangN1Pfr?source=lp-all-on-x" style="width:100%;min-height:640px;height:640px;border:none;border-radius:12px;background:#fff;display:block" loading="eager" title="Book All-on-4 free consult" onload="if(typeof fbq==='function'){fbq('track','ViewContent',{content_name:'All-on-X LP calendar'})}"></iframe>
+    <p style="text-align:center;margin:14px 0 0;font-size:13px;color:var(--muted,#797469)">Prefer a form? <a href="/contact.html">Contact us</a> · or <a href="tel:+17865790521">call (786) 579-0521</a></p>
   </div>
 </div></section>
 
@@ -302,7 +303,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
       </div></div>
       <div class="qstep" data-q="4"><div class="qq">Preferred language for your visit?</div><div class="qopts">
         <button class="qopt" onclick="qNext()">English</button>
-        <button class="qopt" onclick="qNext()">Español</button>
+        <button class="qopt" onclick="location.href='/es-all-on-4.html#quiz'">Español</button>
       </div></div>
       <div class="qstep" data-q="5">
         <div style="width:60px;height:60px;border-radius:50%;background:var(--ok);display:grid;place-items:center;font-size:30px;margin:0 auto 14px">✓</div>
@@ -314,16 +315,16 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
   </div>
 </div></section>
 
-<!-- TESTIMONIALS -->
+<!-- TRUST -->
 <section style="background:var(--paper2)"><div class="wrap">
-  <div class="eyebrow">Real patients, real transformations</div>
+  <div class="eyebrow">Proof</div>
   <h2>Why Miami trusts Prana</h2>
+  <p style="max-width:56ch;margin:0 0 22px"><a href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener"><b>★★★★★ 4.9</b> · 200+ Google reviews</a>. One surgeon, Dr. Rana. In-house lab. Written plan before you commit.</p>
   <div class="tgrid">
-    <div class="tcard"><div class="st">★★★★★</div><p class="q">"They never made me feel ashamed of my teeth. I finally feel like myself again."</p><div class="who">Maria R. · Edgewater</div></div>
-    <div class="tcard"><div class="st">★★★★★</div><p class="q">"No more adhesive, no more slipping. I ate corn on the cob for the first time in a decade."</p><div class="who">James T. · Brickell</div></div>
-    <div class="tcard"><div class="st">★★★★★</div><p class="q">"I priced the big chains first — almost double. Same teeth, one day, and Dr. Rana did it all."</p><div class="who">Denise L. · Coral Gables</div></div>
+    <div class="tcard"><div class="st">★★★★★</div><p class="q">Read recent Google reviews from real Edgewater patients.</p><div class="who"><a href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener">Open Google reviews →</a></div></div>
+    <div class="tcard"><div class="st">★★★★★</div><p class="q">See All-on-4 cases and take the 60-second quiz on our full page.</p><div class="who"><a href="/all-on-4.html#results">View All-on-4 →</a></div></div>
+    <div class="tcard"><div class="st">★★★★★</div><p class="q">Prefer Spanish? Full path stays in Spanish — no English eject.</p><div class="who"><a href="/es-all-on-4.html#quiz">Versión en Español →</a></div></div>
   </div>
-  <p style="font-size:12px;color:var(--muted);margin-top:14px;font-style:italic">Placeholder testimonials — replace with your real, consented patient reviews before running paid traffic.</p>
 </div></section>
 
 <!-- REASSURANCE -->
@@ -356,7 +357,9 @@ function qNext(){
   var nx=document.querySelector('.qstep[data-q="'+qi+'"]');
   if(nx) nx.classList.add('active');
   var bar=document.getElementById('qbar'); if(bar) bar.style.width=Math.round((qi/qTotal)*100)+'%';
-  if(qi>=qTotal && typeof fbq==='function'){ fbq('track','Lead',{content_name:'All-on-X quiz complete'}); }
+  if(qi>=qTotal){
+    if(typeof fbq==='function'){ fbq('track','Lead',{content_name:'All-on-X quiz complete'}); }
+  }
 }
 function pranaSchedule(){ if(typeof fbq==='function'){ fbq('track','Schedule',{content_name:'All-on-X reserve click'}); } }
 </script>

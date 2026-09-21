@@ -6,6 +6,44 @@
 
 ---
 
+## 2026-09-21 — SEO benchmark vs. bestdentistjerseycity.com (Limitless Dental)
+
+**Branch:** `seo/expand-content-and-schema` (2 commits, not pushed — no `gh`/git push
+credentials in that session; shipped as a bundle instead, see handoff note below).
+
+**Context:** Kash asked for a full SEO audit of a competitor site plus execution of the
+gaps against pranadentalmiami.com. Audit found Prana's technical SEO (schema, meta tags,
+alt text, canonical/OG, neighborhood-page architecture, internal linking) was already at
+or ahead of the competitor — most of that work had already shipped in the
+2026-09-21 "SEO overhaul" commit (`6f57e2a`) earlier the same day. The one real,
+measurable gap was **blog content volume**: 8 posts vs. their 142.
+
+**Shipped in this pass:**
+1. `sameAs` + `aggregateRating` added to the Dentist/MedicalProcedure JSON-LD on all 37
+   pages that carry it (was missing everywhere except `aggregateRating` on
+   `lp-all-on-x.html`). `sameAs` = `facebook.com/pranadentalmiami` +
+   `instagram.com/pranadentalmiami` (confirmed by Kash; YouTube still pending, add once
+   that channel exists). `aggregateRating` reuses the 4.9★/200-review figure already
+   published in on-page text on `pricing.html` — **re-verify this number against the
+   live Google Business Profile before the next content push**, review counts move.
+2. 6 new blog posts (All-on-4 vs All-on-6, full-arch vs dentures, insurance, bone
+   grafting, full-mouth reconstruction signs, same-day teeth), each with Article +
+   FAQPage schema, linked into `blog.html`'s grid and `sitemap.xml`.
+
+**Not done / next up (highest leverage first):**
+- Keep adding posts toward parity — target 2-4/month. Backlog: neighborhood-specific
+  "implant cost near me" posts (Edgewater/Wynwood/Brickell/etc.), an AI-dentistry/
+  digital-lab authority post mirroring the competitor's tech-forward angle.
+- Google Business Profile: push review volume (they have 517 at 4.9★; confirm Prana's
+  current live count before trusting the 200 figure above) and confirm GBP categories/
+  photos are optimized. Off-site, can't be done from this repo.
+- Once sameAs/YouTube exists, add it; consider a Whiteboard/Sheets content calendar so
+  the blog cadence doesn't stall after this one push.
+- Full audit doc (competitor findings + ranked action plan) lives at:
+  https://claude.ai/artifact/DPEcvR3b83VoPGP9SAnna5
+
+---
+
 ## Status board
 
 | # | Priority | Status | Where |

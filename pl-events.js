@@ -56,6 +56,7 @@
     var a = {};
     try { if (root.PranaAttribution && typeof root.PranaAttribution.get === 'function') a = root.PranaAttribution.get() || {}; } catch (e) {}
     var o = copy(a); o.pl_event_id = lastId; o.page_path = (root.location && root.location.pathname) || '';
+    try { o.page_url = String(root.location.href).split('#')[0]; o.referrer = (root.document && root.document.referrer) || ''; } catch (e) {}
     return o;
   };
 

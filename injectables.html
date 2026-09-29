@@ -187,6 +187,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<script src="/pl-events.js?v=2" defer></script>
 <script src="/prana-attribution.js" defer></script>
 </head>
 <body>
@@ -458,6 +459,7 @@ const CONFIG = {
 };
 
 function track(ev, p){
+  if(window.PranaEvents){ try{ return window.PranaEvents.track(ev, p||{}); }catch(e){} }
   try{ if(window.fbq) fbq('trackCustom', ev, p||{}); }catch(e){}
   try{ if(window.gtag) gtag('event', ev, p||{}); }catch(e){}
   try{ if(window.dataLayer) dataLayer.push(Object.assign({event:ev}, p||{})); }catch(e){}
@@ -542,7 +544,8 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
   capAnswers.email = e.value.trim();
   capAnswers.service = CONFIG.service;
   capAnswers.source = 'injectables page capture';
-  capAnswers.page = location.href;
+  capAnswers.page = location.origin + location.pathname;
+  if(window.PranaEvents){ Object.assign(capAnswers, window.PranaEvents.payloadFields()); }
 
   /* Ad platforms get intent only — never treatment interest. */
   track('Lead', {content_name:'Injectables Consult', timing: capAnswers.timing});

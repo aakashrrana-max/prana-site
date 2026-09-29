@@ -227,6 +227,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<script src="/pl-events.js?v=2" defer></script>
 <script src="/prana-attribution.js" defer></script>
 </head>
 <body>
@@ -527,6 +528,7 @@ const CONFIG = {
 };
 
 function track(ev, p){
+  if(window.PranaEvents){ try{ return window.PranaEvents.track(ev, p||{}); }catch(e){} }
   try{ if(window.fbq) fbq('trackCustom', ev, p||{}); }catch(e){}
   try{ if(window.gtag) gtag('event', ev, p||{}); }catch(e){}
   try{ if(window.dataLayer) dataLayer.push(Object.assign({event:ev}, p||{})); }catch(e){}
@@ -571,7 +573,7 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
     concern: concern || '(not specified)',
     service: CONFIG.service,
     source: 'veneers page capture',
-    page: location.href
+    page: location.origin + location.pathname
   };
 
   if(useFallback()){
@@ -607,10 +609,11 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
   payload.lastName = payload.last_name;
   payload.phone = p.value.trim();
   payload.email = e.value.trim();
+  if(window.PranaEvents){ Object.assign(payload, window.PranaEvents.payloadFields()); }
 
   /* Cosmetic concern is an aesthetic preference, not a health condition, but it
      still stays out of the ad payload — ad platforms get intent only. */
-  track('Lead', {content_name:'Smile Plan Request', value:999, currency:'USD'});
+  track('Lead', {content_name:'Smile Plan Request'});
   track('capture_complete', {service: CONFIG.service});
 
   try{

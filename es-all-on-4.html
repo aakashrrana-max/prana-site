@@ -262,6 +262,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<script src="/pl-events.js?v=2" defer></script>
 <script src="/prana-attribution.js" defer></script>
 </head>
 <body>
@@ -719,6 +720,7 @@ const CONFIG = {
 };
 
 function track(ev, p){
+  if(window.PranaEvents){ try{ return window.PranaEvents.track(ev, p||{}); }catch(e){} }
   try{ if(window.fbq) fbq('trackCustom', ev, p||{}); }catch(e){}
   try{ if(window.gtag) gtag('event', ev, p||{}); }catch(e){}
   try{ if(window.dataLayer) dataLayer.push(Object.assign({event:ev}, p||{})); }catch(e){}
@@ -868,12 +870,12 @@ document.getElementById('qSubmit').addEventListener('click', async () => {
   /* Value scales with tier so Meta optimises toward Tier A, not raw volume.
      Deliberately NO clinical detail in the ad-platform payload — tier letter
      and score only. The full answer set goes to GHL below. */
-  track('Lead', {content_name:'Full Arch Consult', value: Math.round(9999 * (s / MAX_SCORE)), currency:'USD', tier: t.tier, score: s});
+  track('Lead', {content_name:'Full Arch Consult', tier: t.tier, score: s});
   track('quiz_complete', {tier: t.tier, score: s});
 
   if(CONFIG.webhookUrl){
     try{
-      await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(answers)});
+      await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(Object.assign({}, answers, window.PranaEvents ? window.PranaEvents.payloadFields() : {}))});
     }catch(e){ /* never block booking on a webhook failure */ }
   }
 

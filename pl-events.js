@@ -57,6 +57,8 @@
     try { if (root.PranaAttribution && typeof root.PranaAttribution.get === 'function') a = root.PranaAttribution.get() || {}; } catch (e) {}
     var o = copy(a); o.pl_event_id = lastId; o.page_path = (root.location && root.location.pathname) || '';
     try { o.page_url = String(root.location.href).split('#')[0]; o.referrer = (root.document && root.document.referrer) || ''; } catch (e) {}
+    /* GHL 'Service Interest' dropdown option (exact label) for landing-page forms, from the page path. Unknown pages send nothing. */
+    try { var sp = o.page_path.toLowerCase(), si = /all-on-4/.test(sp) ? 'All-on-X (full arch)' : /implants/.test(sp) ? 'Single implant / few teeth' : /veneers/.test(sp) ? 'Veneers' : /injectables/.test(sp) ? 'Lip Filler/Medspa' : ''; if (si) o.service_interest = si; } catch (e) {}
     return o;
   };
 

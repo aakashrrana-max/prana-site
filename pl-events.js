@@ -6,12 +6,18 @@
 (function (root) {
   'use strict';
   /* ---- OWNER SETTINGS: the only place to edit when the Google accounts exist ---- */
-  var SETTINGS = { ga4: 'G-6KP15B68YK', ads: '', privacy: true, adsConversions: { Lead: '', Contact: '', Schedule: '' } };   /* Google Ads later: ads: 'AW-123456789', Lead: 'AW-123456789/AbCdEfGh'. privacy:true = Google signals + ad personalization OFF (healthcare-safe default) */
+  var SETTINGS = { ga4: 'G-6KP15B68YK', ads: '', ghl: 'tk_e0573f8a07af4519a9e13375a949aaae', privacy: true, adsConversions: { Lead: '', Contact: '', Schedule: '' } };   /* Google Ads later: ads: 'AW-123456789', Lead: 'AW-123456789/AbCdEfGh'. privacy:true = Google signals + ad personalization OFF (healthcare-safe default) */
   var cfg = root.PranaTrackingConfig || SETTINGS;
   var STANDARD = { Lead: 'generate_lead', Contact: 'contact', Schedule: 'schedule_appointment' };
   var ORIGINAL_HREF = root.location ? root.location.href : '';   /* captured BEFORE the attribution script restores params into the URL */
   function uuid() { return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); }); }
   var lastId = uuid(), sent = {}, api = { standard: STANDARD, uuid: uuid };
+
+  /* ---- GoHighLevel external tracking (page views + form fills into the Prana GHL account). One copy per page. ---- */
+  if (typeof document !== 'undefined' && /^tk_[a-f0-9]{32}$/.test(cfg.ghl || '') && !document.querySelector('script[src*="link.msgsndr.com/js/external-tracking.js"]')) {
+    var gh = document.createElement('script'); gh.async = true; gh.src = 'https://link.msgsndr.com/js/external-tracking.js';
+    gh.setAttribute('data-tracking-id', cfg.ghl); (document.body || document.head).appendChild(gh);
+  }
 
   /* ---- Google tag: ONE loader per page, ONE config per id. Skipped if any other gtag.js/GTM is already present (no duplicate tags). ---- */
   var ga = /^(G|AW)-[A-Z0-9]{6,}$/i;

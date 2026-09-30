@@ -52,7 +52,7 @@ measurable gap was **blog content volume**: 8 posts vs. their 142.
 | 2 | Duplicate footer in HTML | **FIXED in branch** | Homepage had main `<footer>` + second `<footer id="pd-legal-bar">`. Legal bar removed; Privacy/Terms folded into `.foot-bottom`. |
 | 3 | Mobile CTA / chat / headshot / sticky / quiz jump | **PARTIAL → this PR** | PR #4/#5 sticky+Call+hero poster-first. This pass: chat-lift on 25 mbar pages; AO4 quiz scroll only when needed; headshot lazy+srcset. |
 | 4 | Image weight / lazyload / srcset | **PARTIAL → this PR** | Hero → `hero-loop8.mp4` (~586KB vs ~5MB); gallery/community/headshot `srcset` 640/960; lazy+decoding on key imgs. Full WebP `<picture>` + story mp4 trim still open. |
-| 5 | www DNS → AWS/Netlify vs apex GitHub Pages | **HANDED TO JUSTICE** | Confirmed split-brain; exact records below. Not shippable via gh. |
+| 5 | www DNS → old non-GitHub host vs apex GitHub Pages | **HANDED TO JUSTICE** | Confirmed split-brain; exact records below. Not shippable via gh. |
 
 ---
 
@@ -152,13 +152,13 @@ calendarUrl: "https://api.leadconnectorhq.com/widget/booking/2e4a4Kot0lEnangN1Pf
 | `pranadentalmiami.com` | **A** | `185.199.110.153` | GitHub Pages ✓ |
 | `pranadentalmiami.com` | **A** | *(missing `185.199.111.153`)* | Add for GH completeness |
 | `pranadentalmiami.com` | **NS** | `ns-cloud-c{1..4}.googledomains.com` | Google Domains / Squarespace DNS |
-| `www.pranadentalmiami.com` | **CNAME** | `prana-dental-miami.netlify.app.` | **WRONG — Netlify/AWS** |
-| `www.pranadentalmiami.com` | **A** | `98.84.224.111`, `18.208.88.157` | AWS (Netlify edge) |
+| `www.pranadentalmiami.com` | **CNAME** | old non-GitHub hostname | **WRONG — old host, not GitHub** |
+| `www.pranadentalmiami.com` | **A** | `98.84.224.111`, `18.208.88.157` | AWS (old host) |
 | `www.pranadentalmiami.com` | **AAAA** | `2600:1f18:16e:df01::258/259` | AWS IPv6 |
 
 **Behavior today:**
 - Apex `https://pranadentalmiami.com` → **GitHub Pages** (200, `server: GitHub.com`) — canonical site.
-- `http://www…` → 301 via Netlify to apex.
+- `http://www…` → 301 via old host to apex.
 - `https://www…` → **TLS certificate mismatch** (cert not valid for `www.pranadentalmiami.com`).
 
 Repo `CNAME` file correctly contains: `pranadentalmiami.com` (apex).
@@ -178,13 +178,13 @@ pranadentalmiami.com.     AAAA   2606:50c0:8001::153
 pranadentalmiami.com.     AAAA   2606:50c0:8002::153
 pranadentalmiami.com.     AAAA   2606:50c0:8003::153
 
-# WWW → GitHub Pages user site (REPLACE Netlify CNAME)
+# WWW → GitHub Pages user site (REPLACE old CNAME)
 www.pranadentalmiami.com. CNAME  aakashrrana-max.github.io.
 ```
 
 ### Delete / stop
-- Delete CNAME `www` → `prana-dental-miami.netlify.app`
-- Delete any www A/AAAA that resolve to AWS/Netlify (`98.84…`, `18.208…`, `2600:1f18:…`)
+- Delete the existing `www` CNAME (points at the old non-GitHub host)
+- Delete any www A/AAAA that resolve to AWS (`98.84…`, `18.208…`, `2600:1f18:…`)
 - After DNS propagates: enable HTTPS for www in GitHub Pages (Settings → Pages → Custom domain → enforce HTTPS). Expect www cert to issue once CNAME points at `aakashrrana-max.github.io`.
 
 ### Verify commands (for Justice)

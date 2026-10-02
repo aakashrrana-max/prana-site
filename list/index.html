@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join the Waitlist | Prana Dental Miami</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5EBE2;
+    --brown:#45301F;
+    --text:#2A1F17;
+    --divider:#CDBBA8;
+    --muted:#6E5A4A;
+    --panel:#EDE0D2;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--text);
+    font-family:'Jost',sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .wrap{
+    width:100%;
+    max-width:520px;
+    padding:48px 24px 40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .logo-mark{
+    width:40px;
+    height:auto;
+    opacity:0.92;
+    margin-bottom:10px;
+  }
+  .logo{
+    font-size:13px;
+    letter-spacing:0.28em;
+    font-weight:500;
+  }
+  .logo span{
+    display:block;
+    font-size:10px;
+    letter-spacing:0.34em;
+    margin-top:2px;
+    color:var(--muted);
+  }
+  .tagline{
+    margin-top:8px;
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--brown);
+  }
+  .eyebrow{
+    margin-top:22px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:10.5px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    color:var(--brown);
+  }
+  .eyebrow::before,.eyebrow::after{
+    content:"";
+    width:14px;
+    height:2px;
+    background:var(--brown);
+  }
+  h1{
+    font-family:'Playfair Display',serif;
+    font-weight:400;
+    font-size:clamp(26px,6vw,36px);
+    line-height:1.18;
+    margin:16px 0 10px;
+  }
+  p.sub{
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--brown);
+    max-width:380px;
+    margin:0 0 4px;
+  }
+  p.sub2{
+    font-size:13px;
+    line-height:1.5;
+    color:var(--muted);
+    max-width:380px;
+    margin:0 0 30px;
+  }
+  .form-card{
+    width:100%;
+    background:#fff;
+    border:1px solid var(--divider);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 2px 14px rgba(69,48,31,0.07);
+  }
+  .form-card-header{
+    background:var(--brown);
+    color:var(--cream);
+    padding:14px 20px;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.18em;
+  }
+  iframe{
+    width:100%;
+    min-height:560px;
+    border:none;
+    display:block;
+  }
+  .fallback{
+    margin-top:22px;
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    color:var(--muted);
+  }
+  .fallback a{
+    color:var(--brown);
+    font-weight:600;
+    text-decoration:none;
+  }
+  #thankyou{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    padding:48px 20px;
+    background:var(--panel);
+    border:1px solid var(--divider);
+    border-radius:6px;
+    width:100%;
+  }
+  #thankyou h2{
+    font-family:'Playfair Display',serif;
+    font-weight:400;
+    font-size:26px;
+    margin:0;
+    color:var(--brown);
+  }
+  #thankyou p{
+    font-size:13.5px;
+    color:var(--muted);
+    margin:0;
+  }
+  .btn{
+    margin-top:10px;
+    display:inline-block;
+    background:var(--brown);
+    color:var(--cream);
+    text-decoration:none;
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:0.16em;
+    padding:14px 28px;
+  }
+  .footer-strip{
+    margin-top:40px;
+    width:100%;
+    max-width:520px;
+    border-top:1px solid var(--divider);
+    padding-top:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    font-size:12px;
+    color:var(--text);
+    flex-wrap:wrap;
+  }
+  .footer-strip .divider{
+    width:1px;
+    height:16px;
+    background:var(--divider);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">PRANA DENTAL<span>MIAMI</span></div>
+  <div class="tagline">Dentistry &amp; Medspa</div>
+
+  <div class="eyebrow">OPENING SOON ON BISCAYNE</div>
+  <h1>Join our opening<br>patient waitlist.</h1>
+  <p class="sub">Win a year of free whitening, or injectables.</p>
+  <p class="sub2">Leave your name, phone and email and we'll reach out as soon as doors open, plus your invite to opening night.</p>
+
+  <div class="form-card" id="formCard">
+    <div class="form-card-header">YOUR INFO</div>
+    <!-- GoHighLevel / LeadConnector waitlist form (same form used on the homepage).
+         Swap the src below for a Typeform embed URL once one exists, with no other changes needed.
+         Field colors/fonts inside this iframe are controlled by the GoHighLevel form's own style settings. -->
+    <iframe
+      src="https://api.leadconnectorhq.com/widget/form/mDpUSOrNwxC8qu8w8aRH?source=flyer-qr"
+      id="leadForm"
+      title="Join the Prana Dental Miami opening waitlist">
+    </iframe>
+  </div>
+
+  <div id="thankyou">
+    <h2>You're on the list.</h2>
+    <p>We'll be in touch. See you on opening night.</p>
+    <a class="btn" href="https://pranadentalmiami.com/">CONTINUE TO PRANADENTALMIAMI.COM</a>
+  </div>
+
+  <div class="fallback">Prefer to call? (786) 579-0521 &middot; <a href="https://pranadentalmiami.com/">pranadentalmiami.com</a></div>
+</div>
+
+<div class="footer-strip">
+  <div>3050 Biscayne Blvd, Suite 703, Miami, FL 33137</div>
+  <div class="divider"></div>
+  <div>(786) 579-0521</div>
+  <div class="divider"></div>
+  <div>pranadentalmiami.com</div>
+</div>
+
+<script>
+  // Best-effort: GoHighLevel/LeadConnector forms post a message to the parent
+  // window on successful submission. We listen for that and swap to a thank-you
+  // state, then send the visitor home after a short pause. If the message never
+  // arrives (widget behavior can change), the visible "Continue" button and the
+  // fallback below still get them home.
+  var redirected = false;
+  function goHome(delayMs){
+    if (redirected) return;
+    redirected = true;
+    document.getElementById('formCard').style.display = 'none';
+    document.getElementById('thankyou').style.display = 'flex';
+    setTimeout(function(){ window.location.href = 'https://pranadentalmiami.com/'; }, delayMs || 4000);
+  }
+  window.addEventListener('message', function(e){
+    if (!e.origin || e.origin.indexOf('leadconnectorhq.com') === -1) return;
+    var data = e.data;
+    try { if (typeof data === 'string') data = JSON.parse(data); } catch (err) {}
+    var payload = JSON.stringify(data || '').toLowerCase();
+    if (payload.indexOf('submit') !== -1 || payload.indexOf('success') !== -1 || payload.indexOf('thank') !== -1) {
+      goHome(2500);
+    }
+  });
+  // Safety net: if nothing fires, don't trap anyone on this page forever.
+  setTimeout(function(){
+    if (!redirected) window.location.href = 'https://pranadentalmiami.com/';
+  }, 180000);
+</script>
+</body>
+</html>

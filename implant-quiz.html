@@ -180,6 +180,20 @@ footer a{color:rgba(255,255,255,.8)}
 .pq-done .ck{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:26px;margin:0 auto 14px}
 .pq-done p{color:var(--muted);margin:0 0 16px}
 .pq-done .btn{margin:4px 4px 0}
+
+.hero-grid{grid-template-areas:"intro quiz" "perks quiz";align-items:start}
+.hero-intro{grid-area:intro}.hero-perks{grid-area:perks}#quiz{grid-area:quiz}
+@media(max-width:760px){.hero-grid{grid-template-areas:"intro" "quiz" "perks"}.hero{padding-top:28px}}
+.hero-intro .lead{margin-bottom:6px}
+.pq{padding:28px 24px 22px}
+.pq h3{font-size:25px;line-height:1.2}
+.pq .pq-hint{font-size:15px}
+.pq-opt{font-size:18px;padding:18px 18px;min-height:58px;border-radius:14px}
+.pq-lbl{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+.pq input[type=text],.pq input[type=email],.pq input[type=tel]{font-size:18px;padding:16px;margin-bottom:14px}
+.pq-submit{width:100%;font-size:17px;padding:18px}
+.pq-consent{font-size:12px;margin:14px 2px 6px}
+.pq-count{font-size:12.5px}
 .waitlist{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 @media(max-width:760px){.waitlist{grid-template-columns:1fr}}
 
@@ -207,33 +221,34 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 </head>
 <body>
 
-<div class="ribbon">Free consult + 3D scan ($700 value) · All-on-4 / All-on-X full-arch · Edgewater, Miami</div>
+<div class="ribbon">Free consult + 3D scan ($700 value) &middot; Edgewater, Miami</div>
 <header class="nav"><div class="wrap nav-in">
   <a class="brand" href="index.html">PRANA·DENTAL</a>
-  <div class="nav-r"><a class="call" href="tel:+17865790521">(786) 579-0521</a><a class="btn btn-primary" href="#book">Book Free Consult</a></div>
+  <div class="nav-r"><a class="call" href="tel:+17865790521">(786) 579-0521</a><a class="btn btn-primary" href="#quiz">Take the Quiz</a></div>
 </div></header>
 
 
 <!-- HERO + QUIZ -->
 <section class="hero"><div class="wrap hero-grid">
-  <div>
-    <div class="eyebrow">Full-Arch Implants · Edgewater, Miami</div>
+  <div class="hero-intro">
+    <div class="eyebrow">Full-Arch Implants &middot; Edgewater, Miami</div>
     <h1>See if you may be a candidate for <em>a full set of teeth in a single day.</em></h1>
-    <p class="lead">For people missing most or all of their teeth, or living with failing ones. Answer a few quick questions. It takes about 60 seconds, and there's no obligation.</p>
-    <ul class="ul-check">
-      <li><b>&#10003;</b> A fixed set of teeth placed in one day by Dr. Rana</li>
-      <li><b>&#10003;</b> From <strong>$9,999 / arch</strong> — about $167/mo (0% OAC)</li>
-      <li><b>&#10003;</b> Free consult + 3D scan, with a written plan before you commit</li>
-      <li><b>&#10003;</b> Our own in-house lab · 5-year workmanship guarantee*</li>
-    </ul>
-    <div class="hero-stats">
-      <div><b>1 day</b><span>New teeth, start to smile</span></div>
-      <div><b>$9,999</b><span>Per arch · ~$167/mo</span></div>
-      <div><b>4.9&#9733;</b><span>200+ Google reviews</span></div>
-    </div>
+    <p class="lead">Answer 3 quick questions. It takes about 30 seconds.</p>
   </div>
   <div id="quiz" class="pq" aria-live="polite">
     <div id="pq"><noscript><p>Please enable JavaScript to take the quiz, or call <a href="tel:+17865790521">(786) 579-0521</a>.</p></noscript></div>
+  </div>
+  <div class="hero-perks">
+    <ul class="ul-check">
+      <li><b>&#10003;</b> A fixed set of teeth placed in one day by Dr. Rana</li>
+      <li><b>&#10003;</b> From <strong>$9,999 / arch</strong> &mdash; about $167/mo (0% OAC)</li>
+      <li><b>&#10003;</b> Free consult + 3D scan, with a written plan before you commit</li>
+    </ul>
+    <div class="hero-stats">
+      <div><b>1 day</b><span>New teeth, start to smile</span></div>
+      <div><b>$9,999</b><span>Per arch &middot; ~$167/mo</span></div>
+      <div><b>4.9&#9733;</b><span>200+ Google reviews</span></div>
+    </div>
   </div>
 </div></section>
 <!-- TRUST STRIP -->
@@ -354,7 +369,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 
 <div class="sticky">
   <a class="btn btn-ghost" href="tel:+17865790521">Call</a>
-  <a class="btn btn-primary" href="#book">Free consult</a>
+  <a class="btn btn-primary" href="#quiz">Take the quiz</a>
 </div>
 
 
@@ -364,23 +379,12 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
   /* Same GoHighLevel inbound webhook the site's booking popup (book.js) already uses. */
   var WEBHOOK="https://services.leadconnectorhq.com/hooks/qxdMI6WF2uNxt7goL1jY/webhook-trigger/cfdb9b4e-d393-48b0-920b-e9a12e91fb69";
   var PHONE="+17865790521", PHONE_FMT="(786) 579-0521";
-  var CONSENT='By tapping the button you agree that Prana Dental Miami may contact you by call, text (including automated messages) and email about your consultation. Consent is not a condition of treatment. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms</a>.';
+  var CONSENT='By tapping the button, you agree that Prana Dental Miami may contact you by call, text (including automated messages) and email about your consultation. Consent is not required for treatment. Msg &amp; data rates may apply. Reply STOP to opt out. See our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms</a>.';
 
   var Q=[
-    {k:"missing_teeth",q:"How many teeth are you currently missing?",o:["All","6+","4-5","3 or less"]},
-    {k:"arch",q:"Which arch are you looking to replace?",o:["Upper","Lower","Both","Not sure yet"]},
-    {k:"perio_flag",q:"Do you have loose teeth or a gum disease (periodontal) diagnosis?",o:["Yes","No","Not sure"]},
-    {k:"age_band",q:"What is your age?",o:["60+","50-59","40-49","Under 40"]},
-    {k:"current_solution",q:"Do you currently have any of these dental solutions?",o:["Denture or partial denture","Bridge, crown","Dental implant","None of the above"]},
-    {k:"missing_duration",q:"How long have you been missing your teeth?",h:"The longer teeth are missing, the more the jawbone can shrink.",o:["I still have them","1-6 months","7-12 months","1+ years"]},
-    {k:"chew_issue",q:"Are you currently unable to eat certain foods or have to modify the way you chew?",o:["Yes","No"]},
-    {k:"pain_flag",q:"Are you currently trying to find relief from any kind of pain or discomfort?",o:["Yes","No"]},
-    {k:"confidence_flag",q:"Are you currently experiencing a lack of confidence in social situations or hiding your smile?",o:["Yes","No"]},
-    {k:"other_consult",q:"Have you had a dental implant consultation with another dentist?",o:["Yes","No"]},
-    {k:"readiness",q:"How ready do you feel to do something about your situation?",o:["Somewhat ready","Very ready","I need something fast"]},
-    {k:"payment_plan_interest",q:"Full-arch treatment at Prana starts from $9,999 per arch (about $167/month with 0% financing on approved credit). Dental insurance rarely covers implants. Are you interested in a payment plan?",o:["Yes, show me payment options","No, I plan to pay another way"]},
-    {k:"credit_band",q:"Financing is based on credit approval of the patient or a co-signer. Which best describes your credit?",o:["Under 660","660-699","700-739","740+","Not sure"]},
-    {k:"zip",q:"What is your zip code?",t:"zip"},
+    {k:"missing_teeth",q:"How many teeth are missing or failing?",o:["All of them","6 or more","4 or 5","3 or fewer"]},
+    {k:"readiness",q:"How ready are you to do something about it?",o:["Somewhat ready","Very ready","I need something fast"]},
+    {k:"payment_plan_interest",q:"Would you like to see monthly payment options?",h:"Financing from about $167/month on approved credit. Dental insurance rarely covers implants.",o:["Yes, show me options","No, I'll pay another way"]},
     {k:"contact",q:"Where should we send your results?",t:"contact"}
   ];
   var el=document.getElementById("pq"); if(!el) return;
@@ -393,34 +397,31 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
     try{window.dataLayer&&dataLayer.push(Object.assign({event:name},data||{}))}catch(e){}
   }
   function score(){
-    var hot=(A.readiness==="I need something fast"||A.readiness==="Very ready")&&A.payment_plan_interest.indexOf("Yes")===0&&(A.credit_band==="700-739"||A.credit_band==="740+");
-    var cold=A.readiness==="Somewhat ready"||A.credit_band==="Under 660"||A.payment_plan_interest.indexOf("No")===0;
-    return hot?"hot":(cold?"cold":"warm");
+    return (A.readiness==="Very ready"||A.readiness==="I need something fast")?"hot":"warm";
   }
   function render(){
     var q=Q[i], h='';
     var pct=Math.round(i/Q.length*100);
-    h+='<div class="pq-top"><span class="pq-count">Question '+(i+1)+' of '+Q.length+'</span></div><div class="pq-bar"><i style="width:'+pct+'%"></i></div>';
+    h+='<div class="pq-top"><span class="pq-count">Step '+(i+1)+' of '+Q.length+'</span></div><div class="pq-bar"><i style="width:'+pct+'%"></i></div>';
     h+='<h3>'+esc(q.q)+'</h3>'+(q.h?'<p class="pq-hint">'+esc(q.h)+'</p>':'');
     if(q.o){
       q.o.forEach(function(o,n){h+='<button type="button" class="pq-opt'+(A[q.k]===o?' sel':'')+'" data-n="'+n+'">'+esc(o)+'</button>'});
       h+='<div class="pq-nav">'+(i>0?'<button type="button" class="pq-back">&larr; Back</button>':'<span></span>')+'</div>';
-    }else if(q.t==="zip"){
-      h+='<input id="pq-zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="Zip code" value="'+esc(A.zip||"")+'"><div class="pq-err" id="pq-err" aria-live="polite"></div>';
-      h+='<div class="pq-nav"><button type="button" class="pq-back">&larr; Back</button><button type="button" class="btn btn-primary pq-go" id="pq-go">Continue</button></div>';
     }else{
-      h+='<div class="pq-row"><input id="pq-fn" type="text" autocomplete="given-name" placeholder="First name" value="'+esc(A.first_name||"")+'"><input id="pq-ln" type="text" autocomplete="family-name" placeholder="Last name" value="'+esc(A.last_name||"")+'"></div>';
-      h+='<input id="pq-ph" type="tel" autocomplete="tel" inputmode="tel" placeholder="Mobile phone" value="'+esc(A.phone||"")+'">';
-      h+='<input id="pq-em" type="email" autocomplete="email" placeholder="Email" value="'+esc(A.email||"")+'">';
-      h+='<div class="pq-err" id="pq-err" aria-live="polite"></div><p class="pq-consent">'+CONSENT+'</p>';
-      h+='<div class="pq-nav"><button type="button" class="pq-back">&larr; Back</button><button type="button" class="btn btn-primary pq-go" id="pq-go">See if I may be a candidate</button></div>';
+      h+='<label class="pq-lbl" for="pq-nm">Full name</label><input id="pq-nm" type="text" autocomplete="name" placeholder="First and last name" value="'+esc(A.name||"")+'">';
+      h+='<label class="pq-lbl" for="pq-ph">Mobile phone</label><input id="pq-ph" type="tel" autocomplete="tel" inputmode="tel" placeholder="(305) 555-0123" value="'+esc(A.phone||"")+'">';
+      h+='<label class="pq-lbl" for="pq-em">Email</label><input id="pq-em" type="email" autocomplete="email" inputmode="email" placeholder="you@email.com" value="'+esc(A.email||"")+'">';
+      h+='<div class="pq-err" id="pq-err" aria-live="polite"></div>';
+      h+='<button type="button" class="btn btn-primary pq-submit" id="pq-go">See if I may be a candidate</button>';
+      h+='<p class="pq-consent">'+CONSENT+'</p>';
+      h+='<div class="pq-nav"><button type="button" class="pq-back">&larr; Back</button><span></span></div>';
     }
     el.innerHTML=h;
     el.querySelectorAll(".pq-opt").forEach(function(b){b.onclick=function(){
       A[q.k]=q.o[+b.getAttribute("data-n")];
       if(!started){started=true;ev("quiz_start",{});}
       ev("quiz_step",{step:i+1,key:q.k});
-      if(q.k==="missing_teeth"&&A.missing_teeth==="3 or less"){return screenOut();}
+      if(q.k==="missing_teeth"&&A.missing_teeth==="3 or fewer"){return screenOut();}
       i++; render();
     }});
     var back=el.querySelector(".pq-back"); if(back) back.onclick=function(){i--;render()};
@@ -433,20 +434,13 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
   }
   function bad(id,msg){var n=el.querySelector("#"+id);if(n)n.classList.add("err");el.querySelector("#pq-err").textContent=msg;return false}
   function next(){
-    var q=Q[i];
-    if(q.t==="zip"){
-      var z=el.querySelector("#pq-zip").value.trim();
-      if(!/^\d{5}$/.test(z)) return bad("pq-zip","Please enter a 5-digit zip code.");
-      A.zip=z; ev("quiz_step",{step:i+1,key:"zip"}); i++; render(); return;
-    }
-    var fn=el.querySelector("#pq-fn").value.trim(), ln=el.querySelector("#pq-ln").value.trim(),
-        ph=el.querySelector("#pq-ph").value.trim(), em=el.querySelector("#pq-em").value.trim();
+    var nm=el.querySelector("#pq-nm").value.trim(), ph=el.querySelector("#pq-ph").value.trim(), em=el.querySelector("#pq-em").value.trim();
     el.querySelectorAll("input").forEach(function(x){x.classList.remove("err")});
-    A.first_name=fn;A.last_name=ln;A.phone=ph;A.email=em;
-    if(fn.length<1) return bad("pq-fn","Please enter your first name.");
-    if(ln.length<1) return bad("pq-ln","Please enter your last name.");
+    A.name=nm;A.phone=ph;A.email=em;
+    if(nm.length<2) return bad("pq-nm","Please enter your name.");
     if(ph.replace(/\D/g,"").length<10) return bad("pq-ph","Please enter a valid 10-digit phone number.");
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) return bad("pq-em","Please enter a valid email.");
+    var parts=nm.split(/\s+/); A.first_name=parts[0]; A.last_name=parts.slice(1).join(" ");
     submit();
   }
   function submit(){
@@ -454,15 +448,13 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
     var go=el.querySelector("#pq-go"); if(go){go.disabled=true;go.textContent="Sending...";}
     var eid="lead-"+Date.now()+"-"+Math.random().toString(36).slice(2,10);
     var p={
-      name:A.first_name+" "+A.last_name, first_name:A.first_name, last_name:A.last_name,
+      name:A.name, first_name:A.first_name, last_name:A.last_name,
       firstName:A.first_name, lastName:A.last_name, phone:A.phone, email:A.email,
       service:"Dental implants", service_interest:"Implants",
       source:"implant-quiz", page:location.pathname, language:"en",
-      quiz_missing_teeth:A.missing_teeth, quiz_arch:A.arch, quiz_perio_flag:A.perio_flag, quiz_age_band:A.age_band,
-      quiz_current_solution:A.current_solution, quiz_missing_duration:A.missing_duration, quiz_chew_issue:A.chew_issue,
-      quiz_pain_flag:A.pain_flag, quiz_confidence_flag:A.confidence_flag, quiz_other_consult:A.other_consult,
-      quiz_readiness:A.readiness, quiz_payment_plan_interest:A.payment_plan_interest, quiz_credit_band:A.credit_band,
-      quiz_zip:A.zip, quiz_score:score(), quiz_needs_review:(A.missing_teeth==="4-5"), event_id:eid
+      quiz_missing_teeth:A.missing_teeth, quiz_readiness:A.readiness,
+      quiz_payment_plan_interest:A.payment_plan_interest,
+      quiz_score:score(), quiz_needs_review:(A.missing_teeth==="4 or 5"), event_id:eid
     };
     try{var at=window.PranaAttribution&&window.PranaAttribution.get&&window.PranaAttribution.get();if(at)for(var k in at)p[k]=at[k];}catch(e){}
     p.page_url=location.href.split("#")[0]; p.referrer=document.referrer||"";

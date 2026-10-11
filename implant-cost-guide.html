@@ -180,6 +180,20 @@ footer a{color:rgba(255,255,255,.8)}
 .pq-done .ck{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:26px;margin:0 auto 14px}
 .pq-done p{color:var(--muted);margin:0 0 16px}
 .pq-done .btn{margin:4px 4px 0}
+
+.hero-grid{grid-template-areas:"intro quiz" "perks quiz";align-items:start}
+.hero-intro{grid-area:intro}.hero-perks{grid-area:perks}#quiz{grid-area:quiz}
+@media(max-width:760px){.hero-grid{grid-template-areas:"intro" "quiz" "perks"}.hero{padding-top:28px}}
+.hero-intro .lead{margin-bottom:6px}
+.pq{padding:28px 24px 22px}
+.pq h3{font-size:25px;line-height:1.2}
+.pq .pq-hint{font-size:15px}
+.pq-opt{font-size:18px;padding:18px 18px;min-height:58px;border-radius:14px}
+.pq-lbl{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+.pq input[type=text],.pq input[type=email],.pq input[type=tel]{font-size:18px;padding:16px;margin-bottom:14px}
+.pq-submit{width:100%;font-size:17px;padding:18px}
+.pq-consent{font-size:12px;margin:14px 2px 6px}
+.pq-count{font-size:12.5px}
 .waitlist{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 @media(max-width:760px){.waitlist{grid-template-columns:1fr}}
 
@@ -210,7 +224,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <div class="ribbon">Free consult + 3D scan ($700 value) · Edgewater, Miami</div>
 <header class="nav"><div class="wrap nav-in">
   <a class="brand" href="index.html">PRANA·DENTAL</a>
-  <div class="nav-r"><a class="call" href="tel:+17865790521">(786) 579-0521</a><a class="btn btn-primary" href="#book">Book Free Consult</a></div>
+  <div class="nav-r"><a class="call" href="tel:+17865790521">(786) 579-0521</a><a class="btn btn-primary" href="/implant-quiz.html#quiz">Take the Quiz</a></div>
 </div></header>
 
 
@@ -261,7 +275,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 
 <div class="sticky">
   <a class="btn btn-ghost" href="tel:+17865790521">Call</a>
-  <a class="btn btn-primary" href="#book">Free consult</a>
+  <a class="btn btn-primary" href="/implant-quiz.html#quiz">Take the quiz</a>
 </div>
 
 <!-- GoHighLevel chat widget (same one as the main Prana site) -->

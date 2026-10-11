@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>See If You May Be a Candidate for Full-Arch Implants | Prana Dental Miami</title>
+<meta name="description" content="Take the 60-second quiz to see if you may be a candidate for All-on-4 / All-on-X full-arch dental implants in Edgewater, Miami. From $9,999/arch. Free consult + 3D scan.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://pranadentalmiami.com/implant-quiz.html"><meta property="og:image" content="https://pranadentalmiami.com/office-reception.jpg"><meta property="og:url" content="https://pranadentalmiami.com/implant-quiz.html"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://pranadentalmiami.com/office-reception.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,300..600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== Prana palette — NO GOLD. Ink / paper / neutral only. ===== */
+:root{
+  --ink:#0A0A0B; --ink2:#1b1b1b; --paper:#F4F1EA; --paper2:#ECE7DE;
+  --muted:#6c6760; --line:rgba(10,10,11,.12); --white:#fff;
+  --ok:#4f6b43;        /* muted green for positive ticks */
+  --bad:#9b5b4d;       /* muted brick for negatives */
+  --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400}
+h1,h2,h3{letter-spacing:-.02em;font-weight:700;line-height:1.05}
+h1{font-size:clamp(34px,5.6vw,58px);margin-bottom:18px}
+h2{font-size:clamp(26px,4vw,40px);margin-bottom:18px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:999px;font-weight:600;font-size:15px;font-family:inherit;border:1.5px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{transform:translateY(-1px);background:var(--ink2)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--ink)}
+section{padding:60px 0}
+
+/* ribbon + header */
+.ribbon{background:var(--ink);color:#fff;text-align:center;font-size:13.5px;font-weight:500;padding:10px 18px}
+.ribbon b{color:#fff;text-decoration:underline;text-underline-offset:3px}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(244,243,239,.92);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:800;letter-spacing:.16em;font-size:15px}
+.nav-r{display:flex;align-items:center;gap:18px}
+.nav-r .call{font-weight:600;font-size:14px}
+@media(max-width:560px){.nav-r .call{display:none}}
+
+/* hero */
+.hero{padding:54px 0 46px;background:radial-gradient(900px 420px at 100% -10%,var(--paper2),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+.hero h1 em{font-style:italic;font-family:'Fraunces',serif}
+.hero-stats{display:flex;flex-wrap:wrap;gap:26px;margin:26px 0 0;padding-top:22px;border-top:1px solid var(--line)}
+.hero-stats b{display:block;font-family:'Fraunces',serif;font-style:italic;font-size:28px;line-height:1}
+.hero-stats span{font-size:12.5px;color:var(--muted)}
+.ul-check{list-style:none;margin:0 0 26px;display:grid;gap:11px}
+.ul-check li{display:flex;gap:10px;font-size:16px}
+.ul-check li b{color:var(--ok)}
+
+/* lead form card */
+.formcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 30px 60px -34px rgba(10,10,11,.5)}
+.formcard h3{font-size:21px;margin-bottom:4px}
+.formcard .fnote{font-size:13px;color:var(--muted);margin-bottom:18px}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:12.5px;font-weight:600;margin-bottom:6px}
+.field input,.field select{width:100%;font-family:inherit;font-size:15px;padding:12px 13px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);transition:border-color .15s,box-shadow .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(10,10,11,.08);background:#fff}
+.formcard .btn{width:100%;margin-top:6px}
+.formcard .legal{font-size:11px;color:var(--muted);text-align:center;margin-top:12px}
+.form-success{display:none;text-align:center;padding:18px 6px}
+.form-success .ck{width:56px;height:56px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:28px;margin:0 auto 12px}
+
+/* trust strip */
+.trust{background:var(--ink);color:#fff}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;text-align:center}
+.trust b{display:block;font-family:'Fraunces',serif;font-style:italic;font-size:26px}
+.trust span{font-size:13px;color:rgba(255,255,255,.7)}
+@media(max-width:680px){.trust .wrap{grid-template-columns:1fr 1fr}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
+.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 20px 22px}
+.step .n{position:absolute;top:-16px;left:22px;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-family:'Fraunces',serif;font-style:italic;font-size:18px;display:grid;place-items:center}
+.step h3{font-size:16.5px;margin:6px 0 6px}
+.step p{font-size:14px;color:var(--muted)}
+
+/* comparison */
+.ctable{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.crow{display:grid;grid-template-columns:1.2fr 1fr 1fr;border-bottom:1px solid var(--line)}
+.crow:last-child{border-bottom:none}
+.crow>div{padding:14px 16px;font-size:14.5px}
+.crow.head>div{background:var(--ink);color:#fff;font-weight:700}
+.crow.head .you{background:var(--ink2)}
+.cfeat{font-weight:600;background:var(--paper2)}
+.cyes{color:var(--ok);font-weight:700}.cyes::before{content:"✓ "}
+.cno{color:var(--bad)}.cno::before{content:"✕ "}
+@media(max-width:680px){.crow{grid-template-columns:1.1fr 1fr 1fr}.crow>div{padding:11px 9px;font-size:12.5px}}
+
+/* quiz */
+.quizwrap{background:var(--ink);color:#fff;border-radius:22px;padding:40px 34px;max-width:720px;margin:0 auto;text-align:center}
+.quizwrap h2{color:#fff}
+.qstep{display:none}.qstep.active{display:block}
+.qbar{height:5px;background:rgba(255,255,255,.16);border-radius:9px;margin:0 0 24px;overflow:hidden}
+.qbar i{display:block;height:100%;background:#fff;width:16%;transition:width .3s}
+.qopts{display:grid;gap:12px;max-width:480px;margin:0 auto}
+.qopt{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:12px;padding:15px 18px;font-family:inherit;font-size:15px;cursor:pointer;transition:.15s;text-align:left}
+.qopt:hover{background:#fff;color:var(--ink)}
+.qq{font-family:'Fraunces',serif;font-style:italic;font-size:24px;margin-bottom:20px}
+.qfields{max-width:440px;margin:0 auto;text-align:left}
+.qfields .field input,.qfields .field select{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);color:#fff}
+.qfields .field label{color:rgba(255,255,255,.8)}
+.qresult{display:none}
+
+/* testimonials */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column}
+.tcard .st{color:var(--ink);letter-spacing:2px;font-size:13px;margin-bottom:8px}
+.tcard .q{font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.45;flex:1}
+.tcard .who{margin-top:14px;font-size:13px;color:var(--muted)}
+@media(max-width:760px){.tgrid,.steps{grid-template-columns:1fr}.hero-grid{grid-template-columns:1fr}}
+
+/* reassurance band */
+.band{background:var(--ink);color:#fff;border-radius:22px;padding:44px;text-align:center}
+.band h2{color:#fff}
+.band .lead{color:rgba(255,255,255,.78);max-width:620px;margin:0 auto 24px}
+.bigstat{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(30px,5vw,50px);line-height:1.05}
+
+footer{background:#0a0a0b;color:rgba(255,255,255,.55);padding:36px 0;font-size:13px}
+footer .fl{display:flex;gap:8px 20px;flex-wrap:wrap;margin-top:10px}
+footer a{color:rgba(255,255,255,.8)}
+.disc{font-size:11px;color:rgba(255,255,255,.4);margin-top:14px;line-height:1.7}
+
+.sticky{display:none}
+@media(max-width:680px){
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:10px;padding:10px;background:rgba(244,243,239,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .sticky .btn{flex:1;padding:13px}
+  body{padding-bottom:74px}
+  .note-help{display:none}
+}
+
+/* mobile-ux: sticky above chat; safe-area; quiz jump targets */
+.mbar,.mobile-bar{z-index:2147482500 !important;padding-bottom:calc(11px + env(safe-area-inset-bottom,0px)) !important}
+.mbar{position:fixed;bottom:0;left:0;right:0;z-index:2147482500;display:none;gap:10px;padding:11px 14px calc(11px + env(safe-area-inset-bottom,0px));background:rgba(244,243,239,.94);backdrop-filter:blur(16px);border-top:1px solid rgba(10,10,11,.1)}
+.mbar a{flex:1;text-align:center;padding:14px;border-radius:13px;font-weight:600;font-size:15px;text-decoration:none}
+.mbar .c{background:#fff;border:1px solid rgba(10,10,11,.12);color:#0A0A0B}.mbar .b{background:#0A0A0B;color:#fff}
+@media(max-width:760px){.mbar{display:flex}body{padding-bottom:84px}}
+
+@media(max-width:760px){
+  #wa-fab{bottom:calc(84px + env(safe-area-inset-bottom,0px)) !important;z-index:2147482000 !important}
+  chat-widget{bottom:calc(88px + env(safe-area-inset-bottom,0px)) !important}
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom,0px)) !important}
+}
+#quiz,#start,#book,#contact{scroll-margin-top:96px;scroll-margin-bottom:120px}
+.doc-photo img, img[src*="headshot"], img[alt*="Dr. Aakash"], img[alt*="Dr. Rana"]{object-fit:cover;object-position:center 20%}
+
+
+/* ===== implant-quiz additions (same tokens as the LP) ===== */
+.pq{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px 22px;box-shadow:0 30px 60px -34px rgba(10,10,11,.5)}
+.pq-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.pq-count{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pq-bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:22px}
+.pq-bar i{display:block;height:100%;width:0;background:var(--ink);transition:width .25s}
+.pq h3{font-size:22px;line-height:1.2;letter-spacing:-.02em;margin-bottom:6px}
+.pq .pq-hint{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+.pq-opt{display:block;width:100%;text-align:left;font:inherit;font-size:15.5px;font-weight:600;padding:14px 16px;margin:0 0 10px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);cursor:pointer;transition:border-color .15s,transform .15s,background .15s}
+.pq-opt:hover,.pq-opt:focus-visible{border-color:var(--ink);outline:none;transform:translateY(-1px);background:#fff}
+.pq-opt.sel{border-color:var(--ink);background:#fff}
+.pq input[type=text],.pq input[type=email],.pq input[type=tel]{width:100%;font:inherit;font-size:16px;padding:14px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);margin-bottom:10px}
+.pq input:focus{outline:none;border-color:var(--ink);background:#fff;box-shadow:0 0 0 3px rgba(10,10,11,.08)}
+.pq input.err{border-color:#b3412f}
+.pq-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pq-err{color:#b3412f;font-size:13px;min-height:18px;margin:2px 2px 6px}
+.pq-nav{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.pq-back{font:inherit;font-size:14px;font-weight:600;background:none;border:0;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:10px 4px}
+.pq-go{flex:1;margin-left:12px}
+.pq-consent{font-size:11.5px;line-height:1.5;color:var(--muted);margin:6px 2px 12px}
+.pq-consent a{text-decoration:underline}
+.pq-done{text-align:center;padding:10px 4px}
+.pq-done .ck{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:26px;margin:0 auto 14px}
+.pq-done p{color:var(--muted);margin:0 0 16px}
+.pq-done .btn{margin:4px 4px 0}
+.waitlist{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:760px){.waitlist{grid-template-columns:1fr}}
+
+</style>
+<!-- ===== End Meta Pixel ===== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Prana Dental Miami","url":"https://pranadentalmiami.com/","telephone":"+1-786-579-0521","sameAs":["https://www.facebook.com/pranadentalmiami","https://www.instagram.com/pranadentalmiami"],"areaServed":"Miami, FL","image":"https://pranadentalmiami.com/office-reception.jpg","address":{"@type":"PostalAddress","streetAddress":"3050 Biscayne Blvd, Ste 703","addressLocality":"Miami","addressRegion":"FL","postalCode":"33137","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":25.8067,"longitude":-80.1888},"priceRange":"$$"}</script><!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1728872408395014');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script src="/pl-events.js?v=2" defer></script>
+<script src="/prana-attribution.js" defer></script>
+</head>
+<body>
+
+<div class="ribbon">Free consult + 3D scan ($700 value) · All-on-4 / All-on-X full-arch · Edgewater, Miami</div>
+<header class="nav"><div class="wrap nav-in">
+  <a class="brand" href="index.html">PRANA·DENTAL</a>
+  <div class="nav-r"><a class="call" href="tel:+17865790521">(786) 579-0521</a><a class="btn btn-primary" href="#book">Book Free Consult</a></div>
+</div></header>
+
+
+<!-- HERO + QUIZ -->
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <div class="eyebrow">Full-Arch Implants · Edgewater, Miami</div>
+    <h1>See if you may be a candidate for <em>a full set of teeth in a single day.</em></h1>
+    <p class="lead">For people missing most or all of their teeth, or living with failing ones. Answer a few quick questions. It takes about 60 seconds, and there's no obligation.</p>
+    <ul class="ul-check">
+      <li><b>&#10003;</b> A fixed set of teeth placed in one day by Dr. Rana</li>
+      <li><b>&#10003;</b> From <strong>$9,999 / arch</strong> — about $167/mo (0% OAC)</li>
+      <li><b>&#10003;</b> Free consult + 3D scan, with a written plan before you commit</li>
+      <li><b>&#10003;</b> Our own in-house lab · 5-year workmanship guarantee*</li>
+    </ul>
+    <div class="hero-stats">
+      <div><b>1 day</b><span>New teeth, start to smile</span></div>
+      <div><b>$9,999</b><span>Per arch · ~$167/mo</span></div>
+      <div><b>4.9&#9733;</b><span>200+ Google reviews</span></div>
+    </div>
+  </div>
+  <div id="quiz" class="pq" aria-live="polite">
+    <div id="pq"><noscript><p>Please enable JavaScript to take the quiz, or call <a href="tel:+17865790521">(786) 579-0521</a>.</p></noscript></div>
+  </div>
+</div></section>
+<!-- TRUST STRIP -->
+<section class="trust" style="padding:30px 0"><div class="wrap">
+  <div><b>Same day</b><span>New teeth in one visit</span></div>
+  <div><b>In-house lab</b><span>Designed &amp; built on-site</span></div>
+  <div><b>One surgeon</b><span>NYU-trained Dr. Rana</span></div>
+  <div><b>5-year</b><span>Workmanship guarantee*</span></div>
+</div></section>
+
+<!-- STEPS -->
+<section><div class="wrap">
+  <div class="eyebrow">How it works</div>
+  <h2>Four simple steps. One dedicated team.</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Free consult + 3D scan</h3><p>Relaxed, no-pressure. We scan, plan, and hand you a clear written quote — a $700 value, free.</p></div>
+    <div class="step"><div class="n">2</div><h3>Design your smile</h3><p>We design your new teeth digitally with you — shape, shade and fit, made in our own lab.</p></div>
+    <div class="step"><div class="n">3</div><h3>New teeth in a day</h3><p>Dr. Rana places your implants and a fixed set of teeth — you leave wearing your new smile.</p></div>
+    <div class="step"><div class="n">4</div><h3>Final restoration</h3><p>Once you've healed (about 3–5 months) we fit your final acrylic or zirconia arch.</p></div>
+  </div>
+</div></section>
+
+<!-- COMPARISON -->
+<section style="background:var(--paper2)"><div class="wrap">
+  <div class="eyebrow">An honest comparison</div>
+  <h2>Premium full-arch — without the corporate markup</h2>
+  <div class="ctable">
+    <div class="crow head"><div>&nbsp;</div><div class="you">Prana Dental</div><div>National chains</div></div>
+    <div class="crow"><div class="cfeat">Price per arch</div><div class="cyes">From $9,999</div><div class="cno">Often $20k–$36k</div></div>
+    <div class="crow"><div class="cfeat">Your surgeon</div><div class="cyes">Dr. Rana, every visit</div><div class="cno">Rotating roster</div></div>
+    <div class="crow"><div class="cfeat">The lab</div><div class="cyes">In-house, on-site</div><div class="cno">Outsourced</div></div>
+    <div class="crow"><div class="cfeat">Same-day teeth</div><div class="cyes">Yes</div><div class="cno">Yes</div></div>
+    <div class="crow"><div class="cfeat">Pricing</div><div class="cyes">Published &amp; in writing</div><div class="cno">Quoted only after a visit</div></div>
+    <div class="crow"><div class="cfeat">Language</div><div class="cyes">Bilingual (EN/ES)</div><div class="cno">Often English-only</div></div>
+  </div>
+</div></section>
+
+
+<!-- INCLUSIONS -->
+<section id="included" style="padding:64px 0"><div class="wrap">
+  <div class="eyebrow">What's included</div>
+  <h2>Same inclusions. Material is the choice.</h2>
+  <p style="max-width:62ch;margin:0 0 28px;color:var(--muted,#797469)"><a href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener"><b>★★★★★ 4.9</b> · 200+ Google reviews</a> · written plan before you commit</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+    <div style="background:#fff;border:1px solid rgba(10,10,11,.1);border-radius:20px;padding:28px">
+      <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.65">Acrylic / PMMA</div>
+      <div style="font-size:36px;font-weight:800;margin:8px 0">$9,999<span style="font-size:15px;font-weight:500;opacity:.6"> / arch</span></div>
+      <ul style="list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px;font-size:15px">
+        <li>✓ Free consult + 3D CT + written plan</li>
+        <li>✓ Four implants · Dr. Rana</li>
+        <li>✓ Same-day fixed provisional</li>
+        <li>✓ In-house lab · 5-year guarantee</li>
+      </ul>
+      <a class="btn" href="#quiz" style="margin-top:18px;display:inline-block">See if I qualify</a>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(10,10,11,.1);border-radius:20px;padding:28px">
+      <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.65">Zirconia</div>
+      <div style="font-size:28px;font-weight:800;margin:8px 0">Confirmed at consult</div>
+      <ul style="list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px;font-size:15px">
+        <li>✓ Same inclusions as acrylic path</li>
+        <li>✓ Most durable, natural final arch</li>
+        <li>✓ Milled in our in-house lab</li>
+        <li>✓ Sedation available</li>
+      </ul>
+      <a class="btn" href="#quiz" style="margin-top:18px;display:inline-block">See if I qualify</a>
+    </div>
+  </div>
+</div></section>
+
+
+<!-- WHY NOT WAIT -->
+<section><div class="wrap waitlist">
+  <div>
+    <div class="eyebrow">Why it matters</div>
+    <h2>Waiting can narrow your options</h2>
+  </div>
+  <div>
+    <p class="lead" style="margin-bottom:14px">When teeth are missing, the jawbone that supported them can gradually shrink. Over time that can make implant treatment more complex, and in some cases it may mean extra procedures such as bone grafting.</p>
+    <p style="color:var(--muted)">A 3D scan is the only way to see where you stand today. That is why your consultation starts with one.</p>
+    <p style="margin-top:18px"><a class="btn btn-primary" href="#quiz">Take the 60-second quiz</a></p>
+  </div>
+</div></section>
+
+<!-- COST GUIDE TEASER -->
+<section style="background:var(--paper2)"><div class="wrap waitlist">
+  <div>
+    <div class="eyebrow">Read first</div>
+    <h2>What do full-arch implants really cost in Miami?</h2>
+  </div>
+  <div>
+    <p class="lead" style="margin-bottom:14px">Our straight-talk guide: what's included, how financing works, what to ask any provider, and why quotes can look so different.</p>
+    <a class="btn btn-ghost" href="/implant-cost-guide.html">Read the cost guide</a>
+  </div>
+</div></section>
+<!-- TRUST -->
+<section style="background:var(--paper2)"><div class="wrap">
+  <div class="eyebrow">Proof</div>
+  <h2>Why Miami trusts Prana</h2>
+  <p style="max-width:56ch;margin:0 0 22px"><a href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener"><b>★★★★★ 4.9</b> · 200+ Google reviews</a>. One surgeon, Dr. Rana. In-house lab. Written plan before you commit.</p>
+  <div class="tgrid">
+    <div class="tcard"><div class="st">★★★★★</div><p class="q">Read recent Google reviews from real Edgewater patients.</p><div class="who"><a href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener">Open Google reviews →</a></div></div>
+    <div class="tcard"><div class="st">★★★★★</div><p class="q">See All-on-4 cases and take the 60-second quiz on our full page.</p><div class="who"><a href="/all-on-4.html#results">View All-on-4 →</a></div></div>
+    <div class="tcard"><div class="st">★★★★★</div><p class="q">Prefer Spanish? Full path stays in Spanish — no English eject.</p><div class="who"><a href="/es-all-on-4.html#quiz">Versión en Español →</a></div></div>
+  </div>
+</div></section>
+
+
+<section><div class="wrap"><div class="band">
+  <div class="bigstat">Most people are candidates.</div>
+  <p class="lead" style="margin-top:14px">Even if you've been told "no" before, or think you've waited too long. A quick, free 3D scan is the only way to know for sure.</p>
+  <a class="btn btn-light" href="#quiz">Take the 60-second quiz</a>
+</div></div></section>
+<footer><div class="wrap">
+  <div class="brand" style="color:#fff">PRANA·DENTAL MIAMI</div>
+  <div class="fl"><a href="index.html">Home</a><a href="all-on-4.html">All-on-4</a><a href="implants.html">Implants</a><a href="tel:+17865790521">(786) 579-0521</a></div>
+  <p class="disc" style="margin-top:12px">This quiz is not a diagnosis. Candidacy for full-arch treatment is confirmed only after a consultation and 3D scan; not everyone is a candidate. Results vary by individual.</p><p class="disc">*5-year guarantee covers workmanship on full-arch treatment at Prana Dental, per your treatment plan. "From $9,999" is a starting price; final cost is confirmed in writing at your free consult. "Same day" refers to a fixed provisional prosthesis placed after your workup; the final prosthesis is fitted later. Financing on approved credit. Results may vary. © 2026 Prana Dental Miami.</p>
+</div><div style="margin-top:16px;font-size:13px;opacity:.7"><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a> · <a href="/guarantee.html">5-Year Guarantee</a></div></footer>
+
+<div class="sticky">
+  <a class="btn btn-ghost" href="tel:+17865790521">Call</a>
+  <a class="btn btn-primary" href="#book">Free consult</a>
+</div>
+
+
+<script>
+(function(){
+  "use strict";
+  /* Same GoHighLevel inbound webhook the site's booking popup (book.js) already uses. */
+  var WEBHOOK="https://services.leadconnectorhq.com/hooks/qxdMI6WF2uNxt7goL1jY/webhook-trigger/cfdb9b4e-d393-48b0-920b-e9a12e91fb69";
+  var PHONE="+17865790521", PHONE_FMT="(786) 579-0521";
+  var CONSENT='By tapping the button you agree that Prana Dental Miami may contact you by call, text (including automated messages) and email about your consultation. Consent is not a condition of treatment. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms</a>.';
+
+  var Q=[
+    {k:"missing_teeth",q:"How many teeth are you currently missing?",o:["All","6+","4-5","3 or less"]},
+    {k:"arch",q:"Which arch are you looking to replace?",o:["Upper","Lower","Both","Not sure yet"]},
+    {k:"perio_flag",q:"Do you have loose teeth or a gum disease (periodontal) diagnosis?",o:["Yes","No","Not sure"]},
+    {k:"age_band",q:"What is your age?",o:["60+","50-59","40-49","Under 40"]},
+    {k:"current_solution",q:"Do you currently have any of these dental solutions?",o:["Denture or partial denture","Bridge, crown","Dental implant","None of the above"]},
+    {k:"missing_duration",q:"How long have you been missing your teeth?",h:"The longer teeth are missing, the more the jawbone can shrink.",o:["I still have them","1-6 months","7-12 months","1+ years"]},
+    {k:"chew_issue",q:"Are you currently unable to eat certain foods or have to modify the way you chew?",o:["Yes","No"]},
+    {k:"pain_flag",q:"Are you currently trying to find relief from any kind of pain or discomfort?",o:["Yes","No"]},
+    {k:"confidence_flag",q:"Are you currently experiencing a lack of confidence in social situations or hiding your smile?",o:["Yes","No"]},
+    {k:"other_consult",q:"Have you had a dental implant consultation with another dentist?",o:["Yes","No"]},
+    {k:"readiness",q:"How ready do you feel to do something about your situation?",o:["Somewhat ready","Very ready","I need something fast"]},
+    {k:"payment_plan_interest",q:"Full-arch treatment at Prana starts from $9,999 per arch (about $167/month with 0% financing on approved credit). Dental insurance rarely covers implants. Are you interested in a payment plan?",o:["Yes, show me payment options","No, I plan to pay another way"]},
+    {k:"credit_band",q:"Financing is based on credit approval of the patient or a co-signer. Which best describes your credit?",o:["Under 660","660-699","700-739","740+","Not sure"]},
+    {k:"zip",q:"What is your zip code?",t:"zip"},
+    {k:"contact",q:"Where should we send your results?",t:"contact"}
+  ];
+  var el=document.getElementById("pq"); if(!el) return;
+  var A={}, i=0, started=false, busy=false;
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function ev(name,data){
+    try{window.fbq&&fbq("trackCustom",name,data||{})}catch(e){}
+    try{window.gtag&&gtag("event",name,data||{})}catch(e){}
+    try{window.dataLayer&&dataLayer.push(Object.assign({event:name},data||{}))}catch(e){}
+  }
+  function score(){
+    var hot=(A.readiness==="I need something fast"||A.readiness==="Very ready")&&A.payment_plan_interest.indexOf("Yes")===0&&(A.credit_band==="700-739"||A.credit_band==="740+");
+    var cold=A.readiness==="Somewhat ready"||A.credit_band==="Under 660"||A.payment_plan_interest.indexOf("No")===0;
+    return hot?"hot":(cold?"cold":"warm");
+  }
+  function render(){
+    var q=Q[i], h='';
+    var pct=Math.round(i/Q.length*100);
+    h+='<div class="pq-top"><span class="pq-count">Question '+(i+1)+' of '+Q.length+'</span></div><div class="pq-bar"><i style="width:'+pct+'%"></i></div>';
+    h+='<h3>'+esc(q.q)+'</h3>'+(q.h?'<p class="pq-hint">'+esc(q.h)+'</p>':'');
+    if(q.o){
+      q.o.forEach(function(o,n){h+='<button type="button" class="pq-opt'+(A[q.k]===o?' sel':'')+'" data-n="'+n+'">'+esc(o)+'</button>'});
+      h+='<div class="pq-nav">'+(i>0?'<button type="button" class="pq-back">&larr; Back</button>':'<span></span>')+'</div>';
+    }else if(q.t==="zip"){
+      h+='<input id="pq-zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="Zip code" value="'+esc(A.zip||"")+'"><div class="pq-err" id="pq-err" aria-live="polite"></div>';
+      h+='<div class="pq-nav"><button type="button" class="pq-back">&larr; Back</button><button type="button" class="btn btn-primary pq-go" id="pq-go">Continue</button></div>';
+    }else{
+      h+='<div class="pq-row"><input id="pq-fn" type="text" autocomplete="given-name" placeholder="First name" value="'+esc(A.first_name||"")+'"><input id="pq-ln" type="text" autocomplete="family-name" placeholder="Last name" value="'+esc(A.last_name||"")+'"></div>';
+      h+='<input id="pq-ph" type="tel" autocomplete="tel" inputmode="tel" placeholder="Mobile phone" value="'+esc(A.phone||"")+'">';
+      h+='<input id="pq-em" type="email" autocomplete="email" placeholder="Email" value="'+esc(A.email||"")+'">';
+      h+='<div class="pq-err" id="pq-err" aria-live="polite"></div><p class="pq-consent">'+CONSENT+'</p>';
+      h+='<div class="pq-nav"><button type="button" class="pq-back">&larr; Back</button><button type="button" class="btn btn-primary pq-go" id="pq-go">See if I may be a candidate</button></div>';
+    }
+    el.innerHTML=h;
+    el.querySelectorAll(".pq-opt").forEach(function(b){b.onclick=function(){
+      A[q.k]=q.o[+b.getAttribute("data-n")];
+      if(!started){started=true;ev("quiz_start",{});}
+      ev("quiz_step",{step:i+1,key:q.k});
+      if(q.k==="missing_teeth"&&A.missing_teeth==="3 or less"){return screenOut();}
+      i++; render();
+    }});
+    var back=el.querySelector(".pq-back"); if(back) back.onclick=function(){i--;render()};
+    var go=el.querySelector("#pq-go"); if(go) go.onclick=next;
+    el.querySelectorAll("input").forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();next();}})});
+  }
+  function screenOut(){
+    ev("quiz_screenout",{reason:"single_or_small_gap"});
+    el.innerHTML='<div class="pq-done"><h3>Thanks for your interest</h3><p>Our implant program is designed for full-arch treatment: replacing most or all of the teeth in an arch. For a single tooth or a small gap, we would be glad to help with the right option.</p><a class="btn btn-primary" href="/implants.html">See implant options</a><a class="btn btn-ghost" href="tel:'+PHONE+'">Call '+PHONE_FMT+'</a></div>';
+  }
+  function bad(id,msg){var n=el.querySelector("#"+id);if(n)n.classList.add("err");el.querySelector("#pq-err").textContent=msg;return false}
+  function next(){
+    var q=Q[i];
+    if(q.t==="zip"){
+      var z=el.querySelector("#pq-zip").value.trim();
+      if(!/^\d{5}$/.test(z)) return bad("pq-zip","Please enter a 5-digit zip code.");
+      A.zip=z; ev("quiz_step",{step:i+1,key:"zip"}); i++; render(); return;
+    }
+    var fn=el.querySelector("#pq-fn").value.trim(), ln=el.querySelector("#pq-ln").value.trim(),
+        ph=el.querySelector("#pq-ph").value.trim(), em=el.querySelector("#pq-em").value.trim();
+    el.querySelectorAll("input").forEach(function(x){x.classList.remove("err")});
+    A.first_name=fn;A.last_name=ln;A.phone=ph;A.email=em;
+    if(fn.length<1) return bad("pq-fn","Please enter your first name.");
+    if(ln.length<1) return bad("pq-ln","Please enter your last name.");
+    if(ph.replace(/\D/g,"").length<10) return bad("pq-ph","Please enter a valid 10-digit phone number.");
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) return bad("pq-em","Please enter a valid email.");
+    submit();
+  }
+  function submit(){
+    if(busy) return; busy=true;
+    var go=el.querySelector("#pq-go"); if(go){go.disabled=true;go.textContent="Sending...";}
+    var eid="lead-"+Date.now()+"-"+Math.random().toString(36).slice(2,10);
+    var p={
+      name:A.first_name+" "+A.last_name, first_name:A.first_name, last_name:A.last_name,
+      firstName:A.first_name, lastName:A.last_name, phone:A.phone, email:A.email,
+      service:"Dental implants", service_interest:"Implants",
+      source:"implant-quiz", page:location.pathname, language:"en",
+      quiz_missing_teeth:A.missing_teeth, quiz_arch:A.arch, quiz_perio_flag:A.perio_flag, quiz_age_band:A.age_band,
+      quiz_current_solution:A.current_solution, quiz_missing_duration:A.missing_duration, quiz_chew_issue:A.chew_issue,
+      quiz_pain_flag:A.pain_flag, quiz_confidence_flag:A.confidence_flag, quiz_other_consult:A.other_consult,
+      quiz_readiness:A.readiness, quiz_payment_plan_interest:A.payment_plan_interest, quiz_credit_band:A.credit_band,
+      quiz_zip:A.zip, quiz_score:score(), quiz_needs_review:(A.missing_teeth==="4-5"), event_id:eid
+    };
+    try{var at=window.PranaAttribution&&window.PranaAttribution.get&&window.PranaAttribution.get();if(at)for(var k in at)p[k]=at[k];}catch(e){}
+    p.page_url=location.href.split("#")[0]; p.referrer=document.referrer||"";
+    try{window.fbq&&fbq("track","Lead",{content_name:"Implant Quiz"},{eventID:eid})}catch(e){}
+    try{(window.PranaEvents&&window.PranaEvents.trackNonMeta)?window.PranaEvents.trackNonMeta("Lead",{content_name:"Implant Quiz"},eid):ev("quiz_submit",{score:p.quiz_score})}catch(e){}
+    fetch(WEBHOOK,{method:"POST",mode:"cors",credentials:"omit",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(p)})
+      .then(function(r){if(!r.ok)throw new Error("bad");done(p)})
+      .catch(function(){
+        ev("quiz_submit_error",{});
+        el.innerHTML='<div class="pq-done"><h3>That didn\'t send</h3><p>Please call us at '+PHONE_FMT+' or message us on WhatsApp and we will take it from here.</p><a class="btn btn-primary" href="tel:'+PHONE+'">Call '+PHONE_FMT+'</a><a class="btn btn-ghost" href="https://wa.me/17865790521" target="_blank" rel="noopener">WhatsApp</a></div>';
+      });
+  }
+  function done(p){
+    el.innerHTML='<div class="pq-done"><div class="ck">&#10003;</div><h3>Thank you, '+esc(p.first_name)+'.</h3><p>You may be a good fit for a free consultation and 3D scan. We will text and call you within minutes to go over your results. Opening soon in Edgewater, we will follow up personally.</p><a class="btn btn-primary" href="tel:'+PHONE+'">Call '+PHONE_FMT+'</a><a class="btn btn-ghost" href="https://wa.me/17865790521" target="_blank" rel="noopener">WhatsApp</a></div>';
+  }
+  render();
+})();
+</script>
+<!-- GoHighLevel chat widget (same one as the main Prana site) -->
+<div class="mbar" role="navigation" aria-label="Mobile convert"><a class="c" href="tel:+17865790521">Call</a><a class="b" href="#quiz">Qualify</a></div>
+<style>#wa-fab{position:fixed;right:16px;bottom:16px;z-index:2147482000;display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);font:600 14px 'Archivo',-apple-system,BlinkMacSystemFont,sans-serif;text-decoration:none;transition:transform .2s}#wa-fab:hover{transform:translateY(-1px)}#wa-fab svg{width:20px;height:20px;display:block}@media(max-width:760px){#wa-fab{bottom:calc(84px + env(safe-area-inset-bottom,0px));padding:12px;gap:0}#wa-fab span{display:none}}</style><a id="wa-fab" href="https://wa.me/17865790521?text=Hi%20Prana%20Dental%2C%20I%27d%20like%20info%20on%20All-on-4" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.004c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.02ZM12.04 20.15a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24a8.2 8.2 0 0 1 5.82 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg><span>WhatsApp</span></a>
+<script src="/book.js" defer></script></body></html>

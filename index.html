@@ -487,16 +487,22 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
     </svg>
   </div>
   <div class="wrap hero-inner"><div class="hero-copy">
-    <p class="hero-title" style="margin-bottom:16px"><span class="li">The dentist Miami</span> <span class="li">has been <em>waiting for.</em></span></p>
-    <h1 class="hero-h1" style="font-size:clamp(17px,2.3vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.3;margin:0 0 22px;color:var(--ink)">Dentist in Miami's Edgewater — Family Dentistry, Implants, Veneers &amp; Smile Design</h1>
-    <p class="hero-sub">Clear pricing, an in-house lab, and a fully bilingual team. Your first visit is free — exam, X-rays, 3D scan and digital smile preview included.</p>
+    <p class="pill hero-eyebrow" style="margin-bottom:18px"><span class="dot"></span> Opening December 1 · Edgewater, Miami</p>
+    <h1 class="hero-title" style="margin-bottom:16px"><span class="li">Finally, a Miami dentist</span> <span class="li">you'll <em>actually look forward to.</em></span></h1>
+    <p class="hero-h1" style="font-size:clamp(16px,2.2vw,21px);font-weight:600;letter-spacing:-.015em;line-height:1.35;margin:0 0 20px;color:var(--ink)">Family dentistry, implants, veneers &amp; smile design in Miami's Edgewater.</p>
+    <p class="hero-sub"><strong style="color:var(--ink);font-weight:600">Your first visit is free</strong> — a $700 exam, X-rays, 3D scan &amp; digital smile preview. Clear pricing, an in-house lab, and a fully bilingual team.</p>
+    <div class="hero-chips">
+      <a class="chip" href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener" aria-label="4.9 stars, 200+ Google reviews"><span class="stars">★★★★★</span> 4.9 · 200+ reviews</a>
+      <span class="chip">In-house lab</span>
+      <span class="chip">Bilingual · EN &amp; ES</span>
+    </div>
     <div class="hero-actions">
-      <a href="#book" class="btn btn-primary">Claim my first visit</a>
+      <a href="#book" class="btn btn-primary">Reserve my free first visit</a>
       <a href="https://wa.me/17865790521?text=Hi%20Prana%20Dental%2C%20I%27d%20like%20to%20book%20a%20free%20consult" class="btn btn-ghost">WhatsApp us</a>
-    <p class="trust-strip" style="margin-top:18px;font-size:14px;color:var(--muted);letter-spacing:.02em">Same-week consults · Financing available · Most insurance welcome · Meet Dr. Rana</p>
+    <p class="trust-strip" style="margin-top:18px;font-size:14px;color:var(--muted);letter-spacing:.02em">First 50 founding patients get priority booking · 0% financing from $167/mo · Most insurance welcome</p>
 
     </div>
-    <div class="hero-trust">
+    <div class="hero-trust" hidden>
       <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg> <b>Opening Soon</b>&nbsp;Edgewater, Miami</div>
       <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"></path></svg> <b>Bilingual</b>&nbsp;EN &amp; ES</div>
       
@@ -1225,6 +1231,27 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
     position:fixed !important;left:0;right:0;top:0;bottom:96px;
     transform:translateZ(0);pointer-events:none;z-index:2147482400
   }
+}
+
+/* ---- P0 hero: real-date eyebrow, proof chips, mobile video-first ---- */
+.hero-eyebrow{margin-bottom:18px}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#8f6b3e;display:inline-block}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.hero-chips .chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:980px;background:rgba(10,10,11,.045);border:1px solid var(--line);font-size:13.5px;font-weight:600;color:var(--ink);text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
+.hero-chips a.chip:hover{background:#fff;transform:translateY(-1px)}
+.hero-chips .stars{color:#d4a24e;letter-spacing:.5px;font-size:12px}
+@media(max-width:880px){
+  /* Put the cinematic film in the fold, above the copy, on phones & tablets */
+  #top .hero-inner{display:flex;flex-direction:column}
+  .hero-video-panel{order:-1;max-width:440px;margin:0 auto}
+  .hero-video-panel .cs-head{display:none}
+  .hero-video-panel .hero-vid{aspect-ratio:16/10}
+}
+@media(max-width:760px){
+  #top.hero{padding-top:78px}
+  .hero-video-panel{max-width:100%}
+  .hero-chips{gap:8px;margin-bottom:22px}
+  .hero-chips .chip{padding:7px 12px;font-size:12.5px}
 }
 </style>
 <script id="pd-chat-lift">(function(){

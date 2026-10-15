@@ -454,6 +454,28 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <style>.seo-x p,.seo-x li{max-width:760px;font-size:17px;line-height:1.7;margin:0 0 16px}.seo-x ul{padding-left:22px;margin:0 0 16px}.seo-x h2{margin:0 0 18px}.seo-x a,.post p a,.post li a,details p a{text-decoration:underline;text-underline-offset:3px}.seo-links{display:flex;flex-wrap:wrap;gap:10px}.seo-links a{border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:15px;text-decoration:none}</style>
 <script src="/pl-events.js?v=2" defer></script>
 <script src="/prana-attribution.js" defer></script>
+<style>
+/* P3 mobile hero: whole form + button in the first screen; small face instead of big photo; sticky bar hides while the form is on screen */
+.hf-doc{display:none}
+.hero-form .hf-office{margin:12px 0 0}
+@media(max-width:880px){
+  .hero-photo{display:none}
+  .hero-form{order:1;margin:16px 0 0;padding:14px 14px 12px}
+  .hf-doc{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+  .hf-doc img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 8%;display:block}
+  .hf-doc span{font-size:13px;line-height:1.35;color:var(--muted)}
+  .hf-doc b{display:block;font-size:15px;color:var(--ink);font-weight:700;letter-spacing:-.01em}
+  .hero-form .hf-office{background:none;padding:2px 2px 0;margin:8px 0 0}
+  .hf-consent{font-size:10.5px;margin-top:8px}
+}
+@media(max-width:760px){
+  #top.hero{padding-top:70px;padding-bottom:24px}
+  .hero-title{font-size:clamp(26px,7.6vw,36px)}
+  .hero-sub{font-size:16px;margin-bottom:0}
+  .mbar,.mobile-bar{transition:transform .25s ease,visibility .25s}
+  body.hf-vis .mbar,body.hf-vis .mobile-bar{transform:translateY(100%);visibility:hidden}
+}
+</style>
 </head>
 <body>
 
@@ -517,9 +539,9 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
       if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
     })();</script>
     <p class="hero-h1" style="font-size:clamp(16px,2.2vw,21px);font-weight:600;letter-spacing:-.015em;line-height:1.35;margin:0 0 20px;color:var(--ink)">Family dentistry, implants, veneers &amp; smile design in Miami's Edgewater.</p>
-    <p class="hero-sub"><strong style="color:var(--ink);font-weight:600">Your first visit is free</strong><span class="sub-m"> — a $700 value.</span><span class="sub-d"> — a $700 exam, X-rays, 3D scan &amp; digital smile preview.</span><span class="hero-sub-more"> Clear pricing, an in-house lab, and a fully bilingual team.</span></p>
+    <p class="hero-sub"><strong style="color:var(--ink);font-weight:600">Your first visit is free</strong><span class="sub-m"> — exam, X-rays &amp; 3D scan.</span><span class="sub-d"> — exam, X-rays, 3D scan &amp; digital smile preview.</span><span class="hero-sub-more"> Clear pricing, an in-house lab, and a fully bilingual team.</span></p>
     <div class="hero-chips">
-      <a class="chip" href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener" aria-label="4.9 stars, 200+ Google reviews"><span class="stars">★★★★★</span> 4.9 · 200+ reviews</a>
+      <span class="chip">Opening Dec 1</span>
       <span class="chip">In-house lab</span>
       <span class="chip">Bilingual · EN &amp; ES</span>
     </div>
@@ -537,16 +559,17 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
   </div><div class="hero-side">
       <figure class="hero-photo">
         <picture><source type="image/webp" srcset="doctor-headshot-640.webp 640w, doctor-headshot.webp 900w" sizes="(max-width:880px) 92vw, 410px"><img src="doctor-headshot.jpg" width="900" height="1125" alt="Dr. Aakash Rana, DDS, founder of Prana Dental Miami, smiling" fetchpriority="high" decoding="async"></picture>
-        <figcaption><b>Dr. Aakash Rana, DDS</b><span class="who">Founder, Prana Dental Miami</span><span class="rev"><span class="stars">★★★★★</span> 4.9 · 200+ Google reviews</span></figcaption>
+        <figcaption><b>Dr. Aakash Rana, DDS</b><span class="who">Founder, Prana Dental Miami</span></figcaption>
       </figure>
       <form class="hero-form" id="heroForm" novalidate aria-label="Book your free first visit">
-        <a class="hf-office" href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener"><span><small>Your office</small><b>3050 Biscayne Blvd, Edgewater</b></span><u>Directions</u></a>
+        <div class="hf-doc"><picture><source type="image/webp" srcset="doctor-headshot-640.webp"><img src="doctor-headshot-640.jpg" width="56" height="56" alt="" decoding="async"></picture><span><b>Book with Dr. Aakash Rana, DDS</b>Free first visit · Takes 30 seconds</span></div>
         <label class="hf-sr" for="hf-name">Full name</label>
         <input id="hf-name" type="text" autocomplete="name" placeholder="First and last name" enterkeyhint="next">
         <label class="hf-sr" for="hf-phone">Mobile number</label>
         <input id="hf-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Mobile number" enterkeyhint="go">
         <div class="hf-err" id="hf-err" role="status" aria-live="polite"></div>
         <button type="submit" class="btn btn-primary">Reserve my free first visit</button>
+        <a class="hf-office" href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener"><span><small>Your office</small><b>3050 Biscayne Blvd, Edgewater</b></span><u>Directions</u></a>
         <p class="hf-consent" id="hf-consent">By continuing you agree that Prana Dental Miami may contact you by call, text and email about your consultation. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms</a>.</p>
       </form>
       <script id="hero-form-js">(function(){
@@ -576,12 +599,10 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
     <span><b>Opening Soon</b> · Edgewater, Miami</span>
     <span><b>In-House Lab</b> · Faster &amp; more affordable</span>
     <span><b>0% Financing</b> · From $167/mo (OAC)</span>
-    <span><b>5-Year Implant Guarantee</b></span>
     <span><b>Todo en Español</b></span>
     <span><b>Opening Soon</b> · Edgewater, Miami</span>
     <span><b>In-House Lab</b> · Faster &amp; more affordable</span>
     <span><b>0% Financing</b> · From $167/mo (OAC)</span>
-    <span><b>5-Year Implant Guarantee</b></span>
     <span><b>Todo en Español</b></span>
   </div>
 </div><section id="build"><div class="wrap build-grid">
@@ -627,7 +648,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
       <div class="gal-item reveal"><picture><source type="image/webp" srcset="office-lab-640.webp 640w, office-lab-960.webp 960w, office-lab.webp 1200w" sizes="(max-width:760px) 100vw, 960px"><img src="office-lab.jpg" alt="In-house dental laboratory at Prana Dental Miami" loading="lazy"></picture><div class="cap"><small>In-house lab</small>Crafted on-site, faster</div></div>
     </div>
   </div>
-</section><section id="stories"><div class="wrap"><div class="sec-head reveal"><div class="eyebrow gold">Patient stories</div><h2 class="h2">Real patients. Real smiles.</h2><p class="lead">We could tell you we do good work. It’s better to let our patients say it.</p><div style="text-align: center;"><a class="grating" href="https://www.google.com/maps?q=3050+Biscayne+Blvd,+Suite+703,+Miami,+FL+33137" target="_blank" rel="noopener" aria-label="Read Google reviews"><span class="stars">★★★★★</span> 4.9 · 200+ Google reviews</a></div></div><div class="stories-grid"><div class="story"><button class="story-play" data-src="t0.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t0-poster.webp"><img src="t0-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t1.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t1-poster.webp"><img src="t1-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t2.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t2-poster.webp"><img src="t2-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t3.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t3-poster.webp"><img src="t3-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t4.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t4-poster.webp"><img src="t4-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t5.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t5-poster.webp"><img src="t5-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div></div></div></section><section class="dark" id="free">
+</section><section id="stories"><div class="wrap"><div class="sec-head reveal"><div class="eyebrow gold">Patient stories</div><h2 class="h2">Real patients. Real smiles.</h2><p class="lead">We could tell you we do good work. It’s better to let our patients say it.</p></div><div class="stories-grid"><div class="story"><button class="story-play" data-src="t0.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t0-poster.webp"><img src="t0-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t1.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t1-poster.webp"><img src="t1-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t2.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t2-poster.webp"><img src="t2-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t3.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t3-poster.webp"><img src="t3-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t4.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t4-poster.webp"><img src="t4-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div><div class="story"><button class="story-play" data-src="t5.mp4" aria-label="Play patient story"><picture><source type="image/webp" srcset="t5-poster.webp"><img src="t5-poster.jpg" alt="Patient story from a Prana Dental patient" loading="lazy"></picture><span class="story-pbtn"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><circle cx="40" cy="40" r="40" fill="rgba(255,255,255,.92)"/><path d="M32 26l22 14-22 14z" fill="#0A0A0B"/></svg></span></button></div></div></div></section><section class="dark" id="free">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="eyebrow gold">What You Get, Free</div>
@@ -1384,4 +1405,5 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
   var n=0,t=setInterval(function(){if(lift()||++n>120)clearInterval(t);},250);
 })();</script>
 <script>(function(){var v=document.querySelector('video.hero-vid');if(!v)return;var save=(navigator.connection&&navigator.connection.saveData)||matchMedia('(prefers-reduced-motion: reduce)').matches;if(save)return;function go(){v.play().catch(function(){})}if('IntersectionObserver' in window){new IntersectionObserver(function(e){if(e[0].isIntersecting){go();}},{threshold:.25}).observe(v);}else{go();}})();</script>
-<script src="/book.js?v=2" defer></script></body></html>
+<script src="/book.js?v=2" defer></script><script>(function(){var f=document.getElementById('heroForm');if(!f||!('IntersectionObserver' in window))return;new IntersectionObserver(function(e){document.body.classList.toggle('hf-vis',e[0].isIntersecting)},{threshold:0.35}).observe(f)})();</script>
+</body></html>

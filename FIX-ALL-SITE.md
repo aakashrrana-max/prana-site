@@ -6,6 +6,27 @@
 
 ---
 
+## 2026-10-18 | Local SEO pass: facts, schema, pillar + neighborhood pages
+
+**Branch:** `seo/local-seo-oct2026` (not pushed, not deployed; owner reviews first).
+**Sources:** page content lives outside the repo in `prana-seo/pages-src/*.json`; rebuild with `prana-seo/build.sh`
+(site_fixes.py -> gen_pages.py -> seo_update.py -> sweep_dashes.py -> lint.py).
+
+- Facts: opening Mon Nov 16 2026; Mon-Sat 8am-8pm, Sun closed; same-day appointments (call or text first, no walk-in
+  promise); free first visit = exam + 3D scan + smile preview; implants from $1,999, All-on-4/All-on-X from $9,999/arch,
+  veneers from $999; only (786) 579-0521.
+- Removed: rating/review badges (0 Google reviews), 5-year guarantee (page + links), "one surgeon" wording, "Opening December 1".
+- Kept but unconfirmed (owner to decide): "$700 value" on the free visit, "free emergency exam + X-ray".
+- CTAs: book.js callback form kept (feeds the GHL webhook); "Book" buttons relabeled; Text (sms:) buttons added.
+  New pages are call/text only.
+- Schema: one Dentist node on every page (geo 25.8060933,-80.1896437, Mo-Sa 08:00-20:00 from 2026-11-16, sameAs IG+FB,
+  areaServed 7 neighborhoods, Dr. Aakash Rana DDS); Service+Offer on service pages; FAQPage wherever FAQs show.
+- New pages: all-on-x, wisdom-teeth-removal, es-all-on-x, es-muelas-del-juicio-miami, 27 neighborhood x service pages,
+  1 EN + 3 ES cost guides. Deepened: implants, all-on-4, emergency, es-implants, es-all-on-4, es-emergencia,
+  blog-all-on-4-cost-miami, blog-dental-implants-insurance-miami.
+
+---
+
 ## 2026-09-21 — SEO benchmark vs. bestdentistjerseycity.com (Limitless Dental)
 
 **Branch:** `seo/expand-content-and-schema` (2 commits, not pushed — no `gh`/git push

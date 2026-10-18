@@ -6,7 +6,7 @@
 (function (root) {
   'use strict';
   /* ---- OWNER SETTINGS: the only place to edit when the Google accounts exist ---- */
-  var SETTINGS = { ga4: 'G-6KP15B68YK', ads: '', ghl: 'tk_e0573f8a07af4519a9e13375a949aaae', privacy: true, adsConversions: { Lead: '', Contact: '', Schedule: '' } };   /* Google Ads later: ads: 'AW-123456789', Lead: 'AW-123456789/AbCdEfGh'. privacy:true = Google signals + ad personalization OFF (healthcare-safe default) */
+  var SETTINGS = { ga4: 'G-6KP15B68YK', ads: 'AW-18455800227', ghl: 'tk_e0573f8a07af4519a9e13375a949aaae', privacy: true, adsConversions: { Lead: 'AW-18455800227/7b4lCJCMy6EdEKPTtOBE', Contact: 'AW-18455800227/gq-zCNGmy6EdEKPTtOBE', Schedule: 'AW-18455800227/6v9JCNSmy6EdEKPTtOBE' } };   /* Google Ads 797-320-5147: Lead = "Website lead form", Contact = "Website call / WhatsApp tap", Schedule = "Website booked appointment". privacy:true = Google signals + ad personalization OFF (healthcare-safe default) */
   var cfg = root.PranaTrackingConfig || SETTINGS;
   var STANDARD = { Lead: 'generate_lead', Contact: 'contact', Schedule: 'schedule_appointment' };
   var ORIGINAL_HREF = root.location ? root.location.href : '';   /* captured BEFORE the attribution script restores params into the URL */

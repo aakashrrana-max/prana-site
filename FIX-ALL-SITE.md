@@ -247,4 +247,4 @@ Expect both hosts to serve GitHub Pages without cert errors.
 - Form: GHL `mDpUSOrNwxC8qu8w8aRH?source=lp-implants`, plus stored `gclid`/`gbraid`/`wbraid`/`utm_*` (90 days, localStorage) appended to the iframe URL.
 - Tracking: gtag.js loader with placeholder `AW_ID` / `AW_LABEL` / `AW_CALL_LABEL` / `GA4_ID` at the top of the page (nothing loads until real IDs are set). Events: `generate_lead` + Ads conversion on GHL postMessage submit, `phone_click` on tel:, `cta_click` on `[data-cta]`. Meta Pixel Lead/Contact kept. GHL chat widget + WhatsApp kept.
 - Campaign draft: `ads/dental-implants-campaign.md` + `ads/dental-implants-campaign.csv` (Google Ads Editor import, campaign **Paused**). Not uploaded to any account.
-- Open: real AW/GA4 IDs; confirm $1,999 vs $1,850 on pricing pages; confirm "1,500+ implants".
+- Open: real AW/GA4 IDs; update pricing pages from $1,850 to $1,999; implants count is 3,000+ (owner confirmed).

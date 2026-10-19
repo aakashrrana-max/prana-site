@@ -37,17 +37,17 @@
 ## 3. Responsive search ads (2 per group, in the CSV)
 
 - **Ad A — price-led:** H1 pinned = group headline (e.g. "Dental Implants Miami"), H2 pinned = "$1,999 Implant + Crown".
-- **Ad B — doctor-trust-led:** H1 pinned = group headline, H2 pinned = "Dr. Rana: 1,500+ Implants".
+- **Ad B — doctor-trust-led:** H1 pinned = group headline, H2 pinned = "Dr. Rana: 3,000+ Implants".
 - 15 headlines each (≤30 chars, validated by script), 4 descriptions (≤90 chars). All match LP claims.
 
-Shared headlines: $1,999 Implant + Crown · Implant, Abutment & Crown · Zirconia Crown Included · Dr. Rana: 1,500+ Implants · Free Implant Consultation · Written Quote Up Front · Same Doctor Every Visit · Crowns Made in Our Own Lab · Edgewater, Miami Office · Financing on Approved Credit · Se Habla Español · 5-Year Workmanship Guarantee · Call (786) 579-0521
+Shared headlines: $1,999 Implant + Crown · Implant, Abutment & Crown · Zirconia Crown Included · Dr. Rana: 3,000+ Implants · Free Implant Consultation · Written Quote Up Front · Same Doctor Every Visit · Crowns Made in Our Own Lab · Edgewater, Miami Office · Financing on Approved Credit · Se Habla Español · 5-Year Workmanship Guarantee · Call (786) 579-0521
 
 ## 4. Assets (add in Editor/UI — not in CSV)
 
 - **Sitelinks** (all to LP anchors so traffic stays on the ad page):
   - What's Included → `/lp-implants.html#included` — "Implant, abutment and crown" / "Extras quoted in writing"
   - Book Free Consult → `/lp-implants.html#book` — "Free, no obligation" / "Written quote up front"
-  - Meet Dr. Rana → `/lp-implants.html#doctor` — "1,500+ implants placed" / "NYU-trained"
+  - Meet Dr. Rana → `/lp-implants.html#doctor` — "3,000+ implants placed" / "NYU-trained"
   - All-on-X Full Arch → `/lp-all-on-x.html` — "$9,999 per arch" / "For many missing teeth"
 - **Callouts:** $1,999 All-In · Zirconia Crown Included · Free Consult · In-House Dental Lab · Same Doctor Every Visit · Se Habla Español · Financing on Approved Credit · Open Mon–Sat
 - **Structured snippets:** *Services:* Single Tooth Implants, Implant Crowns, All-on-X, Bone Grafting, Sedation · *Amenities:* In-House Lab, 3D Scans, Bilingual Team
@@ -59,7 +59,7 @@ Shared headlines: $1,999 Implant + Crown · Implant, Abutment & Crown · Zirconi
 
 Miami competitors advertise $1,789–$2,195. Our edge is **clarity, not the lowest number**:
 1. **All-in:** $1,999 includes abutment + zirconia crown. Many low ad prices are implant-only. Say "all-in", never "cheapest".
-2. **Same doctor:** Dr. Rana places every implant (1,500+ placed), vs rotating associates.
+2. **Same doctor:** Dr. Rana places every implant (3,000+ placed), vs rotating associates.
 3. **In-house lab:** faster adjustments and shade matching.
 4. **Written quote up front**, bilingual team.
 Do not name competitors in ads or bid on competitor brand names without legal/brand review.
@@ -74,7 +74,7 @@ Do not name competitors in ads or bid on competitor brand names without legal/br
 | FL §456.062 / Rule 64B5-4.002 F.A.C. — free/discounted services | LP footer carries the required 72-hour "right to refuse to pay" disclaimer (all caps). **Ads say "Free Consult"** → keep the disclaimer on the LP and in any print. | OK — legal to confirm |
 | FL Board of Dentistry — fee advertising | Fee is a specific service set; exclusions (extraction, grafting, sedation) stated on LP and in FAQ. Honor the advertised fee for ≥90 days after the ad stops. | Needs user confirmation of inclusions |
 | FL Board — specialty claims | Dr. Rana is listed as "general dentist"; no "specialist" or "implantologist" wording. | OK |
-| FL Board — no false/misleading claims | "1,500+ implants" must be documentable. No testimonials used. "5-year workmanship guarantee" links to terms. | **User must confirm 1,500+ figure** |
+| FL Board — no false/misleading claims | "3,000+ implants" owner-confirmed; keep records on file. No testimonials used. "5-year workmanship guarantee" links to terms. | OK |
 | Fake urgency / reviews | None used. No countdown, no fabricated reviews. | OK |
 
 ## 7. A/B test plan (one test at a time, ~2–4 weeks or 30+ conversions per arm)
@@ -90,6 +90,6 @@ Do not name competitors in ads or bid on competitor brand names without legal/br
 - [ ] Real `AW_ID`, `AW_LABEL` (and optional `AW_CALL_LABEL`), `GA4_ID` in the top of `lp-implants.html`.
 - [ ] Create the conversion action "Implant consult form submit" in Google Ads.
 - [ ] Map GHL form hidden fields to `gclid`, `utm_*`, `source` (they're passed as URL params).
-- [ ] Confirm inclusions/exclusions and that $1,999 is right (site pricing pages still say **$1,850**).
-- [ ] Confirm "1,500+ implants placed".
+- [x] $1,999 = implant + abutment + crown (owner confirmed 2026-10-18). Site pricing pages still say **$1,850** and need updating.
+- [x] 3,000+ implants placed (owner confirmed 2026-10-18).
 - [ ] Set budget, then un-pause.

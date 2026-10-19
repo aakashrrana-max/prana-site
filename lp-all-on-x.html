@@ -361,7 +361,7 @@ function qNext(){
     if(typeof fbq==='function'){ fbq('track','Lead',{content_name:'All-on-X quiz complete'}); }
   }
 }
-function pranaSchedule(){ if(typeof fbq==='function'){ fbq('track','Schedule',{content_name:'All-on-X reserve click'}); } }
+function pranaSchedule(){ /* a click, not a booking: real bookings are reported from GoHighLevel */ if(typeof fbq==='function'){ fbq('trackCustom','ReserveClick',{content_name:'All-on-X reserve click'}); } if(typeof gtag==='function'){ gtag('event','reserve_click',{content_name:'All-on-X reserve click'}); } }
 </script>
 <!-- GoHighLevel chat widget (same one as the main Prana site) -->
 <div class="mbar" role="navigation" aria-label="Mobile convert"><a class="c" href="tel:+17865790521">Call</a><a class="b" href="#quiz">Qualify</a></div>

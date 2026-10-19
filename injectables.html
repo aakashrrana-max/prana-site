@@ -548,11 +548,11 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
   if(window.PranaEvents){ Object.assign(capAnswers, window.PranaEvents.payloadFields()); }
 
   /* Ad platforms get intent only. Never treatment interest. */
-  track('Lead', {content_name:'Injectables Consult', timing: capAnswers.timing});
   track('capture_complete', {timing: capAnswers.timing});
 
   try{
-    await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(capAnswers)});
+    const r = await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(capAnswers)});
+    if(r.ok) track('Lead', {content_name:'Injectables Consult', timing: capAnswers.timing});   /* conversion only once GHL accepted the lead */
   }catch(err){ /* never trap the patient on a network error */ }
 
   const msg = document.getElementById('capDoneMsg');

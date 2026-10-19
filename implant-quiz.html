@@ -459,10 +459,11 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
     };
     try{var at=window.PranaAttribution&&window.PranaAttribution.get&&window.PranaAttribution.get();if(at)for(var k in at)p[k]=at[k];}catch(e){}
     p.page_url=location.href.split("#")[0]; p.referrer=document.referrer||"";
-    try{window.fbq&&fbq("track","Lead",{content_name:"Implant Quiz"},{eventID:eid})}catch(e){}
-    try{(window.PranaEvents&&window.PranaEvents.trackNonMeta)?window.PranaEvents.trackNonMeta("Lead",{content_name:"Implant Quiz"},eid):ev("quiz_submit",{score:p.quiz_score})}catch(e){}
     fetch(WEBHOOK,{method:"POST",mode:"cors",credentials:"omit",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(p)})
-      .then(function(r){if(!r.ok)throw new Error("bad");done(p)})
+      .then(function(r){if(!r.ok)throw new Error("bad");
+        try{window.fbq&&fbq("track","Lead",{content_name:"Implant Quiz"},{eventID:eid})}catch(e){}
+        try{(window.PranaEvents&&window.PranaEvents.trackNonMeta)?window.PranaEvents.trackNonMeta("Lead",{content_name:"Implant Quiz"},eid):ev("quiz_submit",{score:p.quiz_score})}catch(e){}
+        done(p)})
       .catch(function(){
         ev("quiz_submit_error",{});
         el.innerHTML='<div class="pq-done"><h3>That didn\'t send</h3><p>Please call us at '+PHONE_FMT+' or message us on WhatsApp and we will take it from here.</p><a class="btn btn-primary" href="tel:'+PHONE+'">Call '+PHONE_FMT+'</a><a class="btn btn-ghost" href="https://wa.me/17865790521" target="_blank" rel="noopener">WhatsApp</a></div>';

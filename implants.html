@@ -611,11 +611,11 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
 
   /* No clinical detail in the ad-platform payload. Timing intent only.
      The full answer set goes to GHL below. */
-  track('Lead', {content_name:'Single Tooth Consult', timing: capAnswers.timing});
   track('capture_complete', {timing: capAnswers.timing});
 
   try{
-    await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(capAnswers)});
+    const r = await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(capAnswers)});
+    if(r.ok) track('Lead', {content_name:'Single Tooth Consult', timing: capAnswers.timing});   /* conversion only once GHL accepted the lead */
   }catch(err){ /* never trap the patient on a network error */ }
 
   const msg = document.getElementById('capDoneMsg');

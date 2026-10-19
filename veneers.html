@@ -623,11 +623,11 @@ document.getElementById('capSubmit').addEventListener('click', async () => {
 
   /* Cosmetic concern is an aesthetic preference, not a health condition, but it
      still stays out of the ad payload. Ad platforms get intent only. */
-  track('Lead', {content_name:'Smile Plan Request'});
   track('capture_complete', {service: CONFIG.service});
 
   try{
-    await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(payload)});
+    const r = await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(payload)});
+    if(r.ok) track('Lead', {content_name:'Smile Plan Request'});   /* conversion only once GHL accepted the lead */
   }catch(err){ /* never trap the patient on a network error */ }
 
   document.getElementById('capMain').style.display = 'none';

@@ -840,12 +840,12 @@ document.getElementById('qSubmit').addEventListener('click', async () => {
   /* Value scales with tier so Meta optimises toward Tier A, not raw volume.
      Deliberately NO clinical detail in the ad-platform payload. Tier letter
      and score only. The full answer set goes to GHL below. */
-  track('Lead', {content_name:'Full Arch Consult', tier: t.tier, score: s});
   track('quiz_complete', {tier: t.tier, score: s});
 
   if(CONFIG.webhookUrl){
     try{
-      await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(Object.assign({}, answers, window.PranaEvents ? window.PranaEvents.payloadFields() : {}))});
+      const r = await fetch(CONFIG.webhookUrl, {method:'POST', mode:'cors', credentials:'omit', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(Object.assign({}, answers, window.PranaEvents ? window.PranaEvents.payloadFields() : {}))});
+      if(r.ok) track('Lead', {content_name:'Full Arch Consult', tier: t.tier, score: s});   /* conversion only once GHL accepted the lead */
     }catch(e){ /* never block booking on a webhook failure */ }
   }
 

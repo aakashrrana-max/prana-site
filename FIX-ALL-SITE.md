@@ -6,6 +6,18 @@
 
 ---
 
+## 2026-10-18 | Emergency dentist Google Ads landing page (draft)
+
+**Branch:** `claude/emergency-dentist-landing-b3c96b` (based on origin/main 714db36; not pushed, not deployed; owner reviews first).
+- New `lp/emergency-dentist.html` (noindex): date-aware pre-open/open copy, ER/911 box, 3-field form -> existing GHL webhook
+  (`source: lp-emergency`, `service_interest: Emergency`), GA4 events + existing Ads Lead/Contact conversions via pl-events.js,
+  call-tracking + enhanced-conversion hooks (off), A/B variants via `?hero= ?img= ?info= ?h=`. No price, reviews or "free" claims.
+- Docs: `docs/emergency-landing/` (competitor research, copy, tracking checklist, A/B plan, stress test, **todo-verify.md**).
+  Docs are public if merged to main; merge only the page + `doctor-headshot-320.webp` or move docs first.
+- Found: emergency.html + blog-emergency-dentist-edgewater.html still advertise the dropped free emergency exam.
+
+---
+
 ## 2026-10-18 | Local SEO pass: facts, schema, pillar + neighborhood pages
 
 **Branch:** `seo/local-seo-oct2026` (not pushed, not deployed; owner reviews first).

@@ -16,7 +16,8 @@
   promise); free first visit = exam + 3D scan + smile preview; implants from $1,999, All-on-4/All-on-X from $9,999/arch,
   veneers from $999; only (786) 579-0521.
 - Removed: rating/review badges (0 Google reviews), 5-year guarantee (page + links), "one surgeon" wording, "Opening December 1".
-- Kept but unconfirmed (owner to decide): "$700 value" on the free visit, "free emergency exam + X-ray".
+- Kept but unconfirmed (owner to decide): "$700 value" on the free visit.
+- Owner confirmed 2026-10-18: emergency exam + X-ray is free.
 - CTAs: book.js callback form kept (feeds the GHL webhook); "Book" buttons relabeled; Text (sms:) buttons added.
   New pages are call/text only.
 - Schema: one Dentist node on every page (geo 25.8060933,-80.1896437, Mo-Sa 08:00-20:00 from 2026-11-16, sameAs IG+FB,

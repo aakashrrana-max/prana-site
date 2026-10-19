@@ -237,3 +237,12 @@ Expect both hosts to serve GitHub Pages without cert errors.
 - Justice: www DNS cutover (table above)  
 - Website bot: post-merge quiz→GHL smoke test; optional WebP `<picture>`; story video compression; AO4 CTA count reduction  
 - Kash: practice-specific financing merchant URLs when available (do not invent)
+
+---
+
+## 2026-10-18 — `lp-implants.html` (Google Ads landing page, $1,999 single implant)
+
+- New ad-only page `lp-implants.html` (noindex, no main nav, logo not linked), styled like `lp-all-on-x.html`.
+- Offer: $1,999 = implant + abutment + zirconia crown; Dr. Rana 3,000+ implants placed (both owner confirmed). Exclusions (extraction, grafting, sedation) shown in hero, inclusions section, FAQ and footer. Same legal block as `lp-all-on-x.html`.
+- Tracking: same as the rest of the site, `/pl-events.js?v=2`, `/prana-attribution.js`, `/book.js` (form iframe `?source=lp-implants` becomes the lead popup). Extra `cta_click` gtag event on `[data-cta]` links.
+- Campaign draft: `ads/dental-implants-campaign.md` + `ads/dental-implants-campaign.csv` (Google Ads Editor import, campaign **Paused**, $0.01/day placeholder). Not uploaded to any account. Office opens Nov 16, 2026; don't start ads before then.

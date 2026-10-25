@@ -3,7 +3,7 @@
 **Campaign theme:** Free 60-second implant quiz + free 2026 Implant Price Guide
 
 Images: `out/{c1,c2,c3}-1080x1080.png` (Feed) and `out/{c1,c2,c3}-1080x1920.png` (Stories/Reels).
-Re-render: `node ads/funnel/creatives/render.mjs`. Guide PDF: `/2026-miami-dental-implant-price-guide.pdf`.
+Re-render: `node ads/nuvia-style-funnel/creatives/render.mjs`. Guide PDF: `/2026-miami-dental-implant-price-guide.pdf`.
 
 **Rules applied to all copy:** only approved facts. No star ratings, review counts, testimonials, monthly-payment figures, "0%", "value" claims, "in-house lab", competitor prices, guarantees, or "you qualify". Meta personal-health policy: no "you" + condition phrasing (e.g. no "Missing teeth?"), no before/after, no body-shaming. Every $9,999 mention is "starting price per arch" with the written-quote qualifier.
 

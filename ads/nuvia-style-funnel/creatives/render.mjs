@@ -1,5 +1,5 @@
 // Renders creative.html -> out/{c1,c2,c3}-{1080x1080,1080x1920}.png
-// Usage: node ads/funnel/creatives/render.mjs [--only c1,c3]
+// Usage: node ads/nuvia-style-funnel/creatives/render.mjs [--only c1,c3]
 // Reuses playwright-core from ads/meta/motion/node_modules and launches system Chrome (same as motion/render.mjs).
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';

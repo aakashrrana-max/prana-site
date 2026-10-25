@@ -1,5 +1,5 @@
 // Renders guide.html -> /2026-miami-dental-implant-price-guide.pdf (repo root = public URL).
-// Usage: node ads/funnel/price-guide/render-pdf.mjs [--preview]   (--preview also writes preview/page-N.png)
+// Usage: node ads/nuvia-style-funnel/price-guide/render-pdf.mjs [--preview]   (--preview also writes preview/page-N.png)
 // Reuses playwright-core from ads/meta/motion/node_modules and launches system Chrome (same as motion/render.mjs).
 import { createRequire } from 'node:module';
 import { fileURLToPath, pathToFileURL } from 'node:url';

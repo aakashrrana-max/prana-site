@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prana Meta creative</title>
+<!--
+  One template for the three funnel creatives. Parameters via query string:
+    ?c=c1|c2|c3&size=1080x1080|1080x1920
+  Render all: node ads/funnel/creatives/render.mjs
+  9:16 safe zone: key content kept between y=269 (top 14%) and y=1536 (bottom 20%).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,300..600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A0A0B;--paper:#F4F1EA;--paper2:#ECE7DE;--muted:#6c6760}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:var(--w);height:var(--h);overflow:hidden}
+body{font-family:'Archivo',Arial,sans-serif;-webkit-font-smoothing:antialiased;background:var(--paper);color:var(--ink)}
+em{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.mono{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.2em;font-weight:600}
+.cr{display:none;position:absolute;inset:0;overflow:hidden}
+body[data-c=c1] #c1,body[data-c=c2] #c2,body[data-c=c3] #c3{display:block}
+.abs{position:absolute}
+.photo{position:absolute;background-size:cover;background-repeat:no-repeat}
+.chip{position:absolute;background:var(--paper);border-radius:18px;padding:16px 22px;display:flex;align-items:center}
+.chip img{height:62px;display:block}
+.pill{display:inline-flex;align-items:center;gap:14px;background:var(--paper);color:var(--ink);border-radius:999px;font-weight:700;letter-spacing:-.01em}
+
+/* ================= C1 QUIZ ================= */
+#c1{background:var(--ink)}
+#c1 .photo{inset:-8px 0 0 0;background-image:url(../../../office-reception.jpg)}
+#c1 .shade{position:absolute;inset:0}
+#c1 .txt{position:absolute;left:72px;right:72px;color:var(--paper)}
+#c1 .eb{font-size:22px;color:rgba(244,241,234,.75);margin-bottom:20px}
+#c1 h1{font-weight:800;letter-spacing:-.035em;line-height:1}
+#c1 h1 em{display:block}
+#c1 .sub{font-weight:600;letter-spacing:-.01em;margin-top:22px}
+#c1 .plus{color:rgba(244,241,234,.78);margin-top:8px}
+#c1 .pill{margin-top:30px}
+/* square */
+.sq #c1 .photo{background-position:50% 40%}
+.sq #c1 .shade{background:linear-gradient(180deg,rgba(10,10,11,0) 22%,rgba(10,10,11,.55) 50%,rgba(10,10,11,.92) 82%)}
+.sq #c1 .chip{left:60px;top:56px}
+.sq #c1 .txt{bottom:64px}
+.sq #c1 h1{font-size:70px}
+.sq #c1 .sub{font-size:34px}
+.sq #c1 .plus{font-size:26px}
+.sq #c1 .pill{font-size:30px;padding:22px 38px;position:absolute;right:0;bottom:0}
+/* story */
+.st #c1 .photo{background-position:42% 50%;height:1308px;top:-8px;left:0;right:0;bottom:auto}
+.st #c1 .shade{height:1300px;bottom:auto;background:linear-gradient(180deg,rgba(10,10,11,.25) 0,rgba(10,10,11,0) 22%,rgba(10,10,11,0) 40%,rgba(10,10,11,.85) 64%,var(--ink) 70%)}
+.st #c1 .chip{right:72px;top:290px}
+.st #c1 .txt{bottom:420px}
+.st #c1 h1{font-size:96px}
+.st #c1 .sub{font-size:44px;margin-top:30px}
+.st #c1 .plus{font-size:32px}
+.st #c1 .pill{font-size:38px;padding:28px 48px;margin-top:44px}
+
+/* ================= C2 PRICE ================= */
+#c2{background:var(--paper)}
+#c2 .logo{position:absolute;height:84px}
+#c2 .eb{font-size:21px;color:var(--muted)}
+#c2 h1{font-weight:800;letter-spacing:-.03em;line-height:1}
+#c2 .num{font-weight:800;letter-spacing:-.055em;line-height:.86;display:block}
+#c2 .num sup{font-size:.4em;vertical-align:top;position:relative;top:.12em;letter-spacing:0;margin-left:4px}
+#c2 .per{display:block}
+#c2 .sub{font-weight:600;letter-spacing:-.01em;line-height:1.2}
+#c2 .fine{color:var(--muted);line-height:1.35}
+#c2 .book{position:absolute;box-shadow:0 40px 70px rgba(10,10,11,.28),0 8px 18px rgba(10,10,11,.14);border-radius:6px;overflow:hidden;background:#fff}
+#c2 .book img{width:100%;display:block}
+#c2 .book::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.12),rgba(255,255,255,0) 4%,rgba(255,255,255,.06) 60%,rgba(10,10,11,.04))}
+#c2 .free{position:absolute;background:var(--ink);color:var(--paper);border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:.02em;transform:rotate(-10deg)}
+#c2 .band{position:absolute;left:0;right:0;background:var(--paper2)}
+/* square */
+.sq #c2 .band{bottom:0;height:128px}
+.sq #c2 .logo{left:70px;top:62px}
+.sq #c2 .main{position:absolute;left:72px;top:262px;width:560px}
+.sq #c2 h1{font-size:50px}
+.sq #c2 .num{font-size:156px;margin:16px 0 6px}
+.sq #c2 .per{font-size:58px}
+.sq #c2 .sub{font-size:34px;margin-top:44px;width:470px}
+.sq #c2 .eb{margin-bottom:18px}
+.sq #c2 .book{width:400px;right:70px;top:210px;transform:rotate(4deg)}
+.sq #c2 .free{width:144px;height:144px;font-size:32px;right:40px;top:150px}
+.sq #c2 .fine{position:absolute;left:72px;right:72px;bottom:46px;font-size:22px}
+/* story */
+.st #c2 .band{top:930px;bottom:0}
+.st #c2 .logo{left:50%;transform:translateX(-50%);top:292px;height:96px}
+.st #c2 .main{position:absolute;left:0;right:0;top:446px;text-align:center}
+.st #c2 .eb{font-size:24px;margin-bottom:20px}
+.st #c2 h1{font-size:64px}
+.st #c2 .num{font-size:200px;margin:16px 0 4px}
+.st #c2 .per{font-size:70px}
+.st #c2 .sub{display:none}
+.st #c2 .book{width:330px;left:96px;top:980px;transform:rotate(-4deg)}
+.st #c2 .free{width:140px;height:140px;font-size:31px;left:356px;top:946px}
+.st #c2 .sub2{position:absolute;left:510px;right:72px;top:1090px;font-weight:700;font-size:44px;line-height:1.15;letter-spacing:-.015em}
+.st #c2 .sub2 em{display:block;font-size:34px;font-weight:400;color:var(--muted);margin-top:14px;letter-spacing:0}
+.st #c2 .fine{position:absolute;left:96px;right:96px;top:1452px;text-align:center;font-size:23px}
+.sq #c2 .sub2{display:none}
+
+/* ================= C3 DOCTOR ================= */
+#c3{background:var(--ink);color:var(--paper)}
+#c3 .photo{background-image:url(../../../doctor-headshot.jpg)}
+#c3 .fade{position:absolute}
+#c3 .logo{position:absolute}
+#c3 .eb{color:rgba(244,241,234,.7)}
+#c3 .name{font-weight:800;letter-spacing:-.04em;line-height:.95}
+#c3 .stat{line-height:1.05}
+#c3 .stat b{font-family:'Archivo',sans-serif;font-style:normal;font-weight:800;letter-spacing:-.03em}
+#c3 .rule{height:2px;background:rgba(244,241,234,.25)}
+#c3 .offer{font-weight:700;letter-spacing:-.015em;line-height:1.1}
+#c3 .date{display:inline-flex;align-items:center;gap:14px;border:2px solid rgba(244,241,234,.35);border-radius:999px}
+#c3 .date i{width:12px;height:12px;border-radius:50%;background:var(--paper);display:inline-block}
+/* square */
+.sq #c3 .photo{right:-40px;top:0;width:700px;height:1080px;background-position:50% 20%}
+.sq #c3 .fade{right:0;top:0;width:660px;height:1080px;background:linear-gradient(90deg,var(--ink) 0,rgba(10,10,11,.75) 18%,rgba(10,10,11,.3) 36%,rgba(10,10,11,0) 55%),linear-gradient(0deg,rgba(10,10,11,.6),rgba(10,10,11,0) 30%)}
+.sq #c3 .logo{left:72px;top:66px;height:76px}
+.sq #c3 .txt{position:absolute;left:72px;bottom:80px;width:560px}
+.sq #c3 .eb{font-size:21px;margin-bottom:20px}
+.sq #c3 .name{font-size:104px}
+.sq #c3 .stat{font-size:46px;margin-top:14px}
+.sq #c3 .rule{margin:36px 0 30px;width:420px}
+.sq #c3 .offer{font-size:42px}
+.sq #c3 .date{font-size:21px;padding:14px 24px;margin-top:30px}
+/* story */
+.st #c3 .photo{left:0;right:0;top:0;height:1350px;background-position:50% 0}
+.st #c3 .fade{left:0;right:0;top:0;height:1350px;background:linear-gradient(180deg,rgba(10,10,11,.3) 0,rgba(10,10,11,0) 18%,rgba(10,10,11,0) 52%,rgba(10,10,11,.9) 80%,var(--ink) 100%)}
+.st #c3 .logo{left:72px;top:290px;height:84px}
+.st #c3 .txt{position:absolute;left:72px;right:72px;bottom:400px}
+.st #c3 .eb{font-size:24px;margin-bottom:22px}
+.st #c3 .name{font-size:132px}
+.st #c3 .stat{font-size:60px;margin-top:16px}
+.st #c3 .rule{margin:40px 0 34px}
+.st #c3 .offer{font-size:54px}
+.st #c3 .date{font-size:25px;padding:16px 28px;margin-top:34px}
+</style>
+</head>
+<body>
+
+<!-- C1: Quiz -->
+<div class="cr" id="c1">
+  <div class="photo"></div><div class="shade"></div>
+  <div class="chip"><img src="../price-guide/img/logo-black.png" alt="Prana Dental Miami"></div>
+  <div class="txt">
+    <div class="eb mono">Prana Dental Miami · Edgewater</div>
+    <h1>Could full-arch implants <em>be right for you?</em></h1>
+    <div class="sub">Take the free 60-second quiz</div>
+    <div class="plus">+ free 2026 Miami Implant Price Guide</div>
+    <div class="pill">Start the quiz <span>→</span></div>
+  </div>
+</div>
+
+<!-- C2: Price transparency -->
+<div class="cr" id="c2">
+  <div class="band"></div>
+  <img class="logo" src="../price-guide/img/logo-black.png" alt="Prana Dental Miami">
+  <div class="main">
+    <div class="eb mono">Price transparency · 2026</div>
+    <h1>Full-arch implants from</h1>
+    <span class="num">$9,999<sup>*</sup></span>
+    <em class="per">per arch</em>
+    <div class="sub">Get the free 2026 Miami Implant Price Guide</div>
+  </div>
+  <div class="book"><img src="assets/guide-cover.jpg" alt="2026 Miami Dental Implant Price Guide"></div>
+  <div class="free">FREE</div>
+  <div class="sub2">Get the free 2026 Miami Implant Price Guide<em>Costs, options &amp; timelines</em></div>
+  <div class="fine">*Starting price per arch. Final cost confirmed in writing after consult &amp; 3D scan.</div>
+</div>
+
+<!-- C3: Doctor -->
+<div class="cr" id="c3">
+  <div class="photo"></div><div class="fade"></div>
+  <img class="logo" src="../price-guide/img/logo-white.png" alt="Prana Dental Miami">
+  <div class="txt">
+    <div class="eb mono">Prana Dental Miami</div>
+    <div class="name">Dr. Rana</div>
+    <div class="stat"><em><b>3,000+</b> implants placed</em></div>
+    <div class="rule"></div>
+    <div class="offer">Free implant consult<br>+ 3D scan</div>
+    <div class="date mono"><i></i>Opening Dec 1 · Edgewater</div>
+  </div>
+</div>
+
+<script>
+const q = new URLSearchParams(location.search);
+const [w, h] = (q.get('size') || '1080x1080').split('x').map(Number);
+document.documentElement.style.setProperty('--w', w + 'px');
+document.documentElement.style.setProperty('--h', h + 'px');
+document.body.dataset.c = q.get('c') || 'c1';
+document.body.className = h > w ? 'st' : 'sq';
+</script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2026 Miami Dental Implant Price Guide · Prana Dental Miami</title>
+<meta name="author" content="Prana Dental Miami">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,300..600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<!--
+  Source for /2026-miami-dental-implant-price-guide.pdf
+  Render: node ads/funnel/price-guide/render-pdf.mjs
+  US Letter, one .page = one printed page. Facts limited to the approved list (see ads/funnel/creatives/COPY.md).
+-->
+<style>
+:root{
+  --ink:#0A0A0B; --ink2:#1b1b1b; --paper:#F4F1EA; --paper2:#ECE7DE; --muted:#6c6760;
+  --line:rgba(10,10,11,.14); --line-d:rgba(244,241,234,.18);
+}
+@page{size:Letter;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Archivo',Arial,sans-serif;color:var(--ink);background:#888;-webkit-font-smoothing:antialiased;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;font-size:10.5pt;line-height:1.5}
+@media screen{.page{margin:24px auto;box-shadow:0 4px 30px rgba(0,0,0,.25)}}
+.page{width:8.5in;height:11in;position:relative;overflow:hidden;background:var(--paper);
+  padding:.72in .78in .9in;page-break-after:always;break-after:page;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto;break-after:auto}
+.dark{background:var(--ink);color:var(--paper)}
+.alt{background:var(--paper2)}
+
+/* type */
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.dark .eyebrow{color:rgba(244,241,234,.6)}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.025em;line-height:1.02}
+h2{font-size:30pt;margin:10pt 0 12pt}
+h3{font-size:12.5pt;letter-spacing:-.01em;line-height:1.2}
+em,.serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+p{margin:0 0 8pt}
+.lede{font-size:12.5pt;line-height:1.45;color:var(--ink2);max-width:5.6in}
+.dark .lede{color:rgba(244,241,234,.82)}
+.muted{color:var(--muted)}
+.small{font-size:8.5pt;line-height:1.45}
+.rule{height:1px;background:var(--line);margin:14pt 0}
+.dark .rule{background:var(--line-d)}
+
+/* running header/footer */
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22pt}
+.top img{height:22pt}
+.foot{position:absolute;left:.78in;right:.78in;bottom:.42in;display:flex;justify-content:space-between;
+  font-family:'JetBrains Mono',monospace;font-size:6.8pt;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:8pt}
+.dark .foot{color:rgba(244,241,234,.5);border-color:var(--line-d)}
+
+/* ---------- 1. cover ---------- */
+.cover{padding:0}
+.cover .inner{padding:.7in .78in 0;flex:0 0 auto}
+.cover .brand{display:flex;justify-content:space-between;align-items:flex-start}
+.cover .brand img{height:62pt}
+.cover .ed{text-align:right}
+.cover .ed b{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:20pt;letter-spacing:0;margin-top:4pt}
+.cover h1{font-size:52pt;line-height:.95;letter-spacing:-.035em;margin:58pt 0 16pt}
+.cover h1 em{display:block;font-size:56pt}
+.cover .sub{font-size:13pt;line-height:1.45;max-width:5.1in;color:var(--ink2)}
+.cover .loc{margin-top:16pt;display:flex;gap:14pt;align-items:center}
+.cover .loc span{font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.cover .loc i{width:4pt;height:4pt;border-radius:50%;background:var(--ink);display:inline-block}
+.cover .photo{flex:1;margin:28pt .78in .62in;border-radius:14pt;overflow:hidden;position:relative;
+  background:url(img/cover.jpg) center 55%/cover}
+.cover .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,241,234,.0) 55%,rgba(10,10,11,.45))}
+.cover .photo .tag{position:absolute;left:16pt;bottom:14pt;z-index:2;color:var(--paper);font-family:'JetBrains Mono',monospace;
+  font-size:7pt;letter-spacing:.18em;text-transform:uppercase}
+
+/* ---------- 2. note ---------- */
+.note{display:grid;grid-template-columns:2.35in 1fr;gap:32pt;margin-top:6pt}
+.note .head{border-radius:12pt;overflow:hidden;height:3.05in;background:url(img/doctor.jpg) center 22%/cover}
+.note .cap{margin-top:10pt}
+.note .cap b{display:block;font-size:11pt}
+.note .letter p{font-size:11.2pt;line-height:1.6;margin-bottom:10pt}
+.note .sig{font-family:'Fraunces',serif;font-style:italic;font-size:22pt;margin-top:12pt;line-height:1}
+.note .sig small{display:block;font-family:'Archivo',sans-serif;font-style:normal;font-size:9pt;color:var(--muted);margin-top:6pt}
+.notephoto{flex:1;min-height:1in;margin:20pt 0 18pt;border-radius:12pt;background:url(img/suite.jpg) center 55%/cover}
+.toc{border-top:1px solid var(--line);padding-top:14pt;display:grid;grid-template-columns:repeat(4,1fr);gap:10pt 18pt}
+.toc div{font-size:9pt;line-height:1.3}
+.toc b{display:block;font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.14em;color:var(--muted);font-weight:600;margin-bottom:2pt}
+
+/* ---------- 3. compare ---------- */
+.who{display:grid;grid-template-columns:1fr 1fr;gap:14pt;margin:4pt 0 18pt}
+.card{background:var(--paper2);border-radius:12pt;padding:16pt 18pt}
+.alt .card{background:var(--paper)}
+.card h3{margin-bottom:6pt}
+.card ul{margin:6pt 0 0;padding:0;list-style:none}
+.card li{position:relative;padding-left:13pt;margin-bottom:4pt;font-size:9.8pt;line-height:1.45}
+.card li::before{content:"";position:absolute;left:0;top:6.5pt;width:5pt;height:1.5pt;background:var(--ink)}
+table.cmp{width:100%;border-collapse:collapse;font-size:9.8pt;line-height:1.4}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:9pt 10pt;border-bottom:1px solid var(--line)}
+.cmp thead th{font-size:11pt;font-weight:800;border-bottom:2px solid var(--ink);padding-top:0}
+.cmp thead th em{font-size:10pt;color:var(--muted)}
+.cmp tbody th{font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;width:1.45in;padding-left:0}
+.cmp .price td{font-size:10pt}
+.cmp .price b{display:block;font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:26pt;line-height:1;letter-spacing:-.01em;margin-bottom:3pt}
+
+/* ---------- 4. options ---------- */
+.opt{display:grid;grid-template-columns:1.45in 1.75in 1fr 1fr;gap:14pt;padding:11pt 0;border-top:1px solid var(--line)}
+.opthead{display:grid;grid-template-columns:1.45in 1.75in 1fr 1fr;gap:14pt;padding-bottom:6pt;border-bottom:2px solid var(--ink)}
+.opthead span{font-family:'JetBrains Mono',monospace;font-size:6.6pt;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.opthead + .opt{border-top:0}
+.opt .n{font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.14em;color:var(--muted);font-weight:600;margin-bottom:4pt}
+.opt h3{font-size:12pt}
+.opt .pr{margin-top:6pt;font-size:8.5pt;color:var(--muted)}
+.opt .pr b{color:var(--ink);font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:12pt}
+.opt p{font-size:9pt;line-height:1.42;margin:0}
+.pc{font-size:8.8pt;line-height:1.4}
+.pc .lbl{font-family:'JetBrains Mono',monospace;font-size:6.6pt;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--muted);display:block;margin:0 0 3pt}
+.pc ul{margin:0;padding-left:10pt}
+.pc li{margin-bottom:1.5pt}
+
+/* ---------- 5. price ---------- */
+.big{display:flex;align-items:flex-end;gap:18pt;margin:8pt 0 4pt}
+.big .num{font-weight:800;font-size:92pt;letter-spacing:-.05em;line-height:.85}
+.big .per{padding-bottom:6pt}
+.big .per em{display:block;font-size:22pt;line-height:1}
+.big .per span{font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,241,234,.6)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16pt}
+.panel{border:1px solid var(--line-d);border-radius:12pt;padding:16pt 18pt}
+.panel h3{margin-bottom:8pt}
+.panel ul{margin:0;padding:0;list-style:none}
+.panel li{padding:6.5pt 0;border-top:1px solid var(--line-d);font-size:9.8pt;line-height:1.4;display:flex;gap:10pt}
+.panel li:first-child{border-top:0}
+.panel li b{font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.1em;color:rgba(244,241,234,.5);font-weight:600;padding-top:2pt;flex:0 0 14pt}
+.hl{margin-top:16pt;background:var(--paper);color:var(--ink);border-radius:12pt;padding:16pt 20pt;display:flex;gap:16pt;align-items:center}
+.hl .ic{flex:0 0 34pt;height:34pt;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:18pt}
+.hl b{font-size:14pt;letter-spacing:-.01em;display:block;line-height:1.2}
+.hl span{font-size:9.3pt;color:var(--muted)}
+
+/* ---------- 6. timelines ---------- */
+.tl{margin:6pt 0 22pt}
+.tl h3{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12pt}
+.tl h3 span{font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.steps{display:grid;position:relative}
+.steps.s4{grid-template-columns:repeat(4,1fr)}
+.steps.s5{grid-template-columns:repeat(5,1fr)}
+.steps::before{content:"";position:absolute;left:9pt;right:9pt;top:9pt;height:2px;background:var(--ink)}
+.step{position:relative;padding-right:10pt}
+.step .dot{width:18pt;height:18pt;border-radius:50%;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono',monospace;font-size:7.5pt;font-weight:600;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.step.heal .dot{background:var(--paper);color:var(--ink);border:2px solid var(--ink)}
+.step b{display:block;font-size:10.5pt;margin:10pt 0 3pt;line-height:1.2;letter-spacing:-.01em}
+.step p{font-size:8.8pt;line-height:1.4;color:var(--ink2);margin:0}
+.step .when{display:inline-block;margin-top:6pt;font-family:'JetBrains Mono',monospace;font-size:6.6pt;letter-spacing:.12em;text-transform:uppercase;background:var(--paper2);padding:3pt 6pt;border-radius:20pt;font-weight:600}
+.alt .step .when{background:var(--paper)}
+.alt .step.heal .dot{background:var(--paper2)}
+.tlphoto{flex:1;border-radius:12pt;background:url(img/surgery.jpg) center 60%/cover;min-height:1.5in;margin-top:4pt}
+.callout{border-left:2px solid var(--ink);padding:2pt 0 2pt 12pt;font-size:9.5pt;line-height:1.45;margin:4pt 0 14pt}
+
+/* ---------- 7. pay ---------- */
+.partners{display:grid;grid-template-columns:repeat(4,1fr);gap:10pt;margin:6pt 0 18pt}
+.partners div{background:var(--paper);border-radius:10pt;padding:14pt 10pt;text-align:center;font-weight:700;font-size:12pt;letter-spacing:-.01em}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:14pt;margin-bottom:18pt}
+.flow .n{font-family:'Fraunces',serif;font-style:italic;font-size:26pt;line-height:1;margin-bottom:6pt}
+.flow b{display:block;font-size:10.5pt;margin-bottom:3pt}
+.flow p{font-size:9.2pt;line-height:1.45;color:var(--ink2)}
+.paygrid{display:grid;grid-template-columns:1fr 1fr;gap:14pt}
+.payphoto{flex:1;border-radius:12pt;background:url(img/lounge.jpg) center 50%/cover;margin-top:16pt;min-height:1.4in}
+
+/* ---------- 8. faq ---------- */
+.faq{columns:2;column-gap:26pt;margin-top:2pt}
+.q{break-inside:avoid;padding:11pt 0 10pt;border-top:1px solid var(--line)}
+.q h3{font-size:11.5pt;margin-bottom:4pt;line-height:1.25}
+.q p{font-size:9.5pt;line-height:1.5;margin:0;color:var(--ink2)}
+
+.band{margin-top:auto;background:var(--ink);color:var(--paper);border-radius:12pt;padding:16pt 20pt;display:flex;justify-content:space-between;align-items:center}
+.band b{font-size:13pt;letter-spacing:-.01em}
+.band b em{font-size:14pt}
+.band span{font-family:'JetBrains Mono',monospace;font-size:8pt;letter-spacing:.14em;font-weight:600}
+/* ---------- 9. back ---------- */
+.back h2{font-size:40pt;line-height:.98;margin:34pt 0 14pt;max-width:6in}
+.back .cta{display:grid;grid-template-columns:1fr 1.75in;gap:28pt;align-items:end;margin-top:22pt}
+.back .rows div{display:flex;gap:16pt;padding:10pt 0;border-top:1px solid var(--line-d);font-size:12pt}
+.back .rows div span{font-family:'JetBrains Mono',monospace;font-size:7pt;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,241,234,.55);font-weight:600;width:.85in;padding-top:3pt;flex:0 0 auto}
+.back .rows b{font-weight:700}
+.qr{background:var(--paper);border-radius:12pt;padding:14pt}
+.qr img{width:100%;display:block}
+.qr small{display:block;color:var(--ink);text-align:center;font-family:'JetBrains Mono',monospace;font-size:6.5pt;letter-spacing:.14em;text-transform:uppercase;margin-top:8pt;font-weight:600}
+.pill{display:inline-block;background:var(--paper);color:var(--ink);border-radius:999px;padding:11pt 22pt;font-weight:700;font-size:12pt}
+.disc{border-top:1px solid var(--line-d);padding-top:12pt;font-size:7.4pt;line-height:1.5;color:rgba(244,241,234,.62)}
+.disc b{color:rgba(244,241,234,.85)}
+.back .logo{height:46pt;width:auto;align-self:flex-start}
+.backphoto{flex:1;min-height:1in;margin:24pt 0 18pt;border-radius:12pt;background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),url(img/treatment.jpg) center 50%/cover}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. COVER ============ -->
+<section class="page cover">
+  <div class="inner">
+    <div class="brand">
+      <img src="img/logo-black.png" alt="Prana Dental Miami">
+      <div class="ed"><span class="eyebrow">Price guide</span><b>2026 edition</b></div>
+    </div>
+    <h1>2026 Miami Dental Implant <em>Price Guide</em></h1>
+    <p class="sub">Plain-language answers on implant options, what full-arch treatment costs, how long it takes, and how people pay for it.</p>
+    <div class="loc"><span>Prana Dental Miami</span><i></i><span>Edgewater</span><i></i><span>English · Español</span></div>
+  </div>
+  <div class="photo"><span class="tag">3050 Biscayne Blvd · Opening Dec 1, 2026</span></div>
+</section>
+
+<!-- ============ 2. NOTE ============ -->
+<section class="page">
+  <div class="top"><span class="eyebrow">02 — A note from Dr. Rana</span><img src="img/mark-black.png" alt=""></div>
+  <h2>Why we wrote <em>this guide</em></h2>
+  <div class="note">
+    <div>
+      <div class="head"></div>
+      <div class="cap"><b>Dr. Rana</b><span class="small muted">Prana Dental Miami · 3,000+ dental implants placed</span></div>
+    </div>
+    <div class="letter">
+      <p>Most people who ask me about implants have the same first question: <em>what will this actually cost?</em> It's a fair question, and it's often hard to get a straight answer.</p>
+      <p>This guide is my attempt at one. It walks through the main ways to replace teeth, how single implants and full-arch treatment compare, what our starting prices are built around, and what can move a price up or down.</p>
+      <p>I've placed more than 3,000 dental implants, and no two cases have been the same. So please treat the numbers here as a starting point, not a quote. Your real price comes after an exam and a 3D scan, and it's always given to you in writing, itemized, before you decide anything.</p>
+      <p>If you have questions after reading, bring them to a free consultation. We'll answer them in English or Spanish.</p>
+      <div class="sig">Dr. Rana<small>Prana Dental Miami</small></div>
+    </div>
+  </div>
+  <div class="notephoto"></div>
+  <div class="toc">
+    <div><b>03</b>Single implant vs full arch</div>
+    <div><b>04</b>Treatment options explained</div>
+    <div><b>05</b>Our full-arch price</div>
+    <div><b>06</b>Typical timelines</div>
+    <div><b>07</b>Paying for treatment</div>
+    <div><b>08</b>Frequently asked questions</div>
+    <div><b>09</b>Book a free consult + 3D scan</div>
+  </div>
+  <div class="foot"><span>2026 Miami Dental Implant Price Guide</span><span>02</span></div>
+</section>
+
+<!-- ============ 3. SINGLE VS FULL ARCH ============ -->
+<section class="page">
+  <div class="top"><span class="eyebrow">03 — Single implant vs full arch</span><img src="img/mark-black.png" alt=""></div>
+  <h2>One tooth, or a <em>whole arch?</em></h2>
+  <p class="lede">Implant treatment usually falls into one of two paths. Which one fits depends on how many teeth are affected and the health of the bone and gums, which is what the exam and 3D scan are for.</p>
+  <div class="who" style="margin-top:12pt">
+    <div class="card"><h3>Single implant is typically for</h3>
+      <ul><li>One missing tooth, or one tooth that can't be saved</li><li>Healthy neighboring teeth you'd rather not file down for a bridge</li><li>Replacing a tooth without a removable appliance</li></ul></div>
+    <div class="card"><h3>Full arch is typically for</h3>
+      <ul><li>Most or all teeth in the upper or lower jaw missing or failing</li><li>Current denture wearers who want something fixed in place</li><li>Replacing many failing teeth in one coordinated plan</li></ul></div>
+  </div>
+  <table class="cmp">
+    <thead><tr><th></th><th>Single implant</th><th>Full arch <em>All-on-4 / All-on-X</em></th></tr></thead>
+    <tbody>
+      <tr><th>What it replaces</th><td>One tooth: an implant post, an abutment (connector), and a crown</td><td>A full upper or lower set of teeth, fixed onto several implants (often 4–6)</td></tr>
+      <tr><th>Typical visits</th><td>Consult &amp; 3D scan → implant placement → final crown, plus healing check-ins</td><td>Consult &amp; 3D scan → treatment planning → surgery day → final arch, plus healing check-ins</td></tr>
+      <tr><th>Typical timeline</th><td>About 3–6 months of healing before the final crown</td><td>Fixed provisional teeth on surgery day when clinically appropriate; about 3–6 months of healing before the final arch</td></tr>
+      <tr><th>Can add time</th><td colspan="2">Bone grafting, extractions, or a sinus lift can add months. Every case is different.</td></tr>
+      <tr class="price"><th>Prana starting price</th><td><b>$1,999</b>Implant + abutment + crown. Final price after exam; grafting or extraction, if needed, is extra.</td><td><b>$9,999 <span style="font-size:13pt">per arch</span></b>Fixed acrylic (PMMA) full-arch prosthesis. See page 05 for what can change it.</td></tr>
+    </tbody>
+  </table>
+  <div class="foot"><span>2026 Miami Dental Implant Price Guide</span><span>03</span></div>
+</section>
+
+<!-- ============ 4. OPTIONS ============ -->
+<section class="page alt">
+  <div class="top"><span class="eyebrow">04 — Treatment options explained</span><img src="img/mark-black.png" alt=""></div>
+  <h2>Five ways to <em>replace teeth</em></h2>
+  <p class="lede" style="margin-bottom:14pt">The common options in plain language, with traditional dentures for comparison. The right choice depends on your mouth, your budget, and your goals.</p>
+  <div class="opthead"><span>Option</span><span>How it works</span><span>Pros</span><span>Cons</span></div>
+
+  <div class="opt">
+    <div><div class="n">01</div><h3>Single implant</h3><div class="pr">From <b>$1,999</b></div></div>
+    <div><p>A titanium post replaces the tooth root, topped with an abutment and a crown. It stands on its own, without relying on the teeth next to it.</p></div>
+    <div class="pc"><ul><li>Doesn't involve neighboring teeth</li><li>Fixed; brushed and flossed like a natural tooth</li></ul></div><div class="pc"><ul><li>Needs healing time before the final crown</li><li>May need grafting if bone is thin</li></ul></div>
+  </div>
+  <div class="opt">
+    <div><div class="n">02</div><h3>Implant bridge</h3><div class="pr">Priced at consult</div></div>
+    <div><p>Two or more implants support a bridge that replaces several teeth in a row, so you don't need one implant for every missing tooth.</p></div>
+    <div class="pc"><ul><li>Replaces several adjacent teeth with fewer implants</li><li>Fixed in place</li></ul></div><div class="pc"><ul><li>Cleaning under the bridge takes extra care</li><li>Depends on bone where the implants go</li></ul></div>
+  </div>
+  <div class="opt">
+    <div><div class="n">03</div><h3>Implant-supported denture</h3><div class="pr">Snap-on / overdenture · Priced at consult</div></div>
+    <div><p>A denture that clips onto a small number of implants. It's far more stable than a traditional denture but still comes out for cleaning.</p></div>
+    <div class="pc"><ul><li>Much less slipping than a regular denture</li><li>Often fewer implants than a fixed arch</li></ul></div><div class="pc"><ul><li>Removable; daily take-out and cleaning</li><li>Attachments wear and need periodic replacement</li></ul></div>
+  </div>
+  <div class="opt">
+    <div><div class="n">04</div><h3>Fixed full arch</h3><div class="pr">All-on-4 / All-on-X · From <b>$9,999</b> per arch</div></div>
+    <div><p>A complete arch of teeth attached to several implants (often four to six). Only your dentist removes it. In many cases, provisional teeth are placed on surgery day.</p></div>
+    <div class="pc"><ul><li>Fixed; doesn't come out at home</li><li>Covers the palate less than an upper denture</li></ul></div><div class="pc"><ul><li>A surgical procedure with healing time</li><li>Needs professional cleanings and check-ups</li></ul></div>
+  </div>
+  <div class="opt">
+    <div><div class="n">05</div><h3>Traditional dentures</h3><div class="pr">For comparison · Priced at consult</div></div>
+    <div><p>A removable set of teeth held by suction and fit against the gums. No surgery, and usually the lowest upfront cost of these options.</p></div>
+    <div class="pc"><ul><li>No surgery; shorter process</li><li>Lower upfront cost</li></ul></div><div class="pc"><ul><li>Can slip, especially lower dentures</li><li>Doesn't stimulate the jawbone; may need relines over time</li></ul></div>
+  </div>
+  <div class="foot"><span>2026 Miami Dental Implant Price Guide</span><span>04</span></div>
+</section>
+
+<!-- ============ 5. FULL-ARCH PRICE ============ -->
+<section class="page dark">
+  <div class="top"><span class="eyebrow">05 — Prana's full-arch price</span><img src="img/mark-white.png" alt=""></div>
+  <span class="eyebrow" style="margin-top:4pt">Full-arch implants · starting price</span>
+  <div class="big"><div class="num">$9,999</div><div class="per"><em>per arch</em><span>Starting price</span></div></div>
+  <p class="lede" style="margin:12pt 0 22pt">For a fixed acrylic (PMMA) full-arch prosthesis. Your exact price is given in writing after your consultation and 3D scan. Results vary.</p>
+  <div class="two">
+    <!-- CONFIRM INCLUSIONS WITH PRACTICE -->
+    <div class="panel"><h3>What the starting price is built around</h3>
+      <ul>
+        <li><b>01</b><span>Implants placed by Dr. Rana, per your treatment plan</span></li>
+        <li><b>02</b><span>Abutments that connect the implants to your new teeth</span></li>
+        <li><b>03</b><span>Fixed acrylic (PMMA) provisional and final arch, per the treatment plan</span></li>
+        <li><b>04</b><span>3D-guided planning from your CBCT scan</span></li>
+      </ul>
+    </div>
+    <!-- /CONFIRM INCLUSIONS WITH PRACTICE -->
+    <div class="panel"><h3>What can change your price</h3>
+      <ul>
+        <li><b>01</b><span>Zirconia upgrade instead of acrylic</span></li>
+        <li><b>02</b><span>Additional implants (for example, All-on-6)</span></li>
+        <li><b>03</b><span>Bone grafting or a sinus lift</span></li>
+        <li><b>04</b><span>Extractions of remaining teeth</span></li>
+        <li><b>05</b><span>Sedation</span></li>
+        <li><b>06</b><span>Treating both upper and lower: that's two arches, each priced per arch</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="hl"><div class="ic">✓</div><div><b>Every quote is itemized in writing before you decide.</b><span>You'll see each line (implants, prosthesis, grafting, sedation) before you commit to anything.</span></div></div>
+  <p class="small" style="margin-top:16pt;color:rgba(244,241,234,.6)">Why do implant prices vary so much across Miami? Quotes often bundle different things: the number of implants, the prosthesis material, whether extractions, grafting, or sedation are included. When comparing, ask each office for an itemized written quote so you're comparing the same treatment.</p>
+  <div class="foot"><span>2026 Miami Dental Implant Price Guide</span><span>05</span></div>
+</section>
+
+<!-- ============ 6. TIMELINES ============ -->
+<section class="page">
+  <div class="top"><span class="eyebrow">06 — Typical timelines</span><img src="img/mark-black.png" alt=""></div>
+  <h2>What the process <em>usually looks like</em></h2>
+  <p class="lede" style="margin-bottom:16pt">These are general timelines. Every case is different, and your plan will spell out your own steps after the exam and 3D scan.</p>
+
+  <div class="tl">
+    <h3>Single implant <span>About 3–6 months, start to finish*</span></h3>
+    <div class="steps s4">
+      <div class="step"><div class="dot">1</div><b>Consult &amp; 3D scan</b><p>Exam, CBCT scan, and a written, itemized plan.</p><span class="when">Free</span></div>
+      <div class="step"><div class="dot">2</div><b>Implant placement</b><p>The implant post is placed in the jawbone.</p><span class="when">Day 1</span></div>
+      <div class="step heal"><div class="dot">3</div><b>Healing</b><p>Bone bonds to the implant while you go about life.</p><span class="when">~3–6 months</span></div>
+      <div class="step"><div class="dot">4</div><b>Final crown</b><p>Abutment and custom crown are attached.</p><span class="when">Final visit</span></div>
+    </div>
+  </div>
+  <div class="rule"></div>
+  <div class="tl">
+    <h3>Full arch <span>About 3–6 months after surgery*</span></h3>
+    <div class="steps s5">
+      <div class="step"><div class="dot">1</div><b>Consult &amp; 3D scan</b><p>Exam, CBCT scan, and a written, itemized quote.</p><span class="when">Free</span></div>
+      <div class="step"><div class="dot">2</div><b>Treatment planning</b><p>Implant positions and your new teeth are planned digitally.</p><span class="when">Before surgery</span></div>
+      <div class="step"><div class="dot">3</div><b>Surgery day</b><p>Implants placed; fixed provisional teeth when clinically appropriate.</p><span class="when">Day 1</span></div>
+      <div class="step heal"><div class="dot">4</div><b>Healing</b><p>Implants integrate under the provisional teeth.</p><span class="when">~3–6 months</span></div>
+      <div class="step"><div class="dot">5</div><b>Final arch</b><p>Your final full-arch prosthesis is fitted.</p><span class="when">Final visit</span></div>
+    </div>
+  </div>
+  <div class="callout">*Bone grafting, extractions, or a sinus lift can add months. Healing check-ins happen along the way. Every case is different.</div>
+  <div class="tlphoto"></div>
+  <div class="foot"><span>2026 Miami Dental Implant Price Guide</span><span>06</span></div>
+</section>
+
+<!-- ============ 7. PAYING ============ -->
+<section class="page alt">
+  <div class="top"><span class="eyebrow">07 — Paying for treatment</span><img src="img/mark-black.png" alt=""></div>
+  <h2>Ways people <em>pay for implants</em></h2>
+  <p class="lede">Many patients spread the cost into monthly payments. Financing is offered on approved credit through partners such as:</p>
+  <div class="partners"><div>CareCredit</div><div>Cherry</div><div>LendingClub</div><div>Sunbit</div></div>
+
+  <h3 style="margin-bottom:10pt">How prequalification usually works</h3>
+  <div class="flow">
+    <div><div class="n">1</div><b>Get your written quote</b><p>After your consult and 3D scan, you'll know the total for your treatment plan.</p></div>
+    <div><div class="n">2</div><b>Check your options</b><p>Many partners offer soft-credit prequalification, which lets you see possible plans without a hard credit inquiry.</p></div>
+    <div><div class="n">3</div><b>Choose what fits</b><p>Compare terms, then decide. Final approval and terms come from the lender, not from us.</p></div>
+  </div>
+  <div class="paygrid">
+    <div class="card"><h3>HSA / FSA</h3><p class="small" style="margin-top:6pt">Health savings and flexible spending accounts can often be used for dental implant treatment. Check with your plan administrator about your balance and rules.</p></div>
+    <div class="card"><h3>Dental insurance</h3><p class="small" style="margin-top:6pt">Some plans cover part of implant treatment, such as the exam, extractions, or a portion of the crown. Coverage varies widely by plan, and annual maximums apply.</p></div>
+  </div>
+  <div class="payphoto"></div>
+  <p class="small muted" style="margin-top:10pt">Financing is subject to credit approval by the lender. Terms, rates, and availability vary by lender and applicant.</p>
+  <div class="foot"><span>2026 Miami Dental Implant Price Guide</span><span>07</span></div>
+</section>
+
+<!-- ============ 8. FAQ ============ -->
+<section class="page">
+  <div class="top"><span class="eyebrow">08 — Frequently asked questions</span><img src="img/mark-black.png" alt=""></div>
+  <h2>Questions we <em>hear most</em></h2>
+  <div class="faq">
+    <div class="q"><h3>Does getting implants hurt?</h3><p>The area is numbed for the procedure, and many patients describe it as more pressure than pain. Soreness and swelling for a few days afterward are common. Sedation options can be discussed at your consult; whether sedation is right for you depends on your health history.</p></div>
+    <div class="q"><h3>How long do implants last?</h3><p>Implants are designed as a long-term solution, and many last for many years. How long they last depends on things like home care, regular check-ups, overall health, and habits such as smoking or grinding.</p></div>
+    <div class="q"><h3>Am I too old for implants?</h3><p>Age alone usually isn't the deciding factor. What matters more is your overall health, bone, and gums, which is why we start with an exam and a 3D scan.</p></div>
+    <div class="q"><h3>I've been told I have bone loss. Can I still get implants?</h3><p>Often, yes, but it depends on how much bone is there and where. Options can include bone grafting, a sinus lift, or angled implants used in some full-arch plans. The 3D scan shows what's possible.</p></div>
+    <div class="q"><h3>What if I have diabetes or I smoke?</h3><p>Both can affect healing, so an exam and a review of your health history are needed before anyone can say whether implants are a good fit. Well-managed conditions don't automatically rule implants out.</p></div>
+    <div class="q"><h3>How many visits will it take?</h3><p>A single implant usually involves a consult and scan, placement, and a final crown visit, plus healing check-ins. Full arch adds a planning step. Your plan will list your visits.</p></div>
+    <div class="q"><h3>Can I get teeth the same day?</h3><p>With full-arch treatment, fixed provisional (temporary) teeth can often be placed on surgery day when clinically appropriate. The final arch follows after healing.</p></div>
+    <div class="q"><h3>Why do implant prices vary so much in Miami?</h3><p>Quotes often include different things: number of implants, prosthesis material (acrylic vs zirconia), extractions, grafting, sedation. Ask for an itemized written quote to compare like with like.</p></div>
+    <div class="q"><h3>What happens at the free consultation?</h3><p>An exam, a 3D (CBCT) scan, a conversation about your goals and options, and an itemized written quote. There's no obligation to go ahead.</p></div>
+    <div class="q"><h3>¿Hablan español?</h3><p>Sí. Our team speaks English and Spanish, and you're welcome to have your consultation in either language.</p></div>
+  </div>
+  <div class="band"><b>Still have questions? <em>Ask them at your free consult.</em></b><span>(786) 579-0521</span></div>
+  <div class="foot"><span>2026 Miami Dental Implant Price Guide</span><span>08</span></div>
+</section>
+
+<!-- ============ 9. BACK / CTA ============ -->
+<section class="page dark back">
+  <img class="logo" src="img/logo-white.png" alt="Prana Dental Miami">
+  <h2>Book your free implant consultation <em>+ 3D scan</em></h2>
+  <p class="lede">An exam, a CBCT scan, and an itemized written quote. No obligation. English or Spanish.</p>
+  <div class="cta">
+    <div class="rows">
+      <div><span>Book</span><b>pranadentalmiami.com/<br>implant-guide-thank-you.html</b></div>
+      <div><span>Call</span><b>(786) 579-0521</b></div>
+      <div><span>Visit</span><b>3050 Biscayne Blvd, Ste 703<br>Miami, FL 33137 · Edgewater</b></div>
+      <div><span>Opening</span><b>December 1, 2026</b></div>
+    </div>
+    <div class="qr"><img src="img/qr.svg" alt="QR code to book"><small>Scan to book</small></div>
+  </div>
+  <div class="backphoto"></div>
+  <div class="disc">
+    <b>Important information.</b> This guide is general educational information only. It is not medical or dental advice and does not replace an exam by a licensed dentist. Whether implant treatment is right for you can only be determined after a clinical exam and 3D (CBCT) imaging. All prices are starting prices, are subject to change, and are confirmed in writing only after your consultation and scan; your final price depends on your treatment plan, including materials (e.g., zirconia), number of implants, bone grafting or sinus lift, extractions, and sedation. The $9,999 starting price is per arch for a fixed acrylic (PMMA) full-arch prosthesis. The $1,999 single-implant price includes implant, abutment, and crown; grafting or extraction, if needed, is extra. Timelines are typical ranges, not guarantees; every case is different. Results vary. Financing is offered on approved credit through third-party lenders; terms and availability are set by the lender. Insurance and HSA/FSA eligibility depend on your plan. The free consultation and 3D scan carry no obligation to proceed with treatment. Prana Dental Miami · 3050 Biscayne Blvd, Ste 703, Miami, FL 33137 · (786) 579-0521 · pranadentalmiami.com · © 2026.
+  </div>
+</section>
+
+</body>
+</html>

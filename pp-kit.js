@@ -8,8 +8,9 @@
         if(fig.classList.contains('on')) return;
         var v=document.createElement('video');
         v.src=fig.getAttribute('data-src'); v.controls=true; v.autoplay=true; v.playsInline=true; v.setAttribute('playsinline','');
-        var img=fig.querySelector('img'); if(img) img.replaceWith(v); else fig.appendChild(v);
+        var pic=fig.querySelector('picture')||fig.querySelector('img'); if(pic) pic.replaceWith(v); else fig.appendChild(v);
         fig.classList.add('on');
+        try{var p=v.play(); if(p&&p.catch) p.catch(function(){v.muted=true; v.play().catch(function(){});});}catch(e){}
         try{window.dataLayer&&dataLayer.push({event:'patient_video_play',video:fig.getAttribute('data-src')})}catch(e){}
       });
     });

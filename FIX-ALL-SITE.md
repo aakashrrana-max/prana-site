@@ -6,6 +6,12 @@
 
 ---
 
+## 2026-11-07 | Practice is OPEN
+
+Prana is open now (Nov 7, 2026). All "opening Nov 16 / Dec 1", waitlist and pre-opening copy removed sitewide (EN + ES), llms.txt updated, schema validFrom set to 2026-11-07. Do not reintroduce opening dates. Older notes below that mention Nov 16 are history.
+
+---
+
 ## 2026-10-18 | Local SEO pass: facts, schema, pillar + neighborhood pages
 
 **Branch:** `seo/local-seo-oct2026` (not pushed, not deployed; owner reviews first).

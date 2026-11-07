@@ -147,11 +147,11 @@
       var rq = restoreQuery(api.state, location.search);
       if (rq && root.history && root.history.replaceState) root.history.replaceState(root.history.state, '', location.pathname + rq + location.hash);   // no reload, no navigation
       if (root.PRANA_ATTR_IFRAME === true) decorate();                    // optional second channel (hidden-field mode); off by default
-      if (root.PRANA_ATTR_IFRAME === true && root.MutationObserver) new MutationObserver(decorate).observe(document.documentElement, { childList: true, subtree: true });
+      if (root.PRANA_ATTR_IFRAME === true && root. MutationObserver) new MutationObserver(decorate).observe(document.documentElement, { childList: true, subtree: true });
       api.get = function () { return hiddenFields(api.state, document.cookie); };
     } catch (e) { /* never break the page */ }
   }
-  root.PranaAttribution = api;
+  root. PranaAttribution = api;
   try { if (typeof location !== 'undefined') { var ht = httpsTarget(location); if (ht) { location.replace(ht); return; } } } catch (e) {}
   if (typeof document !== 'undefined' && document.addEventListener) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();

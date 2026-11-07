@@ -7,7 +7,7 @@
   'use strict';
   /* ---- OWNER SETTINGS: the only place to edit when the Google accounts exist ---- */
   var SETTINGS = { ga4: 'G-6KP15B68YK', ads: 'AW-18455800227', ghl: 'tk_e0573f8a07af4519a9e13375a949aaae', privacy: true, adsConversions: { Lead: 'AW-18455800227/7b4lCJCMy6EdEKPTtOBE', Contact: 'AW-18455800227/gq-zCNGmy6EdEKPTtOBE', Schedule: 'AW-18455800227/6v9JCNSmy6EdEKPTtOBE' } };   /* Google Ads 797-320-5147: Lead = "Website lead form", Contact = "Website call / WhatsApp tap", Schedule = "Website booked appointment". privacy:true = Google signals + ad personalization OFF (healthcare-safe default) */
-  var cfg = root.PranaTrackingConfig || SETTINGS;
+  var cfg = root. PranaTrackingConfig || SETTINGS;
   var STANDARD = { Lead: 'generate_lead', Contact: 'contact', Schedule: 'schedule_appointment' };
   var ORIGINAL_HREF = root.location ? root.location.href : '';   /* captured BEFORE the attribution script restores params into the URL */
   function uuid() { return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); }); }
@@ -60,7 +60,7 @@
   /** Attribution for webhook payloads (from the deployed script) + event id. Empty attribution if the script is missing or consent-blocked. */
   api.payloadFields = function () {
     var a = {};
-    try { if (root.PranaAttribution && typeof root.PranaAttribution.get === 'function') a = root.PranaAttribution.get() || {}; } catch (e) {}
+    try { if (root. PranaAttribution && typeof root. PranaAttribution.get === 'function') a = root. PranaAttribution.get() || {}; } catch (e) {}
     var o = copy(a); o.pl_event_id = lastId; o.page_path = (root.location && root.location.pathname) || '';
     try { o.page_url = String(root.location.href).split('#')[0]; o.referrer = (root.document && root.document.referrer) || ''; } catch (e) {}
     /* GHL 'Service Interest' dropdown option (exact label) for landing-page forms, from the page path. Unknown pages send nothing. */
@@ -83,5 +83,5 @@
       if (/form[-_ ]?submit|submitted|lead[-_ ]?captured/i.test(String(m)) && !sent.lead) { sent.lead = 1; api.track('Lead', {}); }
     });
   }
-  root.PranaEvents = api;
+  root. PranaEvents = api;
 })(typeof window !== 'undefined' ? window : this);

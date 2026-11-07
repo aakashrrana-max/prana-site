@@ -20,7 +20,7 @@
 :root{--ink:#0A0A0B;--ink-2:#1A1611;--paper:#F4F1EA;--paper-2:#ECE7DE;--line:rgba(10,10,11,.12);--line-d:rgba(255,255,255,.16);--muted:#6c6760;--muted-d:#a8a299;--accent:#9a9082;--radius:18px;--max:1180px;--ease:cubic-bezier(.16,.84,.44,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 /* overflow-x uses `clip`, not `hidden`: `hidden` on one axis forces the other to
-   compute to `auto`, which makes <body data-svc="2"> a scroll container and silently breaks
+   compute to `auto`, which makes <body> a scroll container and silently breaks
    every programmatic scroll (deep links, anchor CTAs, quiz step advance). */
 html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-padding-top:80px}
 body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -270,7 +270,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <script src="/pp-kit.js" defer></script>
 <script src="/book.js" defer></script>
 </head>
-<body>
+<body data-svc="2">
 <nav>
 <a class="brand" href="/"><span class="dot"></span>PRANA·DENTAL</a>
 <div class="nav-r"><a class="nav-call" href="tel:+17865790521">(786) 579-0521</a><a class="btn" href="#quiz" data-cta="nav">See If I Qualify</a></div>
@@ -428,6 +428,8 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 </section>
 <section class="pk pk-sec pk-topsec"><div class="wrap px"><div class="pk-top" style="grid-template-columns:1fr"><figure class="pk-ill"><picture><source type="image/webp" srcset="/ill-allon4-640.webp 640w, /ill-allon4-1200.webp 1200w" sizes="(max-width:760px) 100vw, 560px"><img src="/ill-allon4-1200.jpg" srcset="/ill-allon4-640.jpg 640w, /ill-allon4-1200.jpg 1200w" sizes="(max-width:760px) 100vw, 560px" alt="Illustration of an All-on-4 full arch on four implants" width="1200" height="900" loading="lazy" decoding="async"></picture><span class="tag">Illustration</span></figure></div><div class="pk-chips"><span><b>Open</b> Mon–Sat, 8am–8pm</span><span><b>Most PPO</b> insurance</span><span><b>0%</b> financing on approved credit</span><span><b>Se habla</b> español</span></div></div></section>
 
+<section class="pk pk-sec pk-vsec"><div class="wrap px"><h2 class="pk-h">Real patients of Dr. Rana</h2><p class="pk-sub">Tap to watch. Individual results vary.</p><div class="pk-vids"><figure class="pk-vid" data-src="/t2.mp4"><picture><source type="image/webp" srcset="/t2-poster.webp"><img src="/t2-poster.jpg" alt="Full-arch transformation" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: Full-arch transformation"></button><figcaption>Full-arch transformation</figcaption></figure><figure class="pk-vid" data-src="/t1.mp4"><picture><source type="image/webp" srcset="/t1-poster.webp"><img src="/t1-poster.jpg" alt="Full smile makeover" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: Full smile makeover"></button><figcaption>Full smile makeover</figcaption></figure><figure class="pk-vid" data-src="/t0.mp4"><picture><source type="image/webp" srcset="/t0-poster.webp"><img src="/t0-poster.jpg" alt="In her own words" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: In her own words"></button><figcaption>In her own words</figcaption></figure></div></div></section>
+
 
 <!-- ═══ SCROLL-DRIVEN ALL-ON-4 SEQUENCE ═══ -->
 <section class="ao4" id="ao4" aria-label="How All-on-4 comes together">
@@ -504,17 +506,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 </div>
 </section>
 
-<section class="s">
-<div class="wrap">
-<div class="sec-head"><div class="sec-eyebrow">Why Prana</div><h2>Full-arch done <em>right.</em></h2><p class="sub">This is a life-changing decision. Here's why patients trust Prana with it.</p></div>
-<div class="cards">
-<div class="card"><div class="ic">1</div><h3>Teeth the same day</h3><p>You leave with a fixed provisional set; the final restoration follows once you've healed.</p></div>
-<div class="card"><div class="ic">2</div><h3>Honest, all-in pricing</h3><p>Clear pricing with a written plan, no surprises on a life-changing decision.</p><div class="price">From $9,999 / arch · 0% financing on approved credit</div></div>
-<div class="card"><div class="ic">3</div><h3>Acrylic or zirconia</h3><p>Choose acrylic for value or zirconia for the most durable, natural finish, we'll guide you.</p></div>
-<div class="card"><div class="ic">4</div><h3>One dentist, in-house lab</h3><p>Dr. Rana plans and places every case personally, with your arch crafted on-site.</p></div>
-</div>
-</div>
-</section>
+
 
 <!-- ═══ COMPARISON ═══ -->
 
@@ -611,16 +603,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 </div>
 </section>
 
-<section class="s">
-<div class="wrap">
-<div class="sec-head"><div class="sec-eyebrow">Comfort &amp; care</div><h2>An experience built <em>around you.</em></h2></div>
-<div class="reassure">
-<div class="r"><h4>Gentle &amp; judgment-free</h4><p>We move at your pace, explain everything, and oral sedation is available if you'd like it.</p></div>
-<div class="r"><h4>A calm, med-spa setting</h4><p>A modern Edgewater studio designed to feel nothing like the dentist you remember.</p></div>
-<div class="r"><h4>Honest from day one</h4><p>Clear pricing, a written plan, and a dentist who tells you the truth about what you do and don't need.</p></div>
-</div>
-</div>
-</section>
+
 
 <section class="s bg-paper2" id="faq">
 <div class="wrap">
@@ -663,9 +646,28 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <!-- TODO(owner): real before/after photos of Prana All-on-4 full-arch patients. Add it here, then remove the hidden attribute. Use only real Prana patients with signed consent; no stock or borrowed results photos. -->
 <div class="todo-slot" hidden data-todo="real before/after photos of Prana All-on-4 full-arch patients"></div>
 
-<section class="pk pk-sec pk-vsec"><div class="wrap px"><h2 class="pk-h">Real patients of Dr. Rana</h2><p class="pk-sub">Tap to watch. Individual results vary.</p><div class="pk-vids"><figure class="pk-vid" data-src="/t2.mp4"><picture><source type="image/webp" srcset="/t2-poster.webp"><img src="/t2-poster.jpg" alt="Full-arch transformation" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: Full-arch transformation"></button><figcaption>Full-arch transformation</figcaption></figure><figure class="pk-vid" data-src="/t1.mp4"><picture><source type="image/webp" srcset="/t1-poster.webp"><img src="/t1-poster.jpg" alt="Full smile makeover" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: Full smile makeover"></button><figcaption>Full smile makeover</figcaption></figure><figure class="pk-vid" data-src="/t0.mp4"><picture><source type="image/webp" srcset="/t0-poster.webp"><img src="/t0-poster.jpg" alt="In her own words" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: In her own words"></button><figcaption>In her own words</figcaption></figure></div></div></section>
-
 <section class="pk pk-sec"><div class="wrap px"><details class="pk-more"><summary><span>All-on-4: full guide<small>Costs, recovery, insurance and common questions</small></span></summary>
+<section class="s">
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Why Prana</div><h2>Full-arch done <em>right.</em></h2><p class="sub">This is a life-changing decision. Here's why patients trust Prana with it.</p></div>
+<div class="cards">
+<div class="card"><div class="ic">1</div><h3>Teeth the same day</h3><p>You leave with a fixed provisional set; the final restoration follows once you've healed.</p></div>
+<div class="card"><div class="ic">2</div><h3>Honest, all-in pricing</h3><p>Clear pricing with a written plan, no surprises on a life-changing decision.</p><div class="price">From $9,999 / arch · 0% financing on approved credit</div></div>
+<div class="card"><div class="ic">3</div><h3>Acrylic or zirconia</h3><p>Choose acrylic for value or zirconia for the most durable, natural finish, we'll guide you.</p></div>
+<div class="card"><div class="ic">4</div><h3>One dentist, in-house lab</h3><p>Dr. Rana plans and places every case personally, with your arch crafted on-site.</p></div>
+</div>
+</div>
+</section>
+<section class="s">
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Comfort &amp; care</div><h2>An experience built <em>around you.</em></h2></div>
+<div class="reassure">
+<div class="r"><h4>Gentle &amp; judgment-free</h4><p>We move at your pace, explain everything, and oral sedation is available if you'd like it.</p></div>
+<div class="r"><h4>A calm, med-spa setting</h4><p>A modern Edgewater studio designed to feel nothing like the dentist you remember.</p></div>
+<div class="r"><h4>Honest from day one</h4><p>Clear pricing, a written plan, and a dentist who tells you the truth about what you do and don't need.</p></div>
+</div>
+</div>
+</section>
 <section class="s seo-x px"><div class="wrap" style="max-width:820px"><h2 id="whats-included">What's included in All-on-4® from $9,999 per arch</h2><p>All-on-4 treatment at Prana Dental starts at $9,999 per arch. One arch is either your full upper teeth or your full lower teeth. Here is what that starting price covers line by line, and what is added only when your case needs it.</p><div class="tbl"><table><caption>All-on-4 per arch: what the starting price covers</caption><thead><tr><th>Item</th><th>In the $9,999 starting price?</th></tr></thead><tbody><tr><td>Four implants, planned digitally by Dr. Rana</td><td>Included</td></tr><tr><td>Abutments (the connectors between the implants and the teeth)</td><td>Included</td></tr><tr><td>Same-day fixed provisional teeth, when your case allows</td><td>Included</td></tr><tr><td>Final arch in acrylic (PMMA), made in our in-house lab</td><td>Included</td></tr><tr><td>Final arch in zirconia instead of acrylic</td><td>Priced at your visit and confirmed in writing</td></tr><tr><td>3D scan</td><td>Included, as part of your first visit</td></tr><tr><td>First visit: exam, 3D scan and smile preview</td><td>Included, no cost and no obligation</td></tr><tr><td>Extractions of remaining teeth</td><td>Quoted separately if needed</td></tr><tr><td>Bone grafting or other bone work</td><td>Quoted separately if needed</td></tr><tr><td>Oral sedation</td><td>Available; quoted separately if needed</td></tr><tr><td>X-rays or a CBCT scan for planning</td><td>Quoted separately if needed</td></tr></tbody></table></div><p>Same-day provisional teeth depend on how firmly the implants hold on the day. Most All-on-4 treatment plans aim for them, and if your bone needs a different approach, you will know before treatment, not on the day itself. Every extra that applies to you appears as its own line, and the exact total is confirmed in writing before any treatment.</p></div></section>
 <section class="s seo-x px"><div class="wrap" style="max-width:820px"><h2 id="miami-prices">All-on-4 prices in Miami: what the market looks like</h2><p>Full-arch implant treatment such as All-on-4 is commonly quoted around $20,000 to $30,000 per arch in Miami. Quotes in that range are not wrong or unusual. They often bundle different things, which is why two numbers that look far apart can be closer than they seem, or further apart.</p><p>Part of why our starting price is lower: Dr. Rana plans and treats each case himself and the teeth are made in our own lab, a few steps from the treatment room. Whoever you talk to, ask for an itemized quote and check that it answers these questions:</p><ul><li>How many implants per arch, and are the abutments included?</li><li>Are provisional teeth included, and will they be fixed or removable?</li><li>What are the final teeth made of, and is the final arch part of the price?</li><li>Are extractions included, or priced per tooth?</li><li>Is sedation included, optional or extra?</li><li>Is bone grafting expected, and what would it add?</li><li>Which scans or X-rays are needed, and who pays for them?</li><li>Is the number per arch or for both arches?</li></ul><p>That last question matters more than people expect. Many people need both upper and lower arches, and a quote that reads like a full-mouth price may be for one arch only. For a deeper breakdown, read <a href="/blog-all-on-4-cost-miami.html">what All-on-4 costs in Miami</a>.</p></div></section>
 <section class="s seo-x px"><div class="wrap" style="max-width:820px"><h2 id="financing-insurance">Financing and insurance for All-on-4</h2><h3>Financing</h3><p>We offer 0% financing on approved credit through CareCredit, Cherry and LendingClub. Your actual monthly amount depends on how much you finance and the plan you are approved for. Some people choose to treat one arch first and the other later, which can spread the cost further when their teeth allow it. See the <a href="/financing.html">financing page</a> for how it works.</p><h3>Insurance</h3><p>We accept most major dental insurance, and we never promise coverage before seeing your plan. In general terms: many dental plans have annual maximums that are often in the $1,000 to $2,000 range, so they may cover only part of full-arch treatment. Some plans have waiting periods or exclude implants. Original Medicare generally does not cover dental implants, while some Medicare Advantage plans include dental benefits. Florida Medicaid dental coverage for adults is limited and generally does not include implants.</p><p>A plan that excludes implants may still pay toward something else in your treatment, such as extractions. We check your benefits for you. More on this in <a href="/blog-dental-implants-insurance-miami.html">does insurance cover dental implants in Miami</a>.</p></div></section>

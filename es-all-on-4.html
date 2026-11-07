@@ -20,7 +20,7 @@
 :root{--ink:#0A0A0B;--ink-2:#1A1611;--paper:#F4F1EA;--paper-2:#ECE7DE;--line:rgba(10,10,11,.12);--line-d:rgba(255,255,255,.16);--muted:#6c6760;--muted-d:#a8a299;--accent:#9a9082;--radius:18px;--max:1180px;--ease:cubic-bezier(.16,.84,.44,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 /* overflow-x uses `clip`, not `hidden`: `hidden` on one axis forces the other to
-   compute to `auto`, which makes <body data-svc="2"> a scroll container and silently breaks
+   compute to `auto`, which makes <body> a scroll container and silently breaks
    every programmatic scroll (deep links, anchor CTAs, quiz step advance). */
 html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-padding-top:80px}
 body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -269,7 +269,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <script src="/pp-kit.js" defer></script>
 <script src="/book.js" defer></script>
 </head>
-<body>
+<body data-svc="2">
 <nav>
 <a class="brand" href="/es.html"><span class="dot"></span>PRANA·DENTAL</a>
 <div class="nav-r"><a class="nav-call" href="tel:+17865790521">(786) 579-0521</a><a class="btn" href="#quiz" data-cta="nav">¿Califico?</a></div>
@@ -427,6 +427,8 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 </section>
 <section class="pk pk-sec pk-topsec"><div class="wrap px"><div class="pk-top" style="grid-template-columns:1fr"><figure class="pk-ill"><picture><source type="image/webp" srcset="/ill-allon4-640.webp 640w, /ill-allon4-1200.webp 1200w" sizes="(max-width:760px) 100vw, 560px"><img src="/ill-allon4-1200.jpg" srcset="/ill-allon4-640.jpg 640w, /ill-allon4-1200.jpg 1200w" sizes="(max-width:760px) 100vw, 560px" alt="Illustration of an All-on-4 full arch on four implants" width="1200" height="900" loading="lazy" decoding="async"></picture><span class="tag">Ilustración</span></figure></div><div class="pk-chips"><span><b>Abierto</b> lun–sáb, 8am–8pm</span><span><b>La mayoría</b> de seguros PPO</span><span><b>0%</b> de financiamiento aprobado</span><span><b>Todo</b> en español</span></div></div></section>
 
+<section class="pk pk-sec pk-vsec"><div class="wrap px"><h2 class="pk-h">Pacientes reales del Dr. Rana</h2><p class="pk-sub">Toque para ver. Los resultados varían.</p><div class="pk-vids"><figure class="pk-vid" data-src="/t2.mp4"><picture><source type="image/webp" srcset="/t2-poster.webp"><img src="/t2-poster.jpg" alt="Arcada completa" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: Arcada completa"></button><figcaption>Arcada completa</figcaption></figure><figure class="pk-vid" data-src="/t1.mp4"><picture><source type="image/webp" srcset="/t1-poster.webp"><img src="/t1-poster.jpg" alt="Cambio de sonrisa completo" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: Cambio de sonrisa completo"></button><figcaption>Cambio de sonrisa completo</figcaption></figure><figure class="pk-vid" data-src="/t0.mp4"><picture><source type="image/webp" srcset="/t0-poster.webp"><img src="/t0-poster.jpg" alt="En sus palabras" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: En sus palabras"></button><figcaption>En sus palabras</figcaption></figure></div></div></section>
+
 
 <!-- ═══ SCROLL-DRIVEN ALL-ON-4 SEQUENCE ═══ -->
 <section class="ao4" id="ao4" aria-label="How All-on-4 comes together">
@@ -503,17 +505,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 </div>
 </section>
 
-<section class="s">
-<div class="wrap">
-<div class="sec-head"><div class="sec-eyebrow">Por qué Prana</div><h2>Arcada completa <em>bien hecha.</em></h2><p class="sub">Es una decisión que cambia la vida. Por eso los pacientes confían en Prana.</p></div>
-<div class="cards">
-<div class="card"><div class="ic">1</div><h3>Dientes el mismo día</h3><p>Sale con dientes provisionales fijos; los dientes finales llegan cuando sana.</p></div>
-<div class="card"><div class="ic">2</div><h3>Precio honesto y completo</h3><p>Precio claro con un plan por escrito, sin sorpresas.</p><div class="price">From $9,999 / arch · 0% financing on approved credit</div></div>
-<div class="card"><div class="ic">3</div><h3>Acrílico o zirconia</h3><p>Elija acrílico por precio o zirconia por durabilidad y un acabado natural; le guiamos.</p></div>
-<div class="card"><div class="ic">4</div><h3>Un dentista, laboratorio propio</h3><p>El Dr. Rana planifica y coloca cada caso, y su arcada se fabrica aquí mismo.</p></div>
-</div>
-</div>
-</section>
+
 
 <!-- ═══ COMPARISON ═══ -->
 
@@ -610,16 +602,7 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 </div>
 </section>
 
-<section class="s">
-<div class="wrap">
-<div class="sec-head"><div class="sec-eyebrow">Comodidad y cuidado</div><h2>Una experiencia hecha <em>a su medida.</em></h2></div>
-<div class="reassure">
-<div class="r"><h4>Con calma y sin juicios</h4><p>Vamos a su ritmo, le explicamos todo y hay sedación oral si la desea.</p></div>
-<div class="r"><h4>Un ambiente tranquilo, tipo spa</h4><p>Un consultorio moderno en Edgewater, nada parecido al dentista que recuerda.</p></div>
-<div class="r"><h4>Honestidad desde el primer día</h4><p>Precio claro, plan por escrito y un dentista que le dice la verdad sobre lo que necesita y lo que no.</p></div>
-</div>
-</div>
-</section>
+
 
 <section class="s bg-paper2" id="faq">
 <div class="wrap">
@@ -662,9 +645,28 @@ src="https://www.facebook.com/tr?id=1728872408395014&ev=PageView&noscript=1"
 <!-- TODO(owner): real before/after photos of Prana full-arch patients. Add it here, then remove the hidden attribute. Use only real Prana patients with signed consent; no stock or borrowed results photos. -->
 <div class="todo-slot" hidden data-todo="real before/after photos of Prana full-arch patients"></div>
 
-<section class="pk pk-sec pk-vsec"><div class="wrap px"><h2 class="pk-h">Pacientes reales del Dr. Rana</h2><p class="pk-sub">Toque para ver. Los resultados varían.</p><div class="pk-vids"><figure class="pk-vid" data-src="/t2.mp4"><picture><source type="image/webp" srcset="/t2-poster.webp"><img src="/t2-poster.jpg" alt="Arcada completa" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: Arcada completa"></button><figcaption>Arcada completa</figcaption></figure><figure class="pk-vid" data-src="/t1.mp4"><picture><source type="image/webp" srcset="/t1-poster.webp"><img src="/t1-poster.jpg" alt="Cambio de sonrisa completo" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: Cambio de sonrisa completo"></button><figcaption>Cambio de sonrisa completo</figcaption></figure><figure class="pk-vid" data-src="/t0.mp4"><picture><source type="image/webp" srcset="/t0-poster.webp"><img src="/t0-poster.jpg" alt="En sus palabras" loading="lazy" decoding="async"></picture><button class="play" type="button" aria-label="Play video: En sus palabras"></button><figcaption>En sus palabras</figcaption></figure></div></div></section>
-
 <section class="pk pk-sec"><div class="wrap px"><details class="pk-more"><summary><span>Guía completa de All-on-4<small>Costos, recuperación, seguros y preguntas frecuentes</small></span></summary>
+<section class="s">
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Por qué Prana</div><h2>Arcada completa <em>bien hecha.</em></h2><p class="sub">Es una decisión que cambia la vida. Por eso los pacientes confían en Prana.</p></div>
+<div class="cards">
+<div class="card"><div class="ic">1</div><h3>Dientes el mismo día</h3><p>Sale con dientes provisionales fijos; los dientes finales llegan cuando sana.</p></div>
+<div class="card"><div class="ic">2</div><h3>Precio honesto y completo</h3><p>Precio claro con un plan por escrito, sin sorpresas.</p><div class="price">From $9,999 / arch · 0% financing on approved credit</div></div>
+<div class="card"><div class="ic">3</div><h3>Acrílico o zirconia</h3><p>Elija acrílico por precio o zirconia por durabilidad y un acabado natural; le guiamos.</p></div>
+<div class="card"><div class="ic">4</div><h3>Un dentista, laboratorio propio</h3><p>El Dr. Rana planifica y coloca cada caso, y su arcada se fabrica aquí mismo.</p></div>
+</div>
+</div>
+</section>
+<section class="s">
+<div class="wrap">
+<div class="sec-head"><div class="sec-eyebrow">Comodidad y cuidado</div><h2>Una experiencia hecha <em>a su medida.</em></h2></div>
+<div class="reassure">
+<div class="r"><h4>Con calma y sin juicios</h4><p>Vamos a su ritmo, le explicamos todo y hay sedación oral si la desea.</p></div>
+<div class="r"><h4>Un ambiente tranquilo, tipo spa</h4><p>Un consultorio moderno en Edgewater, nada parecido al dentista que recuerda.</p></div>
+<div class="r"><h4>Honestidad desde el primer día</h4><p>Precio claro, plan por escrito y un dentista que le dice la verdad sobre lo que necesita y lo que no.</p></div>
+</div>
+</div>
+</section>
 <section class="s seo-x px"><div class="wrap" style="max-width:820px"><h2 id="que-incluye">Qué incluye el precio de All-on-4</h2><p>All-on-4® en Prana empieza en $9,999 por arcada. Ese número es el punto de partida; su total depende del material de la prótesis final y de los pasos adicionales que su boca necesite. Todo se detalla, línea por línea, en una cotización escrita que usted recibe antes del tratamiento.</p><div class="tbl"><table><caption>Cómo se presenta una cotización de All-on-4 en Prana</caption><thead><tr><th>Parte del tratamiento</th><th>En su cotización</th></tr></thead><tbody><tr><td>Primera visita gratis: examen, escaneo 3D y vista previa de su sonrisa</td><td>Sin costo</td></tr><tr><td>Cuatro implantes por arcada</td><td>Forman parte del precio por arcada</td></tr><tr><td>Pilares o conectores</td><td>Detallados por escrito</td></tr><tr><td>Prótesis provisional fija, cuando el caso lo permite</td><td>Detallada por escrito</td></tr><tr><td>Prótesis definitiva (acrílico o zirconia)</td><td>Detallada por escrito; el material influye en el precio</td></tr><tr><td>Extracciones</td><td>Detalladas por escrito si hacen falta</td></tr><tr><td>Injerto óseo</td><td>Se cotiza aparte si hace falta</td></tr><tr><td>Sedación oral</td><td>Disponible; se indica en su cotización si la desea</td></tr><tr><td>Tomografía (CBCT) o radiografías</td><td>Se cotizan aparte si hacen falta</td></tr></tbody></table></div><p>Con la cotización así de clara, puede compararla con cualquier otra punto por punto, sin adivinar qué quedó fuera.</p><p class="note">Desde $9,999 por arcada. El precio exacto se confirma por escrito antes del tratamiento. La primera visita no incluye limpieza, radiografías, tomografía ni plan de tratamiento escrito.</p></div></section>
 <section class="s seo-x px"><div class="wrap" style="max-width:820px"><h2>Precio de All-on-4 en Miami: el contexto</h2><p>Si ya pidió precios en otros lugares, probablemente vio cifras más altas. Como rango general del mercado, la arcada completa con implantes se suele cotizar entre $20,000 y $30,000 por arcada en Miami. La diferencia entre una cotización y otra a menudo está en lo que incluye: la cantidad de implantes, el tipo de prótesis final, si hay un provisional y si las extracciones y la sedación van aparte.</p><p>Antes de decidir, pida que cada cotización separe estos conceptos:</p><ul><li>Implantes y pilares</li><li>Prótesis provisional</li><li>Prótesis final y su material</li><li>Extracciones</li><li>Injerto óseo, si se necesita</li><li>Sedación</li></ul><p>Con todo separado, la comparación se vuelve sencilla. Nuestra guía en inglés sobre el <a href="/blog-all-on-4-cost-miami.html">costo de All-on-4 en Miami</a> entra en más detalle.</p></div></section>
 <section class="s seo-x px"><div class="wrap" style="max-width:820px"><h2>Financiamiento y pagos mensuales</h2><p>Para que el costo sea manejable, ofrecemos opciones de financiamiento al 0% con crédito aprobado a través de CareCredit, Cherry y LendingClub. Su cuota real depende de cuánto financie, del plazo y de la aprobación de crédito.</p><p>Si necesita tratar las dos arcadas, se pueden planificar juntas o por etapas, según su salud y su presupuesto. En la consulta le mostramos los números de cada camino para que elija con calma. Más información en inglés en nuestra página de <a href="/financing.html">financiamiento</a>.</p></div></section>

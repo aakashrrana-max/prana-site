@@ -20,14 +20,16 @@
       if(img.complete && img.naturalWidth===0) gone(); else img.addEventListener('error',gone);
     });
     // Prefill step 1 of the booking popup with this page's treatment
+    // "Book by reason" buttons set the reason right before the booking popup opens
+    window.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-svc-pick]'); if(a) document.body.setAttribute('data-svc',a.getAttribute('data-svc-pick'));},true);
     var svc=document.body.getAttribute('data-svc');
-    if(svc!==null){
+    if(true){
       var done=false;
       new MutationObserver(function(){
         var o=document.getElementById('pdb-o');
         if(!o||!o.classList.contains('on')){done=false;return;}
         if(done) return;
-        var b=o.querySelector('.pdb-opt[data-i="'+svc+'"]');
+        var cur=document.body.getAttribute('data-svc'); if(cur===null) return; var b=o.querySelector('.pdb-opt[data-i="'+cur+'"]');
         if(b){done=true; setTimeout(function(){b.click()},60);}
       }).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
     }

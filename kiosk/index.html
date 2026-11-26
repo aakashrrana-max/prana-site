@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Prana Check-in">
+<meta name="theme-color" content="#F4F1EA">
+<title>Prana Dental · Check-in</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F1EA; --paper-2:#ECE7DE; --ink:#0A0A0B; --ink-2:#1A1611;
+  --muted:#5f5b53; --gold:#bcb4a6; --sage:#797469; --ok:#3d6b4f; --warn:#8a5a2b;
+  --r:22px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);
+  font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation;overscroll-behavior:none}
+body{display:flex;flex-direction:column;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 32px 0}
+.clock{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lang{display:flex;border:1px solid var(--gold);border-radius:999px;overflow:hidden}
+.lang button{padding:12px 20px;font-size:15px;font-weight:600;letter-spacing:.08em;color:var(--muted)}
+.lang button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:24px 32px 32px}
+.screen{display:none;width:100%;max-width:720px;text-align:center;animation:in .35s ease}
+.screen.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.brand{display:inline-flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:34px}
+.brand svg{width:96px;height:auto;color:var(--ink)}
+.word{font-size:20px;letter-spacing:.42em;padding-left:.42em;font-weight:500}
+.word small{display:block;font-size:12px;letter-spacing:.42em;margin-top:6px;color:var(--muted)}
+h1{font-weight:300;font-size:clamp(34px,5.4vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0 0 14px}
+p.lead{font-size:clamp(18px,2.3vw,22px);color:var(--muted);margin:0 0 34px;line-height:1.45}
+.btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:84px;
+  border-radius:var(--r);font-size:24px;font-weight:600;letter-spacing:.01em;transition:transform .08s,opacity .2s}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:disabled{opacity:.25}
+.btn.ghost{background:var(--paper-2);color:var(--ink);border:1px solid var(--gold)}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.row.two{grid-template-columns:1fr 1fr}
+.tile{min-height:116px;border-radius:var(--r);background:var(--paper-2);border:1px solid var(--gold);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:18px;font-weight:600;padding:12px}
+.tile:active{transform:scale(.98)}
+.tile svg{width:30px;height:30px}
+.field{width:100%;height:104px;border-radius:var(--r);border:2px solid var(--ink);background:#fff;
+  font:inherit;font-size:44px;font-weight:500;text-align:center;padding:0 20px;color:var(--ink);outline:none;
+  -webkit-user-select:text;user-select:text;margin-bottom:18px}
+.field::placeholder{color:#c9c3b8;font-weight:300}
+.back{margin-top:18px;font-size:18px;color:var(--muted);padding:14px 24px}
+.check{width:104px;height:104px;border-radius:50%;background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;margin:0 auto 28px}
+.check svg{width:52px;height:52px}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:18px;padding:12px 20px;border-radius:999px;
+  background:var(--paper-2);border:1px solid var(--gold);margin-bottom:30px;color:var(--muted)}
+.status.ok{color:var(--ok);border-color:var(--ok)}
+.status.warn{color:var(--warn);border-color:var(--warn)}
+.dot{width:10px;height:10px;border-radius:50%;background:currentColor}
+.status:not(.ok):not(.warn) .dot{animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.count{margin-top:22px;font-size:15px;color:var(--muted);letter-spacing:.06em}
+.foot{text-align:center;padding:0 32px 22px;font-size:14px;color:var(--muted);letter-spacing:.04em}
+/* staff panel */
+.panel{position:fixed;inset:0;background:rgba(10,10,11,.55);display:none;align-items:center;justify-content:center;z-index:9;padding:20px}
+.panel.on{display:flex}
+.card{background:var(--paper);border-radius:var(--r);width:100%;max-width:620px;max-height:92vh;overflow:auto;padding:30px;text-align:left;-webkit-user-select:text;user-select:text}
+.card h2{margin:0 0 6px;font-weight:500;font-size:26px}
+.card p{margin:0 0 18px;color:var(--muted);font-size:15px;line-height:1.45}
+.card label{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px}
+.card input{width:100%;font:inherit;font-size:18px;padding:14px 16px;border-radius:12px;border:1px solid var(--gold);background:#fff}
+.card .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.card .acts button{padding:14px 20px;border-radius:12px;font-weight:600;font-size:16px;background:var(--paper-2);border:1px solid var(--gold)}
+.card .acts button.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.log{margin-top:18px;border-top:1px solid var(--gold);padding-top:12px;font-size:15px}
+.log div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--paper-2)}
+.pin{font-size:34px!important;text-align:center;letter-spacing:.4em}
+@media (max-width:600px){
+  .row{grid-template-columns:1fr}
+  .tile{min-height:72px;flex-direction:row}
+  .brand svg{width:72px}
+  .field{font-size:34px;height:88px}
+  .top{padding:16px 18px 0} main{padding:16px 18px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="clock" id="clock"></div>
+  <div class="lang" role="group" aria-label="Language">
+    <button data-lang="en" aria-pressed="true">EN</button>
+    <button data-lang="es" aria-pressed="false">ES</button>
+  </div>
+</div>
+
+<main>
+  <!-- HOME -->
+  <section class="screen on" id="s-home">
+    <div class="brand" id="logo" aria-label="Prana Dental Miami">
+      <svg viewBox="145 80 143 112" aria-hidden="true"><path fill="currentColor" d="M271.6128348,97.1620972v14.275049c-5.352269-4.4174301-12.2152671-7.0757795-19.6896345-7.0757795-15.4424203,0-27.0319164,13.4241523-38.2406556,26.4064655-10.2003367,11.814439-20.7481462,24.0315807-32.6946249,24.0315807-10.8078654,0-19.6007546-8.7928892-19.6007546-19.6011204,0-10.8078654,8.7928892-19.6007546,19.6007546-19.6007546,7.8650913,0,14.8015159,4.6722282,24.5136534,16.5852855,1.4098707-1.597003,2.8146207-3.2231297,4.2121012-4.8418041,1.0818747-1.2531422,2.1673155-2.5098962,3.2596144-3.759838-9.7138749-11.6372737-19.1146585-19.2198147-31.985369-19.2198147-17.0034873,0-30.8369258,13.8334386-30.8369258,30.8369258v50.4102484c6.2055889,0,11.2361712-5.0305824,11.2361712-11.2361712v-15.3848586c5.3321064,4.4011995,12.1631462,7.0480731,19.6007546,7.0480731,17.0901726,0,29.3464507-14.1962733,41.1996603-27.9251042,9.9955107-11.5774261,19.4372595-22.5129419,29.7356201-22.5129419,10.8572431,0,19.6896345,8.7928892,19.6896345,19.6007546,0,10.8082311-8.7928892,19.6011204-19.6011204,19.6011204-7.7651929,0-14.3429433-4.2937573-23.7667242-15.6759128-.6974144.8033021-1.3937772,1.6094389-2.088174,2.4137926-1.7560175,2.0338586-3.5476053,4.1068992-5.3851417,6.1650809,9.452996,11.1345812,18.7000687,18.3332106,31.2400399,18.3332106,17.0034873,0,30.8372916-13.8334386,30.8372916-30.8372916v-49.2723666c-6.2055889,0-11.2361712,5.0305824-11.2361712,11.2361712Z"/></svg>
+      <div class="word">PRANA DENTAL<small>MIAMI</small></div>
+    </div>
+    <h1 data-t="welcome"></h1>
+    <p class="lead" data-t="welcomeSub"></p>
+    <button class="btn primary" id="go-checkin" data-t="checkIn"></button>
+    <div class="row">
+      <button class="tile" id="go-help"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.2a2.6 2.6 0 1 1 3.6 2.4c-.7.3-1.1.9-1.1 1.6v.6M12 17.2v.1"/></svg><span data-t="help"></span></button>
+      <button class="tile" id="go-video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="6" width="13" height="12" rx="2.5"/><path d="m15.5 10.5 6-3.5v10l-6-3.5"/></svg><span data-t="video"></span></button>
+      <button class="tile" id="go-pay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></svg><span data-t="pay"></span></button>
+    </div>
+  </section>
+
+  <!-- NAME -->
+  <section class="screen" id="s-name">
+    <h1 data-t="lastName"></h1>
+    <p class="lead" data-t="lastNameSub"></p>
+    <form id="name-form" autocomplete="off">
+      <input class="field" id="name" maxlength="30" autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false" enterkeyhint="done" inputmode="text" data-ph="lastNamePh">
+      <button class="btn primary" id="name-go" type="submit" disabled data-t="continue"></button>
+    </form>
+    <button class="back" data-home data-t="back"></button>
+  </section>
+
+  <!-- DONE -->
+  <section class="screen" id="s-done">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+    <h1 id="done-title"></h1>
+    <p class="lead" id="done-sub"></p>
+    <div class="status" id="done-status"><span class="dot"></span><span></span></div>
+    <div class="row two">
+      <button class="tile" data-video><span data-t="videoNow"></span></button>
+      <button class="tile" data-goto="pay"><span data-t="pay"></span></button>
+    </div>
+    <button class="btn ghost" style="margin-top:14px" data-home data-t="done"></button>
+    <div class="count" id="done-count"></div>
+  </section>
+
+  <!-- HELP -->
+  <section class="screen" id="s-help">
+    <h1 data-t="helpTitle"></h1>
+    <p class="lead" data-t="helpSub"></p>
+    <div class="status" id="help-status"><span class="dot"></span><span></span></div>
+    <button class="btn primary" data-video data-t="videoNow"></button>
+    <button class="back" data-home data-t="illWait"></button>
+  </section>
+
+  <!-- PAY -->
+  <section class="screen" id="s-pay">
+    <h1 data-t="payTitle"></h1>
+    <p class="lead" data-t="paySub"></p>
+    <button class="btn primary" id="pay-card" data-t="payCard"></button>
+    <button class="btn ghost" style="margin-top:14px" id="pay-desk" data-t="payDesk"></button>
+    <div class="status" id="pay-status" style="display:none;margin-top:24px"><span class="dot"></span><span></span></div>
+    <div><button class="back" data-home data-t="back"></button></div>
+  </section>
+</main>
+
+<div class="foot" data-t="foot"></div>
+
+<!-- STAFF PANEL (long-press the logo) -->
+<div class="panel" id="panel">
+  <div class="card" id="pin-card">
+    <h2>Staff only</h2>
+    <p>Enter the kiosk PIN.</p>
+    <input class="pin" id="pin" type="password" inputmode="numeric" maxlength="8" autocomplete="off">
+    <div class="acts"><button class="dark" id="pin-ok">Unlock</button><button data-close>Cancel</button></div>
+  </div>
+  <div class="card" id="cfg-card" style="display:none">
+    <h2>Kiosk setup</h2>
+    <p>Stored on this iPad only. Staff phones get alerts through the free <b>ntfy</b> app: install it, tap +, and subscribe to the alert channel below (keep it secret, it works like a password).</p>
+    <label>Alert channel (ntfy topic)</label>
+    <input id="c-topic">
+    <label>Front-desk person (shown to patients)</label>
+    <input id="c-staff" placeholder="Emily">
+    <label>Patient video link (opens on the iPad)</label>
+    <input id="c-video" placeholder="https://doxy.me/pranadental">
+    <label>Team video link (opens on staff phone; optional)</label>
+    <input id="c-teamvideo" placeholder="https://doxy.me/sign-in">
+    <label>Card payment link (Stripe / Square; optional)</label>
+    <input id="c-pay" placeholder="https://buy.stripe.com/...">
+    <label>Office phone</label>
+    <input id="c-phone" placeholder="(786) 579-0521">
+    <label>New PIN (leave blank to keep)</label>
+    <input id="c-pin" inputmode="numeric" maxlength="8">
+    <div class="acts">
+      <button class="dark" id="c-save">Save</button>
+      <button id="c-test">Send test alert</button>
+      <button id="c-newtopic">New channel</button>
+      <button data-close>Close</button>
+    </div>
+    <div class="log" id="log"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+'use strict';
+
+/* ---------- storage that never crashes the kiosk ---------- */
+const mem = {};
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return mem[k] ?? null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) { mem[k] = v; } }
+};
+
+/* ---------- config (per device, set from staff panel) ---------- */
+const DEFAULTS = {
+  topic: '', staff: 'Emily', video: '', teamVideo: '', pay: '',
+  phone: '(786) 579-0521', pin: '2580', server: 'https://ntfy.sh'
+};
+const cfg = Object.assign({}, DEFAULTS, JSON.parse(store.get('prana-kiosk') || '{}'));
+const save = () => store.set('prana-kiosk', JSON.stringify(cfg)); // per-iPad settings
+
+/* ---------- copy ---------- */
+const T = {
+  en: {
+    welcome: 'Welcome to Prana.',
+    welcomeSub: "Let's get you checked in. It takes five seconds.",
+    checkIn: 'Check in',
+    help: 'I need help', video: 'Video with our team', pay: 'Make a payment',
+    lastName: "What's your last name?",
+    lastNameSub: 'Just your last name is fine.',
+    lastNamePh: 'Last name', continue: 'Check me in', back: 'Back',
+    doneTitle: n => `You're checked in, ${n}.`,
+    doneSub: s => `Please have a seat. ${s} will be right with you.`,
+    notifying: 'Letting our team know…',
+    notified: s => `${s} has been notified`,
+    coming: 'Someone is on the way',
+    failed: s => `We couldn't reach the team. Please call ${s}.`,
+    videoNow: 'Talk to us on video now', done: "I'm done",
+    countdown: n => `This screen resets in ${n}s`,
+    helpTitle: "We're on it.",
+    helpSub: "Someone from our team has been pinged and will come help you. Or we can talk right now on video.",
+    illWait: "I'll wait here",
+    payTitle: 'Make a payment',
+    paySub: 'Pay securely by card or Apple Pay, or let us know and we’ll help you at the desk.',
+    payCard: 'Pay by card / Apple Pay', payDesk: 'Pay with the team',
+    payPing: 'The team knows you want to pay. Please have a seat.',
+    noVideo: 'Video isn’t set up yet. We’ve pinged the team instead.',
+    foot: 'Prana Dental Miami · 3050 Biscayne Blvd, Ste 703'
+  },
+  es: {
+    welcome: 'Bienvenido a Prana.',
+    welcomeSub: 'Vamos a registrar su llegada. Toma cinco segundos.',
+    checkIn: 'Registrarme',
+    help: 'Necesito ayuda', video: 'Video con el equipo', pay: 'Hacer un pago',
+    lastName: '¿Cuál es su apellido?',
+    lastNameSub: 'Solo su apellido.',
+    lastNamePh: 'Apellido', continue: 'Registrarme', back: 'Atrás',
+    doneTitle: n => `Listo, ${n}. Ya está registrado.`,
+    doneSub: s => `Por favor tome asiento. ${s} le atenderá en un momento.`,
+    notifying: 'Avisando al equipo…',
+    notified: s => `${s} ya fue notificada`,
+    coming: 'Alguien viene en camino',
+    failed: s => `No pudimos avisar al equipo. Por favor llame al ${s}.`,
+    videoNow: 'Hablar por video ahora', done: 'Terminé',
+    countdown: n => `Esta pantalla se reinicia en ${n}s`,
+    helpTitle: 'Ya vamos.',
+    helpSub: 'Le avisamos a nuestro equipo y alguien vendrá a ayudarle. O podemos hablar ahora por video.',
+    illWait: 'Espero aquí',
+    payTitle: 'Hacer un pago',
+    paySub: 'Pague de forma segura con tarjeta o Apple Pay, o avísenos y le ayudamos en recepción.',
+    payCard: 'Pagar con tarjeta / Apple Pay', payDesk: 'Pagar con el equipo',
+    payPing: 'El equipo sabe que desea pagar. Por favor tome asiento.',
+    noVideo: 'El video aún no está configurado. Le avisamos al equipo.',
+    foot: 'Prana Dental Miami · 3050 Biscayne Blvd, Ste 703'
+  }
+};
+let lang = 'en';
+const t = k => T[lang][k];
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+function paint() {
+  $$('[data-t]').forEach(el => { const v = t(el.dataset.t); if (typeof v === 'string') el.textContent = v; });
+  $$('[data-ph]').forEach(el => el.placeholder = t(el.dataset.ph));
+  $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+  document.documentElement.lang = lang;
+  if (typeof clock === 'function') clock();
+  if (current === 'done') renderDone();
+}
+
+/* ---------- navigation + idle reset ---------- */
+let current = 'home', idleTimer, countTimer, lastName = '';
+function show(id) {
+  current = id;
+  $$('.screen').forEach(s => s.classList.toggle('on', s.id === 's-' + id));
+  clearInterval(countTimer);
+  if (id === 'name') setTimeout(() => $('#name').focus(), 60);
+  else document.activeElement && document.activeElement.blur();
+  if (id === 'done') startCountdown(20);
+  bumpIdle();
+}
+function home() {
+  lastName = ''; $('#name').value = ''; $('#name-go').disabled = true;
+  $('#pay-status').style.display = 'none';
+  lang = 'en'; paint(); show('home');
+}
+function bumpIdle() {
+  clearTimeout(idleTimer);
+  if (current !== 'home' && current !== 'done') idleTimer = setTimeout(home, 60000);
+}
+function startCountdown(n) {
+  const el = $('#done-count');
+  const tick = () => { el.textContent = t('countdown')(n); if (n-- <= 0) home(); };
+  tick(); countTimer = setInterval(tick, 1000);
+}
+['pointerdown', 'keydown'].forEach(e => document.addEventListener(e, () => {
+  bumpIdle();
+  if (current === 'done') { clearInterval(countTimer); startCountdown(20); }
+}, { passive: true }));
+
+/* ---------- alerts via ntfy ---------- */
+const newId = () => Math.random().toString(36).slice(2, 8);
+const timeStr = () => new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+
+async function alertTeam({ title, message, priority = 4, tags = [], id, click }) {
+  logEvent(title);
+  if (!cfg.topic) return false;
+  const actions = [];
+  if (id) actions.push({ action: 'http', label: 'On my way', url: `${cfg.server}/${cfg.topic}-ack`, method: 'POST', body: 'ack:' + id, clear: true });
+  if (cfg.teamVideo && tags.includes('video')) actions.push({ action: 'view', label: 'Join video', url: cfg.teamVideo });
+  const body = JSON.stringify({ topic: cfg.topic, title, message, priority, tags, actions, click: click || undefined });
+  for (let attempt = 0; attempt < 2; attempt++) {  // one retry for flaky Wi-Fi
+    try {
+      const r = await fetch(cfg.server + '/', { method: 'POST', body });
+      if (r.ok) return true;
+    } catch (e) {}
+    await new Promise(res => setTimeout(res, 2500));
+  }
+  return false;
+}
+
+// Listen for "On my way" taps from staff phones
+let es, pending = new Map();
+function listen() {
+  if (!cfg.topic || !window.EventSource) return;
+  if (es) es.close();
+  es = new EventSource(`${cfg.server}/${cfg.topic}-ack/sse`);
+  es.onmessage = ev => {
+    try {
+      const m = JSON.parse(ev.data).message || '';
+      const id = m.replace('ack:', '');
+      const fn = pending.get(id);
+      if (fn) { fn(); pending.delete(id); }
+    } catch (e) {}
+  };
+}
+
+function setStatus(el, state, text) {
+  el.classList.remove('ok', 'warn');
+  if (state) el.classList.add(state);
+  el.querySelector('span:last-child').textContent = text;
+}
+
+/* ---------- check-in flow ---------- */
+const clean = s => s.replace(/[^\p{L}\s'\-]/gu, '').replace(/\s+/g, ' ').trim()
+  .toLowerCase().replace(/(^|[\s'\-])\p{L}/gu, c => c.toUpperCase());
+
+$('#name').addEventListener('input', e => {
+  $('#name-go').disabled = clean(e.target.value).length < 2;
+});
+
+let doneState = { status: 'pending' };
+function renderDone() {
+  $('#done-title').textContent = t('doneTitle')(lastName);
+  $('#done-sub').textContent = t('doneSub')(cfg.staff || 'Our team');
+  const s = $('#done-status');
+  if (doneState.status === 'pending') setStatus(s, '', t('notifying'));
+  if (doneState.status === 'sent') setStatus(s, 'ok', t('notified')(cfg.staff || 'Our team'));
+  if (doneState.status === 'ack') setStatus(s, 'ok', t('coming'));
+  if (doneState.status === 'fail') setStatus(s, 'warn', t('failed')(cfg.phone));
+}
+
+$('#name-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const n = clean($('#name').value);
+  if (n.length < 2) return;
+  lastName = n;
+  const id = newId();
+  doneState = { status: 'pending', id };
+  show('done'); renderDone();
+  pending.set(id, () => { if (doneState.id === id) { doneState.status = 'ack'; renderDone(); } });
+  const ok = await alertTeam({
+    id, title: `Checked in: ${n}`, message: `${n} checked in at the kiosk at ${timeStr()}${lang === 'es' ? ' (prefers Spanish)' : ''}.`,
+    priority: 4, tags: ['white_check_mark']
+  });
+  if (doneState.id === id && doneState.status === 'pending') { doneState.status = ok ? 'sent' : 'fail'; renderDone(); }
+});
+
+/* ---------- help ---------- */
+async function needHelp(reason) {
+  show('help');
+  const s = $('#help-status'); setStatus(s, '', t('notifying'));
+  const id = newId();
+  pending.set(id, () => setStatus(s, 'ok', t('coming')));
+  const ok = await alertTeam({
+    id, title: 'Patient needs help at the kiosk', message: (reason || 'Tapped "I need help"') + ` at ${timeStr()}${lang === 'es' ? ' (Spanish)' : ''}.`,
+    priority: 5, tags: ['wave']
+  });
+  if (s.textContent.includes(t('notifying'))) setStatus(s, ok ? 'ok' : 'warn', ok ? t('notified')(cfg.staff || 'Our team') : t('failed')(cfg.phone));
+}
+$('#go-help').onclick = () => needHelp();
+
+/* ---------- video ---------- */
+function startVideo() {
+  alertTeam({
+    title: 'Patient started a video call', message: `${lastName ? lastName + ' is' : 'A patient is'} waiting on video at the kiosk (${timeStr()}).`,
+    priority: 5, tags: ['video'], click: cfg.teamVideo || undefined
+  });
+  if (!cfg.video) { needHelp('Wanted video (video link not set up)'); setTimeout(() => setStatus($('#help-status'), 'warn', t('noVideo')), 50); return; }
+  location.href = cfg.video;  // in Home-Screen mode iOS opens this in an in-app browser; "Done" returns here
+}
+$('#go-video').onclick = startVideo;
+$$('[data-video]').forEach(b => b.onclick = startVideo);
+
+/* ---------- pay ---------- */
+$('#go-pay').onclick = () => show('pay');
+$$('[data-goto="pay"]').forEach(b => b.onclick = () => show('pay'));
+$('#pay-card').onclick = () => {
+  if (cfg.pay) { location.href = cfg.pay; return; }
+  $('#pay-desk').click();
+};
+$('#pay-desk').onclick = async () => {
+  const s = $('#pay-status'); s.style.display = 'inline-flex'; setStatus(s, '', t('notifying'));
+  const ok = await alertTeam({ title: 'Patient wants to pay', message: `${lastName || 'A patient'} would like to make a payment at the desk (${timeStr()}).`, priority: 3, tags: ['credit_card'] });
+  setStatus(s, ok ? 'ok' : 'warn', ok ? t('payPing') : t('failed')(cfg.phone));
+};
+
+/* ---------- misc wiring ---------- */
+$('#go-checkin').onclick = () => show('name');
+$$('[data-home]').forEach(b => b.onclick = home);
+$$('.lang button').forEach(b => b.onclick = () => { lang = b.dataset.lang; paint(); });
+
+function clock() {
+  $('#clock').textContent = new Date().toLocaleString(lang === 'es' ? 'es-US' : 'en-US', { weekday: 'long', hour: 'numeric', minute: '2-digit' });
+}
+setInterval(clock, 15000); clock();
+
+// keep the screen awake (iOS 16.4+)
+let lock;
+async function wake() { try { if ('wakeLock' in navigator && !lock) { lock = await navigator.wakeLock.request('screen'); lock.onrelease = () => lock = null; } } catch (e) {} }
+document.addEventListener('pointerdown', wake, { passive: true });
+document.addEventListener('visibilitychange', () => { if (!document.hidden) { wake(); listen(); } });
+
+/* ---------- today's log (on this device only, cleared daily) ---------- */
+function logEvent(title) {
+  const day = new Date().toDateString();
+  let L = JSON.parse(store.get('prana-log') || '{}');
+  if (L.day !== day) L = { day, items: [] };
+  L.items.unshift([timeStr(), title]); L.items = L.items.slice(0, 80);
+  store.set('prana-log', JSON.stringify(L));
+}
+function renderLog() {
+  const L = JSON.parse(store.get('prana-log') || '{}');
+  const items = L.day === new Date().toDateString() ? L.items : [];
+  const box = $('#log'); box.textContent = '';
+  const h = document.createElement('b'); h.textContent = `Today (${items.length})`; box.append(h);
+  items.forEach(([tm, ti]) => { const d = document.createElement('div'); const a = document.createElement('span'); a.textContent = ti; const b = document.createElement('span'); b.textContent = tm; d.append(a, b); box.append(d); });
+}
+
+/* ---------- staff panel ---------- */
+const panel = $('#panel');
+const randTopic = () => 'prana-desk-' + [...crypto.getRandomValues(new Uint8Array(9))].map(x => 'abcdefghjkmnpqrstuvwxyz23456789'[x % 31]).join('');
+function openPanel(skipPin) {
+  panel.classList.add('on');
+  $('#pin-card').style.display = skipPin ? 'none' : 'block';
+  $('#cfg-card').style.display = skipPin ? 'block' : 'none';
+  $('#pin').value = '';
+  if (skipPin) fillCfg(); else setTimeout(() => $('#pin').focus(), 60);
+}
+function fillCfg() {
+  if (!cfg.topic) cfg.topic = randTopic();
+  $('#c-topic').value = cfg.topic; $('#c-staff').value = cfg.staff; $('#c-video').value = cfg.video;
+  $('#c-teamvideo').value = cfg.teamVideo; $('#c-pay').value = cfg.pay; $('#c-phone').value = cfg.phone; $('#c-pin').value = '';
+  renderLog();
+}
+$('#pin-ok').onclick = () => {
+  if ($('#pin').value === cfg.pin) { $('#pin-card').style.display = 'none'; $('#cfg-card').style.display = 'block'; fillCfg(); }
+  else { $('#pin').value = ''; $('#pin').placeholder = 'Try again'; }
+};
+$('#pin').addEventListener('keydown', e => { if (e.key === 'Enter') $('#pin-ok').click(); });
+$('#c-newtopic').onclick = () => { $('#c-topic').value = randTopic(); };
+$('#c-save').onclick = () => {
+  cfg.topic = $('#c-topic').value.trim().replace(/[^\w-]/g, '');
+  cfg.staff = $('#c-staff').value.trim() || 'Our team';
+  cfg.video = $('#c-video').value.trim(); cfg.teamVideo = $('#c-teamvideo').value.trim();
+  cfg.pay = $('#c-pay').value.trim(); cfg.phone = $('#c-phone').value.trim() || DEFAULTS.phone;
+  if ($('#c-pin').value.trim()) cfg.pin = $('#c-pin').value.trim();
+  save(); listen(); panel.classList.remove('on'); home();
+};
+$('#c-test').onclick = async (e) => {
+  const prevTopic = cfg.topic; cfg.topic = $('#c-topic').value.trim();
+  const ok = await alertTeam({ title: 'Test alert from the Prana kiosk', message: 'If you can read this on your phone, check-in alerts are working.', priority: 4, tags: ['bell'] });
+  cfg.topic = prevTopic; e.target.textContent = ok ? 'Sent ✓' : 'Failed ✕';
+  setTimeout(() => e.target.textContent = 'Send test alert', 2500); renderLog();
+};
+$$('[data-close]').forEach(b => b.onclick = () => panel.classList.remove('on'));
+
+// long-press the logo for 2s to open staff panel
+let lp;
+$('#logo').addEventListener('pointerdown', () => { lp = setTimeout(() => openPanel(false), 2000); });
+['pointerup', 'pointerleave', 'pointercancel'].forEach(e => $('#logo').addEventListener(e, () => clearTimeout(lp)));
+
+/* ---------- boot ---------- */
+paint();
+if (!cfg.topic) openPanel(true); // first run: go straight to setup
+listen();
+})();
+</script>
+</body>
+</html>

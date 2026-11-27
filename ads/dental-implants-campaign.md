@@ -48,7 +48,7 @@ Shared headlines: $1,999 Implant + Crown · Implant, Abutment & Crown · Zirconi
   - What's Included → `/lp-implants.html#included` — "Implant, abutment and crown" / "Extras quoted in writing"
   - Free First Visit → `/lp-implants.html#book` — "Exam + 3D scan, free" / "Written quote up front"
   - Meet Dr. Rana → `/lp-implants.html#doctor` — "3,000+ implants placed" / "NYU-trained"
-  - All-on-X Full Arch → `/lp-all-on-x.html` — "$9,999 per arch" / "For many missing teeth"
+  - All-on-X Full Arch → `/lp-all-on-x.html` — "$5,999 per arch" / "For many missing teeth"
 - **Callouts:** $1,999 All-In · Zirconia Crown Included · Free Exam + 3D Scan · In-House Dental Lab · Same Doctor Every Visit · Se Habla Español · Financing on Approved Credit
 - **Structured snippets:** *Services:* Single Tooth Implants, Implant Crowns, All-on-X, Bone Grafting, Sedation · *Amenities:* In-House Lab, 3D Scans, Bilingual Team
 - **Call asset:** (786) 579-0521, show during business hours, count calls ≥60 s as conversion.

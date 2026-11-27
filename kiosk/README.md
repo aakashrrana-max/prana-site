@@ -10,7 +10,7 @@ A one-screen check-in for the front-desk iPad (also works on iPhone). The patien
 
 1. **Welcome**: Prana logo, "Check in" button, plus three tiles: *I need help* · *Video with our team* · *Make a payment*. EN/ES toggle in the corner.
 2. **Last name**: one big field and a "Check me in" button.
-3. **Done**: "You're checked in, Rana. Please have a seat. Emily will be right with you." A live status line shows *Emily has been notified*, and it switches to *Someone is on the way* when Emily taps the button on her phone. The screen resets after 20 seconds.
+3. **Done**: "You're checked in, Rana. Please have a seat. Emily will be right with you." A box below asks them to have their photo ID and the card they'll use ready for the front desk (card details are never typed on the iPad). A live status line shows *Emily has been notified*, and it switches to *Someone is on the way* when Emily taps the button on her phone. The screen resets after 20 seconds.
 
 Any screen returns to Welcome after 60 seconds of no touches, and the language resets to English for the next patient.
 

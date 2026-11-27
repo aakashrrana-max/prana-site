@@ -516,6 +516,24 @@ let lp;
 $('#logo').addEventListener('pointerdown', () => { lp = setTimeout(() => openPanel(false), 2000); });
 ['pointerup', 'pointerleave', 'pointercancel'].forEach(e => $('#logo').addEventListener(e, () => clearTimeout(lp)));
 
+/* ---------- one-tap setup link: #setup=<base64url JSON> ----------
+   Applied once per distinct link, so later staff-panel edits stick.
+   The hash stays in the URL on purpose: iOS "Add to Home Screen" saves
+   the current URL, and the Home Screen app has its own storage. */
+(function applySetupLink() {
+  const m = location.hash.match(/setup=([\w-]+)/);
+  if (!m || store.get('prana-setup-applied') === m[1]) return;
+  try {
+    const json = decodeURIComponent(escape(atob(m[1].replace(/-/g, '+').replace(/_/g, '/'))));
+    const s = JSON.parse(json);
+    ['topic', 'staff', 'video', 'teamVideo', 'pay', 'phone', 'pin'].forEach(k => {
+      if (typeof s[k] === 'string') cfg[k] = s[k].trim();
+    });
+    cfg.topic = cfg.topic.replace(/[^\w-]/g, '');
+    save(); store.set('prana-setup-applied', m[1]);
+  } catch (e) {}
+})();
+
 /* ---------- boot ---------- */
 paint();
 if (!cfg.topic) openPanel(true); // first run: go straight to setup

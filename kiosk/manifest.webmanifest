@@ -1,7 +1,6 @@
 {
   "name": "Prana Dental Check-in",
   "short_name": "Prana Check-in",
-  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",

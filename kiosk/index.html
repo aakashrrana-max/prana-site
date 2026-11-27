@@ -66,6 +66,9 @@ p.lead{font-size:clamp(18px,2.3vw,22px);color:var(--muted);margin:0 0 34px;line-
 .check svg{width:52px;height:52px}
 .status{display:inline-flex;align-items:center;gap:10px;font-size:18px;padding:12px 20px;border-radius:999px;
   background:var(--paper-2);border:1px solid var(--gold);margin-bottom:30px;color:var(--muted)}
+.ready{display:flex;align-items:center;gap:14px;max-width:560px;margin:-14px auto 26px;padding:16px 22px;border-radius:var(--r);
+  background:var(--paper-2);border:1px solid var(--gold);font-size:clamp(17px,2.1vw,20px);line-height:1.4;text-align:left;color:var(--ink)}
+.ready svg{width:34px;height:34px;flex:none}
 .status.ok{color:var(--ok);border-color:var(--ok)}
 .status.warn{color:var(--warn);border-color:var(--warn)}
 .dot{width:10px;height:10px;border-radius:50%;background:currentColor}
@@ -139,6 +142,7 @@ p.lead{font-size:clamp(18px,2.3vw,22px);color:var(--muted);margin:0 0 34px;line-
     <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
     <h1 id="done-title"></h1>
     <p class="lead" id="done-sub"></p>
+    <div class="ready"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><circle cx="8" cy="11" r="2.2"/><path d="M4.8 16.2c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M14 10h4.5M14 13.5h3"/></svg><span data-t="bringIdCard"></span></div>
     <div class="status" id="done-status"><span class="dot"></span><span></span></div>
     <div class="row two">
       <button class="tile" data-video><span data-t="videoNow"></span></button>
@@ -236,6 +240,7 @@ const T = {
     lastNamePh: 'Last name', continue: 'Check me in', back: 'Back',
     doneTitle: n => `You're checked in, ${n}.`,
     doneSub: s => `Please have a seat. ${s} will be right with you.`,
+    bringIdCard: 'Please have your photo ID and the card you\'ll use ready for the front desk.',
     notifying: 'Letting our team know…',
     notified: s => `${s} has been notified`,
     coming: 'Someone is on the way',
@@ -262,6 +267,7 @@ const T = {
     lastNamePh: 'Apellido', continue: 'Registrarme', back: 'Atrás',
     doneTitle: n => `Listo, ${n}. Ya está registrado.`,
     doneSub: s => `Por favor tome asiento. ${s} le atenderá en un momento.`,
+    bringIdCard: 'Por favor tenga lista su identificación con foto y la tarjeta que usará para la recepción.',
     notifying: 'Avisando al equipo…',
     notified: s => `${s} ya fue notificada`,
     coming: 'Alguien viene en camino',
